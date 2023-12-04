@@ -1,0 +1,1 @@
+// delete cars list component
