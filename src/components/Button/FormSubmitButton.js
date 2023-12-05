@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
-export const FormSubmitButton = styled.button`
+const FormSubmitButton = styled.button`
   padding: 0.56rem 5.06rem;
   font-weight: 400;
-  color: #FFFFFF;
+  color: #000;
   margin-top: 10px;
-  border-radius: 0.25rem;
+  border-radius: 0.9rem;
   border: 1px solid transparent;
   font-size: 1.125rem;
   height: fit-content;
@@ -47,3 +47,5 @@ export const FormSubmitButton = styled.button`
     width: fit-content;
   }
 `;
+
+export default FormSubmitButton;

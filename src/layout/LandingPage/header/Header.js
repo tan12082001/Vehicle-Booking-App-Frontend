@@ -1,20 +1,19 @@
-import React, {useState, useRef, useEffect} from "react";
-import styled from "@emotion/styled";
+// import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
+import styled from '@emotion/styled';
 
-import HamburgerMenu from "./HamburgerMenu";
-import Nav from "../nav/Nav";
-import AuthNav from "../nav/AuthNav";
+// import HamburgerMenu from './HamburgerMenu';
+import Nav from '../nav/Nav';
+import AuthNav from '../nav/AuthNav';
 
-export const Header = () => {
-  return (
-    <StyledHeader>
-      <NavContainer>
-        <Nav />
-        <AuthNav />
-      </NavContainer>
-    </StyledHeader>
-  )
-}
+const Header = () => (
+  <StyledHeader>
+    <NavContainer>
+      <Nav />
+      <AuthNav />
+    </NavContainer>
+  </StyledHeader>
+);
 
 const StyledHeader = styled.header`
   display: flex;
@@ -36,3 +35,5 @@ const NavContainer = styled.header`
   right: 8rem;
   background-color: white;
 `;
+
+export default Header;

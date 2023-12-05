@@ -1,9 +1,12 @@
-import { useField } from "formik";
-import React from 'react'
+import { useField } from 'formik';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-export const SelectField = ({label, lpiSrc, rpiSrc, className, name, id, ...props}) => {
+export const SelectField = ({
+  label, lpiSrc, rpiSrc, className, name, id, ...props
+}) => {
   const [field, meta] = useField(name);
   return (
     <InputWrapper className={className}>
@@ -19,19 +22,30 @@ export const SelectField = ({label, lpiSrc, rpiSrc, className, name, id, ...prop
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
       ) : null}
     </InputWrapper>
-  )
-}
+  );
+};
 
-export const TextInputField = ({label, lpiSrc, rpiSrc, className, name, id, ...props}) => {
+SelectField.propTypes = {
+  label: PropTypes.string.isRequired,
+  lpiSrc: PropTypes.string.isRequired,
+  rpiSrc: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
+
+export const TextInputField = ({
+  label, lpiSrc, rpiSrc, className, name, id, ...props
+}) => {
   const [field, meta] = useField(name);
 
-  return(
+  return (
     <InputWrapper className={className}>
       <InputLabel htmlFor={props.name || props.id}>
         {label}
       </InputLabel>
       <InputContainer>
-        <Input {...field} {...props} className={className ? className : ''} />
+        <Input {...field} {...props} className={className || ''} />
         {lpiSrc ? <LeftPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
         {lpiSrc ? <RightPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
       </InputContainer>
@@ -39,39 +53,57 @@ export const TextInputField = ({label, lpiSrc, rpiSrc, className, name, id, ...p
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
       ) : null}
     </InputWrapper>
-  )
-}
+  );
+};
+
+TextInputField.propTypes = {
+  label: PropTypes.string.isRequired,
+  lpiSrc: PropTypes.string.isRequired,
+  rpiSrc: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
 
 export const TextAreaInputField = ({
-    label,
-    lpiSrc,
-    rpiSrc,
-    className,
-    name,
-    id,
-    ...props
-  }) => {
-    const [field, meta] = useField(name);
-  
-    return (
-      <InputWrapper className={className}>
-        <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
-        <InputContainer>
-          <TextArea
-            {...field}
-            {...props}
-            className={className ? className : ''}
-            rows={10}
-          />
-          {lpiSrc ? <LeftPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
-          {rpiSrc ? <RightPlaceHolderCardIcon alt="icon" src={rpiSrc} /> : null}
-        </InputContainer>
-        {meta.touched && meta.error ? (
-          <FieldErrorInfo>{meta.error}</FieldErrorInfo>
-        ) : null}
-      </InputWrapper>
-    );
-  };
+  label,
+  lpiSrc,
+  rpiSrc,
+  className,
+  name,
+  id,
+  ...props
+}) => {
+  const [field, meta] = useField(name);
+
+  return (
+    <InputWrapper className={className}>
+      <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
+      <InputContainer>
+        <TextArea
+          {...field}
+          {...props}
+          className={className || ''}
+          rows={10}
+        />
+        {lpiSrc ? <LeftPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
+        {rpiSrc ? <RightPlaceHolderCardIcon alt="icon" src={rpiSrc} /> : null}
+      </InputContainer>
+      {meta.touched && meta.error ? (
+        <FieldErrorInfo>{meta.error}</FieldErrorInfo>
+      ) : null}
+    </InputWrapper>
+  );
+};
+
+TextAreaInputField.propTypes = {
+  label: PropTypes.string.isRequired,
+  lpiSrc: PropTypes.string.isRequired,
+  rpiSrc: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
 
 export const InputWrapper = styled.div`
   width: 100%;

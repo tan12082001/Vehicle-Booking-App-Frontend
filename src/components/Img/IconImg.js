@@ -1,15 +1,12 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
 
-const IconImg = ({ src }) => {
-  return (
-    <ImageContainer>
-      <Img loading="lazy" src={src} alt="user" />
-    </ImageContainer>
-  );
-};
-
-export default IconImg;
+const IconImg = ({ src }) => (
+  <ImageContainer>
+    <Img loading="lazy" src={src} alt="user" />
+  </ImageContainer>
+);
 
 const ImageContainer = styled.div`
   /* border: 2px solid red; */
@@ -23,3 +20,9 @@ const Img = styled.img`
   object-fit: cover;
   object-position: center;
 `;
+
+IconImg.propTypes = {
+  src: PropTypes.string.isRequired,
+};
+
+export default IconImg;
