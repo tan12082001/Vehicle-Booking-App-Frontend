@@ -1,0 +1,49 @@
+import styled from '@emotion/styled';
+
+export const FormSubmitButton = styled.button`
+  padding: 0.56rem 5.06rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-top: 10px;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  font-size: 1.125rem;
+  height: fit-content;
+  cursor: pointer;
+
+  &.contact {
+    width: 100%;
+    background-color: #2857D1;
+    margin-top: 2rem;
+    color: white;
+  }
+
+  &.contact1 {
+    width: 100%;
+    background-color: #bdbdbd;
+    margin-bottom: 2rem;
+  }
+
+  &.forgotPasswordBtn {
+    width: 100%;
+    background-color: #bdbdbd;
+    margin-bottom: 2rem;
+  }
+
+  &.tinyFont {
+    font-size: 1.125rem;
+  }
+
+  &.lightGreyBg {
+    background-color: #bdbdbd;
+    color: white;
+  }
+
+  &.smallPadding {
+    padding: 0.62rem 5rem;
+  }
+
+  &.fit-content {
+    width: fit-content;
+  }
+`;
