@@ -1,9 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
 
-export const TertiaryButton = ({ children }) => {
-  return <StyledButton>{children}</StyledButton>;
-};
+const TertiaryButton = ({ children }) => <StyledButton>{children}</StyledButton>;
 
 const StyledButton = styled.button`
   display: flex;
@@ -14,3 +13,9 @@ const StyledButton = styled.button`
   background-color: transparent;
   cursor: pointer;
 `;
+
+TertiaryButton.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default TertiaryButton;

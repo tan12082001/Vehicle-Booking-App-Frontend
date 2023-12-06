@@ -1,5 +1,6 @@
 import { useField } from 'formik';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import styled from '@emotion/styled';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -7,14 +8,13 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 import {
   FieldErrorInfo,
-  IInputField,
   Input,
   InputContainer,
   InputLabel,
   InputWrapper,
 } from './FormField';
 
-export const HideableTextFormField = ({
+const HideableTextFormField = ({
   label,
   lpiSrc,
   rpiSrc,
@@ -24,9 +24,8 @@ export const HideableTextFormField = ({
   // apiKey,
   ...props
 }) => {
-  const [field, meta] = useField(props);
+  const [field, meta] = useField(name);
   const [showKey, setShowKey] = useState(false);
-
   const handleToggle = () => {
     setShowKey(!showKey);
   };
@@ -59,9 +58,21 @@ export const HideableTextFormField = ({
   );
 };
 
+HideableTextFormField.propTypes = {
+  label: PropTypes.string.isRequired,
+  lpiSrc: PropTypes.string.isRequired,
+  rpiSrc: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  // apiKey: PropTypes.string,
+};
+
 const VisibiltyToggleIconsArea = styled.div`
   display: flex;
   margin-right: 1rem;
   margin-left: auto;
   margin-top: 0.75rem;
 `;
+
+export default HideableTextFormField;
