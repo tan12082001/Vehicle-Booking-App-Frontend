@@ -24,9 +24,8 @@ const HideableTextFormField = ({
   // apiKey,
   ...props
 }) => {
-  const [field, meta] = useField(props);
+  const [field, meta] = useField(name);
   const [showKey, setShowKey] = useState(false);
-
   const handleToggle = () => {
     setShowKey(!showKey);
   };
@@ -67,15 +66,6 @@ HideableTextFormField.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   // apiKey: PropTypes.string,
-};
-
-HideableTextFormField.defaultProps = {
-  lpiSrc: '',
-  rpiSrc: '',
-  className: '',
-  name: '',
-  id: '',
-  // apiKey: '',
 };
 
 const VisibiltyToggleIconsArea = styled.div`

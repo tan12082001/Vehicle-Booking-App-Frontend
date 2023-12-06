@@ -6,6 +6,7 @@ import FormSubmitButton from '../../../components/Button/FormSubmitButton';
 import { TextInputField } from '../../../components/Form/FormField';
 // import { useEffect } from 'react';
 import { userSignUp } from '../../../redux/thunk';
+import HideableTextFormField from '../../../components/Form/HideableTextFormField';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -24,8 +25,8 @@ const SignUpForm = () => {
     >
       <TextInputField label="Name" name="userName" placeholder="eg. Jane Doe" />
       <TextInputField label="Email" name="email" placeholder="eg. example@example.com" />
-      <TextInputField label="Password" name="password" placeholder="eg. A1@_3er" />
-      <TextInputField label="Confirm Password" name="confirm_password" />
+      <HideableTextFormField label="Password" name="password" className="password_block" />
+      <HideableTextFormField label="Confirm Password" name="confirm_password" />
       <FormSubmitButton type="submit" className="sign-up-submit">
         Sign Up
       </FormSubmitButton>

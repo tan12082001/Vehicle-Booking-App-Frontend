@@ -7,6 +7,7 @@ import { TextInputField } from '../../../components/Form/FormField';
 // import { useEffect } from 'react';
 import { userLogin } from '../../../redux/thunk';
 // import { useSelector } from 'react-redux';
+import HideableTextFormField from '../../../components/Form/HideableTextFormField';
 
 const SignInForm = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const SignInForm = () => {
       className="sign-in-form"
     >
       <TextInputField label="Email" name="email" placeholder="eg. example@example.com" />
-      <TextInputField label="Password" name="password" placeholder="eg. A1@_3er" />
+      <HideableTextFormField label="Password" name="password" />
       <FormSubmitButton type="submit" className="sign-up-submit">
         Log In
       </FormSubmitButton>

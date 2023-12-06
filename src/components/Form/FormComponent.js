@@ -51,7 +51,7 @@ const StyledForm = styled(Form)`
   }
 
   & > .margin {
-    gird-colum: span 2;
+    gird-column: span 2;
     margin-left: 15%;
     margin-right: 15%;
   }
