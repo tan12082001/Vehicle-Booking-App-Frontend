@@ -14,7 +14,7 @@ import {
   InputWrapper,
 } from './FormField';
 
-export const HideableTextFormField = ({
+const HideableTextFormField = ({
   label,
   lpiSrc,
   rpiSrc,
@@ -84,3 +84,5 @@ const VisibiltyToggleIconsArea = styled.div`
   margin-left: auto;
   margin-top: 0.75rem;
 `;
+
+export default HideableTextFormField;

@@ -11,6 +11,7 @@ width: 100%;
 Img.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default Img;

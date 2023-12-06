@@ -35,7 +35,7 @@ SelectField.propTypes = {
 };
 
 export const TextInputField = ({
-  label, lpiSrc, rpiSrc, className, name, id, ...props
+  label, lpiSrc, rpiSrc, className, name, placeholder, id, ...props
 }) => {
   const [field, meta] = useField(name);
 
@@ -45,7 +45,7 @@ export const TextInputField = ({
         {label}
       </InputLabel>
       <InputContainer>
-        <Input {...field} {...props} className={className || ''} />
+        <Input {...field} {...props} className={className || ''} placeholder={placeholder} />
         {lpiSrc ? <LeftPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
         {lpiSrc ? <RightPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
       </InputContainer>
@@ -62,6 +62,7 @@ TextInputField.propTypes = {
   rpiSrc: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
 

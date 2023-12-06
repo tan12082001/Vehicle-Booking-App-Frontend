@@ -22,16 +22,16 @@ const FormComponent = ({
 
 FormComponent.propTypes = {
   initialValues: PropTypes.shape({
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
+    confirm_password: PropTypes.string.isRequired,
   }).isRequired,
   schema: PropTypes.shape({
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
+    confirm_password: PropTypes.string.isRequired,
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
