@@ -1,20 +1,60 @@
 import { useField } from 'formik';
 import React from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import PropTypes from 'prop-types';
 
 import styled from '@emotion/styled';
 
+export const DateField = ({
+  label, name, className, ...props
+}) => {
+  const [field, meta, helpers] = useField(name);
+
+  const handleChange = (date) => {
+    helpers.setValue(date);
+  };
+
+  const handleDatePickerChange = (date) => {
+    handleChange(date);
+  };
+
+  console.log('value fromt eh field', field.value);
+  return (
+    <DateFieldWrapper className={className}>
+      <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
+      <StyledDatePicker {...field} {...props} selected={field.value} onChange={handleDatePickerChange} onBlur={() => helpers.setTouched(true)} />
+      {meta.touched && meta.error ? (
+        <FieldErrorInfo>{meta.error}</FieldErrorInfo>
+      ) : null}
+    </DateFieldWrapper>
+  );
+};
+
+DateField.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+};
+
 export const SelectField = ({
-  label, lpiSrc, rpiSrc, className, name, id, ...props
+  label, lpiSrc, rpiSrc, className, name, id, options, ...props
 }) => {
   const [field, meta] = useField(name);
+  console.log('selected city', field.value);
   return (
     <InputWrapper className={className}>
       <InputLabel htmlFor={props.name || props.id}>
         {label}
       </InputLabel>
       <InputContainer>
-        <Select {...field} {...props} />
+        <Select {...field} {...props}>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </Select>
         {lpiSrc ? <LeftPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
         {lpiSrc ? <RightPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
       </InputContainer>
@@ -105,6 +145,29 @@ TextAreaInputField.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
+
+const DateFieldWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container {
+    width: 100%;
+  }
+`;
+
+const StyledDatePicker = styled(DatePicker)`
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
 
 export const InputWrapper = styled.div`
   width: 100%;
