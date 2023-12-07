@@ -1,6 +1,6 @@
 import {
   MY_RESERVATIONS,
-  RESERVED_CARS,
+  RESERVE_CARS,
 } from '../../../routes/routeConstants';
 
 const navConfig = [
@@ -10,8 +10,8 @@ const navConfig = [
   },
 
   {
-    title: 'Reserved Cars',
-    path: RESERVED_CARS,
+    title: 'Reserve Cars',
+    path: RESERVE_CARS,
   },
 ];
 

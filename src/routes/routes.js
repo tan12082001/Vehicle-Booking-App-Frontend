@@ -7,7 +7,7 @@ import SignIn from '../pages/Auth/SignIn/SignIn';
 import SignUp from '../pages/Auth/SignUp/SignUp';
 import NotFound404 from '../pages/NotFound404';
 import MyReservations from '../pages/LandingPage/MyReservation/MyReservation';
-import Reserved from '../pages/LandingPage/ReservedCars/MyReservation';
+import ReserveCars from '../pages/LandingPage/ReserveCars/ReserveCars';
 import Home from '../pages/LandingPage/Home/Home';
 import {
   ACCOUNT,
@@ -16,7 +16,7 @@ import {
   FORGOT_PASSWORD,
   MY_RESERVATIONS,
   HOME,
-  RESERVED_CARS,
+  RESERVE_CARS,
   NOTFOUND,
 } from './routeConstants';
 
@@ -28,7 +28,7 @@ export default function Router() {
       children: [
         { path: HOME, element: <Home /> },
         { path: MY_RESERVATIONS, element: <MyReservations /> },
-        { path: RESERVED_CARS, element: <Reserved /> },
+        { path: RESERVE_CARS, element: <ReserveCars /> },
       ],
     },
 
