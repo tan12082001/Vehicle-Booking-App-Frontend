@@ -34,7 +34,7 @@ const Container = styled.nav`
 
   flex-direction: column;
   gap: 3.8rem;
-  position: sticky;
+//   position: fixed;
   top: 0;
 
   & > a > div {

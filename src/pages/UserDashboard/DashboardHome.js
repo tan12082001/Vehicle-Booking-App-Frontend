@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 const DashboardHome = () => {
   return (
     <Container>
-
+      Hello
     </Container>
   );
 };
@@ -16,5 +16,6 @@ const Container = styled.section`
   /* border: 2px solid green; */
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+//   margin-left: 15rem;
+//   gap: 2rem;
 `;

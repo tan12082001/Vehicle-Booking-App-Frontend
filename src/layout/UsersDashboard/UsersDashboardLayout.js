@@ -31,7 +31,7 @@ const Container = styled.div`
   width: 100vw;
   /* border: 2px solid red; */
   overflow: scroll;
-  background-color: black;
+  background-color: #FFD700;
 `;
 
 const Section = styled.section`

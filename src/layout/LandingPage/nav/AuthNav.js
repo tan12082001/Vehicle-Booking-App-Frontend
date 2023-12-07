@@ -13,15 +13,22 @@ const AuthNav = () => (
     </ButtonLink>
 
     <ButtonLink to={`${ACCOUNT}/${SIGNUP}`}>
-      <TertiaryButton>Sign Up</TertiaryButton>
+      <TertiaryButton className="grey">Sign Up</TertiaryButton>
     </ButtonLink>
   </Container>
 );
 
 const Container = styled.div`
-  border: 2px solid green;
+  // border: 2px solid green;
   display: flex;
   gap: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  margin-left: 2rem;
+  // padding-left: -2rem;
+  padding-right: -5rem;
+  justify-content: center;
+  // margin-left: 8rem;
 `;
 
 export default AuthNav;

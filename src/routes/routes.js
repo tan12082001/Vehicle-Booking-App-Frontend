@@ -19,10 +19,16 @@ import {
   RESERVED_CARS,
   USERDASHBOARDHOME,
   USERS_DASHBOARD,
+  ADD_NEW_CAR,
+  DELETE_RESERVATION,
+  CONTACT,
   NOTFOUND,
 } from './routeConstants';
 import UsersDashboardLayout from '../layout/UsersDashboard/UsersDashboardLayout';
 import DashboardHome from '../pages/UserDashboard/DashboardHome';
+import AddNewCar from '../pages/LandingPage/AddNewCar/AddNewCar';
+import DeleteReservation from '../pages/LandingPage/DeleteReservation/DeleteReservation';
+import Contact from '../pages/LandingPage/Contact/Contact';
 
 export default function Router() {
   return useRoutes([
@@ -31,8 +37,6 @@ export default function Router() {
       element: <LandingPageLayout />,
       children: [
         { path: HOME, element: <Home /> },
-        { path: MY_RESERVATIONS, element: <MyReservations /> },
-        { path: RESERVED_CARS, element: <Reserved /> },
       ],
     },
 
@@ -42,6 +46,11 @@ export default function Router() {
       children: [
         { path: USERS_DASHBOARD, element: <Navigate to={USERDASHBOARDHOME} /> },
         { path: USERDASHBOARDHOME, element: <DashboardHome /> },
+        { path: MY_RESERVATIONS, element: <MyReservations /> },
+        { path: RESERVED_CARS, element: <Reserved /> },
+        { path: ADD_NEW_CAR, element: <AddNewCar /> },
+        { path: DELETE_RESERVATION, element: <DeleteReservation /> },
+        { path: CONTACT, element: <Contact /> },
 
         { path: NOTFOUND, element: <NotFound404 /> },
         { path: '*', element: <Navigate to={`/${NOTFOUND}`} replace /> },

@@ -1,11 +1,10 @@
-// import FourCubes from '../../../components/Icons/FourCubes';
-// import JobsIcon from '../../../components/Icons/JobsIcon';
-// import PlaneIcon from '../../../components/Icons/PlaneIcon';
-// import SettingsIcon from '../../../components/Icons/SettingsIcon';
 import {
   RESERVED_CARS,
   MY_RESERVATIONS,
   USERDASHBOARDHOME,
+  ADD_NEW_CAR,
+  DELETE_RESERVATION,
+  CONTACT
 } from '../../../routes/routeConstants';
 
 const navConfig = [
@@ -24,6 +23,24 @@ const navConfig = [
   {
     title: 'Reserved Cars',
     path: RESERVED_CARS,
+    // icon: PlaneIcon(),
+  },
+
+  {
+    title: 'Add New Cars',
+    path: ADD_NEW_CAR,
+    // icon: PlaneIcon(),
+  },
+
+  {
+    title: 'Delete Reservation',
+    path: DELETE_RESERVATION,
+    // icon: PlaneIcon(),
+  },
+
+  {
+    title: 'Contact',
+    path: CONTACT,
     // icon: PlaneIcon(),
   },
 ];
