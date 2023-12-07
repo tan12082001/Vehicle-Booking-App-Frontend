@@ -16,8 +16,9 @@ const Nav = () => (
 );
 
 const StyledNav = styled.div`
-  /* border: 2px solid blue; */
+  border: 2px solid blue;
   display: flex;
+  // flex-direction: column;
   gap: 2rem;
   font-weight: 400;
 `;

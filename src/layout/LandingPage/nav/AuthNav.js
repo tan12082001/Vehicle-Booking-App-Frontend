@@ -21,7 +21,7 @@ const AuthNav = () => {
 };
 
 const Container = styled.div`
-  /* border: 2px solid green; */
+  border: 2px solid green;
   display: flex;
   gap: 2rem;
 `;

@@ -18,21 +18,22 @@ export const Header = () => {
 
 const StyledHeader = styled.header`
   display: flex;
-  padding: 2.17rem 7.12rem;
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  position: fixed;
-  top: -1rem;
+  // position: fixed;
+  // top: -1rem;
   gap: 5rem;
   width: 100%;
 `;
 
 const NavContainer = styled.header`
   display: flex;
+  width: 100%;
+  border: 1px solid blue;
   justify-content: space-between;
   align-items: center;
-  gap: 14rem;
-  right: 8rem;
+  // gap: 14rem;
+  // right: 8rem;
   background-color: white;
 `;

@@ -17,8 +17,12 @@ import {
   MY_RESERVATIONS,
   HOME,
   RESERVED_CARS,
+  USERDASHBOARDHOME,
+  USERS_DASHBOARD,
   NOTFOUND,
 } from './routeConstants';
+import UsersDashboardLayout from '../layout/UsersDashboard/UsersDashboardLayout';
+import DashboardHome from '../pages/UserDashboard/DashboardHome';
 
 export default function Router() {
   return useRoutes([
@@ -30,6 +34,18 @@ export default function Router() {
         { path: MY_RESERVATIONS, element: <MyReservations /> },
         { path: RESERVED_CARS, element: <Reserved /> },
       ],
+    },
+
+    {
+      path:  USERS_DASHBOARD,
+      element: <UsersDashboardLayout />,
+      children: [
+        { path: USERS_DASHBOARD, element: <Navigate to={USERDASHBOARDHOME} /> },
+        { path: USERDASHBOARDHOME, element: <DashboardHome /> },
+
+        { path: NOTFOUND, element: <NotFound404 /> },
+        { path: '*', element: <Navigate to={`/${NOTFOUND}`} replace /> },
+      ]
     },
 
     {
