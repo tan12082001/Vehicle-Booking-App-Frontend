@@ -1,17 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Footer = () => {
-  return (
-    <Container>
-      <Paragraph>
-        This is the footer
-      </Paragraph>
-    </Container>
-  )
-}
+const Footer = () => (
+  <Container>
+    <Paragraph>
+      This is the footer
+    </Paragraph>
+  </Container>
+);
 
-export default Footer
+export default Footer;
 
 const Container = styled.div`
   border: 2px solid red;

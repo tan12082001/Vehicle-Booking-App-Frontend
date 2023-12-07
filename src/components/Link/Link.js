@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { NavLink as RouterLink } from 'react-router-dom';
 
 import styled from '@emotion/styled';
@@ -18,17 +20,15 @@ export const ButtonLink = styled(RouterLink)`
   font-weight: 500;
 `;
 
-export const NavBoxItem = ({ icon, path, children }) => {
-  return (
-    <NavigationBoxLink
-      className={(navData) => (navData.isActive ? 'active' : '')}
-      to={path}
-    >
-      {icon}
-      {children}
-    </NavigationBoxLink>
-  );
-};
+export const NavBoxItem = ({ icon, path, children }) => (
+  <NavigationBoxLink
+    className={(navData) => (navData.isActive ? 'active' : '')}
+    to={path}
+  >
+    {icon}
+    {children}
+  </NavigationBoxLink>
+);
 
 export const NavigationBoxLink = styled(RouterLink)`
   text-decoration: none;
@@ -52,3 +52,9 @@ export const NavigationBoxLink = styled(RouterLink)`
     color: blue;
   }
 `;
+
+NavBoxItem.propTypes = {
+  icon: PropTypes.node.isRequired,
+  path: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
