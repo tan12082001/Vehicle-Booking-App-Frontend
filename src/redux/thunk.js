@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/api';
+const baseURL = '/api';
 
 const setAuthenticationToken = ({ headers }) => localStorage.setItem('token', headers.get('Authorization'));
 const removeAuthenticationToken = () => localStorage.removeItem('token');
@@ -65,6 +65,18 @@ export const fetchUser = createAsyncThunk(
 
       setAuthenticationToken(response);
 
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+export const reserveCar = createAsyncThunk(
+  'reservations/reserveCar',
+  async ({ carId, data }, thunkAPI) => {
+    try {
+      const response = await axios.post(`${baseURL}/car/${carId}/new_reserve`, data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
