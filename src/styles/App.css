@@ -2,4 +2,44 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.reserve-car-outer {
+  background: url('../assets/reserve_page_background.png') center/cover;
+  height: 100vh;
+}
+
+.reserve-car-inner {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#reserve-car-head-title {
+  font-size: 2rem;
+}
+
+#reserve-page-head-description {
+  width: 70%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.city-submit-div {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  min-height: 100px;
+  padding: 20px;
+}
+
+select.css-zdsokt {
+  border: none;
+  border-radius: 3rem;
+  min-width: 150px;
 }
