@@ -5,13 +5,31 @@
   font-family: 'Lato', sans-serif;
 }
 
+.signin-page-outer,
+.signup-page-outer,
+.my-reservations-page-outer {
+  background: #ffd700;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+p.user-headline {
+  text-align: center;
+  width: 70%;
+}
+
 .reserve-car-outer {
-  background: url('../assets/reserve_page_background.png') center/cover;
+  background: url('../assets/yellow-background-image-2.png') center/cover;
   height: 100vh;
 }
 
 .reserve-car-inner {
-  color: #fff;
+  color: #000;
   width: 100%;
   height: 100%;
   display: flex;
