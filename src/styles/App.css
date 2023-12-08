@@ -5,7 +5,9 @@
   font-family: 'Lato', sans-serif;
 }
 
-.signin-page-outer {
+.signin-page-outer,
+.signup-page-outer,
+.my-reservations-page-outer {
   background: #ffd700;
   width: 100%;
   height: 100vh;
@@ -14,6 +16,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+p.user-headline {
+  text-align: center;
+  width: 70%;
 }
 
 .reserve-car-outer {
