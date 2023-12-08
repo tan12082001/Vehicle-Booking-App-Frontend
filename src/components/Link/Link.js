@@ -16,16 +16,16 @@ export const InternalNavLink = styled(RouterLink)`
 
 export const ButtonLink = styled(RouterLink)`
   text-decoration: none;
+  font-size: rem;
   color: grey;
   font-weight: 500;
 `;
 
-export const NavBoxItem = ({ icon, path, children }) => (
+export const NavBoxItem = ({ path, children }) => (
   <NavigationBoxLink
     className={(navData) => (navData.isActive ? 'active' : '')}
     to={path}
   >
-    {icon}
     {children}
   </NavigationBoxLink>
 );

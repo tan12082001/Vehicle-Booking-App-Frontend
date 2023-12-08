@@ -32,6 +32,7 @@ export const DateField = ({
 };
 
 DateField.propTypes = {
+  id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
@@ -72,6 +73,12 @@ SelectField.propTypes = {
   className: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export const TextInputField = ({

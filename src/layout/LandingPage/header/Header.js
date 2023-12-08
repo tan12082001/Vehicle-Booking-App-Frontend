@@ -9,31 +9,30 @@ import AuthNav from '../nav/AuthNav';
 const Header = () => (
   <StyledHeader>
     <NavContainer>
-      <Nav />
-      <AuthNav />
+      {/* <Nav /> */}
+      {/* <AuthNav /> */}
     </NavContainer>
   </StyledHeader>
 );
 
 const StyledHeader = styled.header`
   display: flex;
-  padding: 2.17rem 7.12rem;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-  position: fixed;
-  top: -1rem;
+  background-color: #FFD700;
   gap: 5rem;
   width: 100%;
 `;
 
 const NavContainer = styled.header`
   display: flex;
+  width: 100%;
+  // border: 1px solid blue;
   justify-content: space-between;
   align-items: center;
-  gap: 14rem;
-  right: 8rem;
-  background-color: white;
+  // gap: 14rem;
+  // right: 8rem;
+  background-color: 3FFD700;
 `;
 
 export default Header;

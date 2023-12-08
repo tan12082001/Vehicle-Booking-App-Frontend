@@ -4,7 +4,6 @@ import ReserveCarFrom from './ReserveCarForm';
 const ReserveCar = () => (
   <div className="reserve-car-outer">
     <div className="testing-backdrop">
-      <h1>Reserve car page can book a car</h1>
       <div className="reserve-car-inner">
         <h1 id="reserve-car-head-title">Book A Car on Hourly bases!</h1>
         <div className="blank-div" />

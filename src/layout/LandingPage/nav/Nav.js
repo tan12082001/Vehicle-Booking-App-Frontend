@@ -16,7 +16,7 @@ const Nav = () => (
 );
 
 const StyledNav = styled.div`
-  /* border: 2px solid blue; */
+  // border: 2px solid blue;
   display: flex;
   gap: 2rem;
   font-weight: 400;

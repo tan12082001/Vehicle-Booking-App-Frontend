@@ -7,7 +7,8 @@
 
 .signin-page-outer,
 .signup-page-outer,
-.my-reservations-page-outer {
+.my-reservations-page-outer,
+.reserve-cars-page-outer {
   background: #ffd700;
   width: 100%;
   height: 100vh;
@@ -16,6 +17,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.reserve-page-title {
+  text-align: center;
 }
 
 p.user-headline {
