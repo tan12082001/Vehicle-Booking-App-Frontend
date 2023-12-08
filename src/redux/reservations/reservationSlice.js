@@ -33,6 +33,8 @@ const reservationSlice = createSlice({
       .addCase(fetchCarReservations.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.reservations = action.payload.data;
+        console.log('the reservations: ')
+        console.log(state.reservations);
       })
       .addCase(fetchCarReservations.rejected, (state, action) => {
         state.status = 'failed';

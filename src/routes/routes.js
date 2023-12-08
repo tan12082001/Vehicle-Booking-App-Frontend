@@ -21,7 +21,7 @@ import {
   USERDASHBOARDHOME,
   USERS_DASHBOARD,
   ADD_NEW_CAR,
-  DELETE_RESERVATION,
+  DELETE_CAR,
   ITEM_DETAIL,
   CONTACT,
   NOTFOUND,
@@ -29,8 +29,9 @@ import {
 import UsersDashboardLayout from '../layout/UsersDashboard/UsersDashboardLayout';
 import DashboardHome from '../pages/UserDashboard/DashboardHome';
 import AddNewCar from '../pages/LandingPage/AddNewCar/AddNewCar';
-import DeleteReservation from '../pages/LandingPage/DeleteReservation/DeleteReservation';
+import DeleteCar from '../pages/LandingPage/DeleteCar/DeleteCar';
 import Contact from '../pages/LandingPage/Contact/Contact';
+import DeleteList from '../components/DeleteCars/DeleteList';
 
 export default function Router() {
   return useRoutes([
@@ -52,7 +53,7 @@ export default function Router() {
         { path: RESERVE_CARS, element: <ReserveCars /> },
         { path: ADD_NEW_CAR, element: <AddNewCar /> },
         { path: ITEM_DETAIL, element: <ItemDetail />},
-        { path: DELETE_RESERVATION, element: <DeleteReservation /> },
+        { path: DELETE_CAR, element: <DeleteList /> },
         { path: CONTACT, element: <Contact /> },
 
         { path: NOTFOUND, element: <NotFound404 /> },

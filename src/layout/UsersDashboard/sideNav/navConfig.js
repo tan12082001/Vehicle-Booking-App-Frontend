@@ -3,8 +3,8 @@ import {
   MY_RESERVATIONS,
   USERDASHBOARDHOME,
   ADD_NEW_CAR,
-  DELETE_RESERVATION,
-  CONTACT
+  CONTACT,
+  DELETE_CAR
 } from '../../../routes/routeConstants';
 
 const navConfig = [
@@ -33,8 +33,8 @@ const navConfig = [
   },
 
   {
-    title: 'Delete Reservation',
-    path: DELETE_RESERVATION,
+    title: 'Delete Car',
+    path: DELETE_CAR,
     // icon: PlaneIcon(),
   },
 

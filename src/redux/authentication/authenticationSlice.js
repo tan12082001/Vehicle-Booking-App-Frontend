@@ -49,7 +49,9 @@ const authenticationSlice = createSlice({
       })
       .addCase(logoutUser.fulfilled, (state, action) => {
         state.authenticatedUser = {};
+        console.log('user has been logged out')
         state.status = action.payload.status;
+        console.log('current status is:', state.status)
       })
       .addCase(logoutUser.rejected, (state, action) => {
         state.status = 'failed';

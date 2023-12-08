@@ -2,10 +2,19 @@ import React from "react";
 
 import styled from "@emotion/styled";
 
+import { useDispatch } from "react-redux";
+
 import navConfig from "./navConfig";
 import { NavBoxItem } from "../../../components/Link/Link";
+import { logoutUser } from "../../../redux/thunk";
 
 const Nav = () => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    console.log('log out successful');
+  }
   return (
     <Container>
       <NavbtnSection>
@@ -15,8 +24,8 @@ const Nav = () => {
           </NavBoxItem>
         ))}
       </NavbtnSection>
-      <LogoutBtn>
-        <NavBoxItem path={'/account/signin'}>
+      <LogoutBtn onClick={handleLogout}>
+        <NavBoxItem path={'/'}>
           Logout
         </NavBoxItem>
       </LogoutBtn>

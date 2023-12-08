@@ -15,8 +15,11 @@ const SignInForm = () => {
   const handleSubmit = (values) => {
     console.log(values);
     dispatch(loginUser(values));
-    console.log('Login successful');
-    navigate('/');
+    if (getAuthenticationToken()) {
+      console.log('token status:', getAuthenticationToken());
+      console.log('Login successful');
+      navigate('/u/dashboard/home');
+    }
   };
 
   return (
