@@ -16,6 +16,7 @@ export const InternalNavLink = styled(RouterLink)`
 
 export const ButtonLink = styled(RouterLink)`
   text-decoration: none;
+  font-size: rem;
   color: grey;
   font-weight: 500;
 `;
