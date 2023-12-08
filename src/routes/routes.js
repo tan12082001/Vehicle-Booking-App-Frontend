@@ -7,7 +7,7 @@ import SignIn from '../pages/Auth/SignIn/SignIn';
 import SignUp from '../pages/Auth/SignUp/SignUp';
 import NotFound404 from '../pages/NotFound404';
 import MyReservations from '../pages/LandingPage/MyReservation/MyReservation';
-import Reserved from '../pages/LandingPage/ReservedCars/MyReservation';
+import ReserveCars from '../pages/LandingPage/ReserveCars/ReserveCars';
 import ItemDetail from '../pages/UserDashboard/ItemDetail/ItemDetail';
 import Home from '../pages/LandingPage/Home/Home';
 import {
@@ -17,7 +17,7 @@ import {
   FORGOT_PASSWORD,
   MY_RESERVATIONS,
   HOME,
-  RESERVED_CARS,
+  RESERVE_CARS,
   USERDASHBOARDHOME,
   USERS_DASHBOARD,
   ADD_NEW_CAR,
@@ -49,7 +49,7 @@ export default function Router() {
         { path: USERS_DASHBOARD, element: <Navigate to={USERDASHBOARDHOME} /> },
         { path: USERDASHBOARDHOME, element: <DashboardHome /> },
         { path: MY_RESERVATIONS, element: <MyReservations /> },
-        { path: RESERVED_CARS, element: <Reserved /> },
+        { path: RESERVE_CARS, element: <ReserveCars /> },
         { path: ADD_NEW_CAR, element: <AddNewCar /> },
         { path: ITEM_DETAIL, element: <ItemDetail />},
         { path: DELETE_RESERVATION, element: <DeleteReservation /> },

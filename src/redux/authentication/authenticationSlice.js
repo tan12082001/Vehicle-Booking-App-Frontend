@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  userSignUp, userLogin, userLogout, fetchUser,
-} from '../thunk';
+import { loginUser, logoutUser, registerUser } from '../thunk';
 
 const initialState = {
   authenticatedUser: {},
@@ -12,49 +10,48 @@ const initialState = {
 const authenticationSlice = createSlice({
   name: 'authenticatedUser',
   initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(userSignUp.pending, (state) => {
+      .addCase(registerUser.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(userSignUp.fulfilled, (state, action) => {
+      .addCase(registerUser.fulfilled, (state, action) => {
         state.authenticatedUser = action.payload.data;
-        state.status = action.payload.status === 200 ? 'succeeded' : 'failed';
+        state.status = action.payload.status === 'succeeded' ? 'succeeded' : 'failed';
       })
-      .addCase(userSignUp.rejected, (state, action) => {
+      .addCase(registerUser.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
-      .addCase(userLogin.pending, (state) => {
+      .addCase(loginUser.pending, (state) => {
         state.status = 'loading';
+        console.log('Action staus: blahh is', state.status);
       })
-      .addCase(userLogin.fulfilled, (state, action) => {
-        state.authenticatedUser = action.payload.data;
-        state.status = action.payload.status === 200 ? 'succeeded' : 'failed';
+      .addCase(loginUser.fulfilled, (state, action) => {
+        if (action.payload.status === 'failed') {
+          state.status = 'failed';
+          state.error = action.payload.error;
+        } else {
+          state.authenticatedUser = action.payload.user;
+          state.status = action.payload.status || 'succeeded';
+          console.log('Action paylod to check if there is a status:', action.payload);
+          console.log('Authenticated user is: ', state.authenticatedUser);
+          console.log('Authenticated user action status: ', state.status);
+        }
       })
-      .addCase(userLogin.rejected, (state, action) => {
+      .addCase(loginUser.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
-      .addCase(userLogout.pending, (state) => {
+      .addCase(logoutUser.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(userLogout.fulfilled, (state, action) => {
+      .addCase(logoutUser.fulfilled, (state, action) => {
         state.authenticatedUser = {};
         state.status = action.payload.status;
       })
-      .addCase(userLogout.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
-      })
-      .addCase(fetchUser.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchUser.fulfilled, (state, action) => {
-        state.authenticatedUser = action.payload.data;
-        state.status = 'succeeded';
-      })
-      .addCase(fetchUser.rejected, (state, action) => {
+      .addCase(logoutUser.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });

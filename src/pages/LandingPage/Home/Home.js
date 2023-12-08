@@ -10,7 +10,7 @@ const Home = () => (
     <Image>
       <img src={bicycleImage} alt='Bicycle'/>
     </Image>
-    <Paragraph>THE NEW VESPA TRIDENT</Paragraph>
+    <Paragraph>CarBooky</Paragraph>
     <Auth>
       <AuthNav />
     </Auth>
