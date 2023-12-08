@@ -1,20 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import apiEndpoints from '../thunk';
-
-export const registerUser = createAsyncThunk('auth/register', async (user) => {
-  const response = await apiEndpoints.register(user);
-  return response;
-});
-
-export const loginUser = createAsyncThunk('auth/login', async (user) => {
-  const response = await apiEndpoints.login(user);
-  return response;
-});
-
-export const logoutUser = createAsyncThunk('auth/logout', async () => {
-  const response = await apiEndpoints.logout();
-  return response;
-});
+import { createSlice } from '@reduxjs/toolkit';
+import { loginUser, logoutUser, registerUser } from '../thunk';
 
 const initialState = {
   authenticatedUser: {},
@@ -41,10 +26,19 @@ const authenticationSlice = createSlice({
       })
       .addCase(loginUser.pending, (state) => {
         state.status = 'loading';
+        console.log('Action staus: blahh is', state.status);
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        state.authenticatedUser = action.payload.data;
-        state.status = action.payload.status === 'succeeded' ? 'succeeded' : 'failed';
+        if (action.payload.status === 'failed') {
+          state.status = 'failed';
+          state.error = action.payload.error;
+        } else {
+          state.authenticatedUser = action.payload.user;
+          state.status = action.payload.status || 'succeeded';
+          console.log('Action paylod to check if there is a status:', action.payload);
+          console.log('Authenticated user is: ', state.authenticatedUser);
+          console.log('Authenticated user action status: ', state.status);
+        }
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = 'failed';

@@ -20,7 +20,7 @@ const ReserveCarFrom = () => {
     //     selectedCity: values.selectedCity
     // }
     // dispatch(reserveCar({carId, data: reservationData}));
-    console.log('Reservation successful')
+    console.log('Reservation successful');
     console.log(values);
     console.log('Picked date is:', formattedDate);
     console.log('Picked City is: ', values.selectedCity);
