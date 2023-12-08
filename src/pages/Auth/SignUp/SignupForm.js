@@ -5,15 +5,15 @@ import { SignUpSchema, signUpInitialValues } from '../../../models/signup.model'
 import FormSubmitButton from '../../../components/Button/FormSubmitButton';
 import { TextInputField } from '../../../components/Form/FormField';
 // import { useEffect } from 'react';
-import { userSignUp } from '../../../redux/thunk';
 import HideableTextFormField from '../../../components/Form/HideableTextFormField';
+import { registerUser } from '../../../redux/authentication/authenticationSlice';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
     console.log(values);
-    dispatch(userSignUp(values));
+    dispatch(registerUser(values));
   };
 
   return (

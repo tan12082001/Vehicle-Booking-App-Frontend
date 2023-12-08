@@ -1,31 +1,27 @@
 import React from 'react';
 import { format } from 'date-fns';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import FormComponent from '../Form/FormComponent';
 import { ReserveCarSchema, reserveCarInitialValues } from '../../models/reserveCar.model';
 import { DateField, SelectField, TextInputField } from '../Form/FormField';
 
 import FormSubmitButton from '../Button/FormSubmitButton';
-import { reservationFailure, reservationRequest, reservationSuccess } from '../../redux/reservations/reservationSlice';
-import { reserveCar } from '../../redux/thunk';
+// import { reserveCar } from '../../redux/thunk';
 
 const ReserveCarFrom = () => {
-  const dispatch = useDispatch();
+//   const dispatch = useDispatch();
+//   const { carId } = useParams();
 
   const handleSubmit = (values) => {
-    dispatch(reservationRequest());
-
-    dispatch(reserveCar({ carId, data: values }))
-      .then((resultAction) => {
-        const response = resultAction.payload;
-        console.log(response);
-        dispatch(reservationSuccess());
-      })
-      .catch((error) => {
-        dispatch(reservationFailure(error));
-      });
-    console.log(values);
     const formattedDate = format(values.selectedDate, 'EEE, dd MMM yyyy');
+    // const reservationData = {
+    //     userName: values.userName,
+    //     selectedDate: formattedDate,
+    //     selectedCity: values.selectedCity
+    // }
+    // dispatch(reserveCar({carId, data: reservationData}));
+    console.log('Reservation successful')
+    console.log(values);
     console.log('Picked date is:', formattedDate);
     console.log('Picked City is: ', values.selectedCity);
     console.log('User name:', values.userName);

@@ -1,5 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { reserveCar } from '../thunk';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import apiEndpoints from '../thunk';
+
+export const reserveCar = createAsyncThunk('reservations/newReservation', async () => {
+  try {
+    const response = await apiEndpoints.newReserve();
+    return response;
+  } catch (error) {
+    throw error;
+  }
+});
 
 const initialState = {
   reservation: {},
@@ -10,27 +19,16 @@ const initialState = {
 const reservationSlice = createSlice({
   name: 'reservation',
   initialState,
-  reducers: {
-    reservationRequest: (state) => {
-      state.status = 'loading';
-      state.error = null;
-    },
-    reservationSuccess: (state) => {
-      state.status = 'succeeded';
-    },
-    reservationFailure: (state, action) => {
-      state.status = 'failed';
-      state.error = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(reserveCar.pending, (state) => {
         state.status = 'loading';
         state.error = null;
       })
-      .addCase(reserveCar.fulfilled, (state) => {
+      .addCase(reserveCar.fulfilled, (state, action) => {
         state.status = 'succeeded';
+        state.reservation = action.payload.data;
       })
       .addCase(reserveCar.rejected, (state, action) => {
         state.status = 'failed';
@@ -39,5 +37,4 @@ const reservationSlice = createSlice({
   },
 });
 
-export const { reservationRequest, reservationSuccess, reservationFailure } = reservationSlice.actions;
 export default reservationSlice.reducer;
