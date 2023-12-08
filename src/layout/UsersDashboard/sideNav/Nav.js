@@ -31,10 +31,9 @@ const Container = styled.nav`
   padding: 2.69rem 2rem 3.75rem 2rem;
   display: flex;
   background-color: white;
-
   flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
   gap: 3.8rem;
-//   position: fixed;
   top: 0;
 
   & > a > div {

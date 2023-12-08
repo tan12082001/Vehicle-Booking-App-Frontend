@@ -3,46 +3,41 @@ import styled from '@emotion/styled';
 import Img from '../../../components/Img/Img';
 import AuthNav from '../../../layout/LandingPage/nav/AuthNav';
 
+import bicycleImage from '../../../../src/components/asset/bicycle.jpg'
+
 const Home = () => (
   <Container>
-    <BigText>
-      <Image>
-        <Img src="/static/img/bicycle.jpg" alt='Bicycle'/>
-      </Image>
-      <Paragraph>THE NEW VESPA TRIDENT</Paragraph>
-      <Auth>
-        <AuthNav />
-      </Auth>
-    </BigText>
+    <Image>
+      <img src={bicycleImage} alt='Bicycle'/>
+    </Image>
+    <Paragraph>THE NEW VESPA TRIDENT</Paragraph>
+    <Auth>
+      <AuthNav />
+    </Auth>
   </Container>
 )
 
 export default Home;
 
 const Container = styled.div`
-  background-color: #FFD700;
-  border: 1px solid #FFD700;
-`;
-
-const BigText = styled.div`
-  margin-left: 30rem;
-  margin-top: 20rem;
-  margin-bottom: 3rem;
+  width: 100%;
 `;
 
 const Paragraph = styled.p`
   font-size: 3rem;
-  margin-top: -3rem;
+  margin-top: -40rem;
+  margin-left: 25rem;
+  color: green;
 `;
 
 const Image = styled.div`
-  width: 50%;
+  // width: 100%;
+
+  img {
+    width: 100%;
+  }
 `;
 
 const Auth = styled.div`
-  margin-top: 1rem;
-  margin-left: -29rem;
-  margin-bottom: 7.2rem;
-  border: 1px solid #FFD700;
-  padding-left: -20rem;
+  margin-left: -10rem;
 `;

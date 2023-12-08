@@ -8,6 +8,7 @@ import SignUp from '../pages/Auth/SignUp/SignUp';
 import NotFound404 from '../pages/NotFound404';
 import MyReservations from '../pages/LandingPage/MyReservation/MyReservation';
 import Reserved from '../pages/LandingPage/ReservedCars/MyReservation';
+import ItemDetail from '../pages/UserDashboard/ItemDetail/ItemDetail';
 import Home from '../pages/LandingPage/Home/Home';
 import {
   ACCOUNT,
@@ -21,6 +22,7 @@ import {
   USERS_DASHBOARD,
   ADD_NEW_CAR,
   DELETE_RESERVATION,
+  ITEM_DETAIL,
   CONTACT,
   NOTFOUND,
 } from './routeConstants';
@@ -49,6 +51,7 @@ export default function Router() {
         { path: MY_RESERVATIONS, element: <MyReservations /> },
         { path: RESERVED_CARS, element: <Reserved /> },
         { path: ADD_NEW_CAR, element: <AddNewCar /> },
+        { path: ITEM_DETAIL, element: <ItemDetail />},
         { path: DELETE_RESERVATION, element: <DeleteReservation /> },
         { path: CONTACT, element: <Contact /> },
 

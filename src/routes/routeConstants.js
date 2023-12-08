@@ -12,7 +12,7 @@ export const ADD_NEW_CAR = 'add-new-car';
 export const DELETE_RESERVATION = 'delete-reservation';
 export const CONTACT = 'contact'
 export const ITEMS = 'cars';
-export const ITEMS_DETAILS = 'item-detals';
+export const ITEM_DETAIL = '/u/dashboard/item-details';
 export const USERDASHBOARDHOME = 'home';
 
 export const USERS_DASHBOARD = '/u/dashboard';
