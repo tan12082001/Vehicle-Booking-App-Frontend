@@ -108,3 +108,20 @@ export const postReserveCar = createAsyncThunk(
     }
   },
 );
+
+export const fetchCarReservations = createAsyncThunk(
+    'reservations/fetchCarReservations',
+    async (_, thunkAPI) => {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.get(`${baseURL}/my_reservations`, {
+          headers: {
+            Authorization: token,
+          },
+        });
+        return response.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+      }
+    },
+);
