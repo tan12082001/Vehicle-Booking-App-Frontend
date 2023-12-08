@@ -2,9 +2,11 @@ import React from 'react';
 import SignInForm from './SigninForm';
 
 const SignIn = () => (
-  <div>
-    <h1>Login Page</h1>
-    <SignInForm />
+  <div className='signin-page-outer'>
+    <h1 id='login-title'>Login</h1>
+    <div className='login-form-outer'>
+      <SignInForm />
+    </div>
   </div>
 );
 
