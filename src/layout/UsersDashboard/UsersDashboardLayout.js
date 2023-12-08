@@ -29,9 +29,8 @@ const Container = styled.div`
   grid-template-columns: 18rem auto;
   height: 100vh;
   width: 100vw;
-  /* border: 2px solid red; */
   overflow: scroll;
-  background-color: #FFD700;
+  background-color: white;
 `;
 
 const Section = styled.section`
