@@ -71,15 +71,19 @@ export const registerUser = createAsyncThunk('auth/register', async (user, thunk
 
 export const logoutUser = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    const response = await axios.delete(`${baseURL}/users`, {
-      headers: { Authorization: localStorage.getItem('token') },
+    const token = getAuthenticationToken();
+    const authToken = token ? token.replace('Bearer ', '') : '';
+    console.log('authtoken:',authToken);
+
+    const response = await axios.delete(`${baseURL}/users/sign_out`, {
+      headers: { Authorization: authToken },
     });
 
     const { status, message } = await handleResponse(response);
-
-    if (status === 'succeeded') {
-      removeAuthenticationToken();
-    }
+    removeAuthenticationToken();
+    // console.log('logout async method');
+    // if (status === 'succeeded') {
+    // }
 
     return { status, message };
   } catch (error) {
@@ -124,4 +128,38 @@ export const fetchCarReservations = createAsyncThunk(
         return thunkAPI.rejectWithValue(error);
       }
     },
+);
+
+export const fetchCars = createAsyncThunk(
+    'cars/fetchCars',
+    async(_, thunkAPI) => {
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.get(`${baseURL}/cars`, {
+                headers: {
+                    Authorization: token,
+                },
+            });
+            return response.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error);
+        }
+    }
+)
+
+export const deleteCar = createAsyncThunk(
+    'cars/deleteCar',
+    async(carId, thunkAPI) => {
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.delete(`${baseURL}/cars/${carId}`, {
+                headers: {
+                    Authorization: token,
+                }, 
+            });
+            return response.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error);
+        }
+    }
 );
