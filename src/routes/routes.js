@@ -28,7 +28,7 @@ import {
 } from './routeConstants';
 import UsersDashboardLayout from '../layout/UsersDashboard/UsersDashboardLayout';
 import DashboardHome from '../pages/UserDashboard/DashboardHome';
-import AddNewCar from '../pages/LandingPage/AddNewCar/AddNewCar';
+import AddNewCar from '../pages/UserDashboard/AddNewCar/AddNewCar';
 import DeleteReservation from '../pages/LandingPage/DeleteReservation/DeleteReservation';
 import Contact from '../pages/LandingPage/Contact/Contact';
 

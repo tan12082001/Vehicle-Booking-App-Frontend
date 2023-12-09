@@ -108,6 +108,7 @@ TextAreaInputField.propTypes = {
 
 export const InputWrapper = styled.div`
   width: 100%;
+  margin-bottom: .5rem;
 `;
 
 export const InputLabel = styled.label`
@@ -138,7 +139,7 @@ const Select = styled.select`
 export const Input = styled.input`
   border: 2px solid white;
   border-radius: 4px;
-  padding: 0.5rem;
+  padding: .5rem;
   text-align: left;
   font-weight: bolder;
   color: black;

@@ -39,7 +39,8 @@ FormComponent.propTypes = {
 };
 
 const StyledForm = styled(Form)`
-  border: 1px solid orange;
+  // border: 1px solid blue;
+  padding: 2rem;
 
   &.flex {
     display: flex;
@@ -54,11 +55,6 @@ const StyledForm = styled(Form)`
     gird-column: span 2;
     margin-left: 15%;
     margin-right: 15%;
-  }
-
-  &.horizontalForm {
-    grid-template-columns: 5fr 1fr;
-    align-items: last baseline;
   }
 `;
 
