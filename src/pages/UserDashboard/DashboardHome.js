@@ -47,7 +47,7 @@ const DashboardHome = () => {
     <Container>
       <Title>
         <h2>LATEST MODELS</h2>
-        <p>Please select a Vespa Model</p>
+        <p>Please select a Vehicle</p>
       </Title>
       <Inner>
         <ArrowLeft onClick={handlePrev}>

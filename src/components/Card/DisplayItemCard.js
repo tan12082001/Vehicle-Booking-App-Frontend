@@ -55,7 +55,7 @@ const DisplayItemCard = ({ name, imgSrc, amount, description }) => {
             <SettingIcon>
             <FaCog />
             </SettingIcon>
-            Configure
+            Reserve
             <ArrowIcon>
             <FaArrowRight />
             </ArrowIcon>
