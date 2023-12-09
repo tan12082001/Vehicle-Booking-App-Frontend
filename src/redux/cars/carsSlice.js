@@ -8,15 +8,10 @@ const initialState = {
 };
 
 
-const carSlice = createSlice({
+const carsSlice = createSlice({
     name: 'cars',
     initialState,
-    reducers: {
-        markCarDelete: (state, action) => {
-            const newState = state.cars.map((car) => (car.carId === action.payload ? ({...car, removed: true}) : car));
-            state.cars = newState;
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
       builder
         .addCase(fetchCars.pending, (state) => {
@@ -24,6 +19,7 @@ const carSlice = createSlice({
             state.error = null;
         })
         .addCase(fetchCars.fulfilled, (state, action) => {
+          console.log('fetching cars: ');
             state.status = 'succeeded';
             const fetchedData = [];
             action.payload.forEach((car) => {
@@ -52,5 +48,5 @@ const carSlice = createSlice({
     },
   });
   
-  export const {markCarDelete} = carSlice.actions;
-  export default carSlice.reducer;
+  export const {markCarDelete} = carsSlice.actions;
+  export default carsSlice.reducer;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteCar } from "../../redux/thunk";
 import { markCarDelete } from "../../redux/cars/carsSlice";
 
@@ -9,7 +9,6 @@ const EachCarDelete = ({car}) => {
         id,
         removed
     } = car;
-
     const dispatch = useDispatch();
     const handleDelete = () => {
         dispatch(deleteCar(id));
@@ -17,6 +16,8 @@ const EachCarDelete = ({car}) => {
             dispatch(markCarDelete(id))
         }
     }
+
+    
 
     return (
         <tr>

@@ -2,9 +2,20 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { FaCog, FaArrowRight, FaSyncAlt } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { RESERVE_CARS, USERS_DASHBOARD } from '../../routes/routeConstants';
 
-const DisplayItemCard = ({ name, imgSrc, amount, description }) => {
+const DisplayItemCard = ({ id, name, description, pricePerHr, seating_capacity, imgSrc }) => {
+  const username = useSelector((state) => state.authentication.authenticatedUser.username);
+  const navigate = useNavigate();
   const [rotation, setRotation] = useState(0);
+
+  const handleReserveClick = () => {
+    navigate(`${USERS_DASHBOARD}/${RESERVE_CARS}`, {
+      state: { id, username, name }
+    });
+  }
 
   const handleRotate = () => {
     setRotation((prevRotation) => (prevRotation + 90) % 360);
@@ -24,20 +35,20 @@ const DisplayItemCard = ({ name, imgSrc, amount, description }) => {
         </Description>
         <Table>
             <TableRow color="#ccc">
-            <TableData>Finance Fee</TableData>
-            <TableData>{amount}</TableData>
+            <TableData>Rent Price per Hour</TableData>
+            <TableData>{pricePerHr}</TableData>
             </TableRow>
             <TableRow color="#fff">
-            <TableData>Opton to purchase fee</TableData>
-            <TableData>{amount}</TableData>
+            <TableData>Seating Capacity</TableData>
+            <TableData>{seating_capacity}</TableData>
             </TableRow>
             <TableRow color="#ccc">
-            <TableData>Total amount payable</TableData>
-            <TableData>{amount}</TableData>
+            <TableData>Currently available for booking?</TableData>
+            <TableData>Yes</TableData>
             </TableRow>
             <TableRow color="#fff">
-            <TableData>Duration</TableData>
-            <TableData>{amount}</TableData>
+            <TableData>Minimum Rental Duration</TableData>
+            <TableData>4 hrs</TableData>
             </TableRow>
         </Table>
         <BoldText>
@@ -46,7 +57,7 @@ const DisplayItemCard = ({ name, imgSrc, amount, description }) => {
         <ColorWheel>
             DISCOVER MORE MODEL
         </ColorWheel>
-        <ConfigureButton>
+        <ConfigureButton onClick={handleReserveClick} >
             <SettingIcon>
             <FaCog />
             </SettingIcon>
@@ -60,10 +71,12 @@ const DisplayItemCard = ({ name, imgSrc, amount, description }) => {
 )};
 
 DisplayItemCard.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  amount: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  imgSrc: PropTypes.string.isRequired,
+  pricePerHr: PropTypes.number.isRequired,
+  seating_capacity: PropTypes.number.isRequired,
+  imgSrc: PropTypes.string.isRequired
 };
 
 const Container = styled.div`

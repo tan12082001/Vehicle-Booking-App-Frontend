@@ -29,11 +29,16 @@ import {
 import UsersDashboardLayout from '../layout/UsersDashboard/UsersDashboardLayout';
 import DashboardHome from '../pages/UserDashboard/DashboardHome';
 import AddNewCar from '../pages/LandingPage/AddNewCar/AddNewCar';
-import DeleteCar from '../pages/LandingPage/DeleteCar/DeleteCar';
 import Contact from '../pages/LandingPage/Contact/Contact';
 import DeleteList from '../components/DeleteCars/DeleteList';
+import { useSelector } from 'react-redux';
+import LoadingText from '../pages/LoadingText';
 
 export default function Router() {
+  const authenticationStatus = useSelector((state) => state.authentication.status);
+  const isAuthenticated = authenticationStatus === 'succeeded';
+  const isLoading = authenticationStatus === 'loading';
+
   return useRoutes([
     {
       path: HOME,
@@ -43,7 +48,12 @@ export default function Router() {
       ],
     },
 
-    {
+    isLoading && {
+      path: USERS_DASHBOARD,
+      element: <LoadingText />
+    },
+
+    isAuthenticated && {
       path:  USERS_DASHBOARD,
       element: <UsersDashboardLayout />,
       children: [
@@ -52,7 +62,7 @@ export default function Router() {
         { path: MY_RESERVATIONS, element: <MyReservations /> },
         { path: RESERVE_CARS, element: <ReserveCars /> },
         { path: ADD_NEW_CAR, element: <AddNewCar /> },
-        { path: ITEM_DETAIL, element: <ItemDetail />},
+        { path: `${ITEM_DETAIL}/:id`, element: <ItemDetail />},
         { path: DELETE_CAR, element: <DeleteList /> },
         { path: CONTACT, element: <Contact /> },
 

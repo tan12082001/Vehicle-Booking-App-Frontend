@@ -71,16 +71,17 @@ export const registerUser = createAsyncThunk('auth/register', async (user, thunk
 
 export const logoutUser = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    const token = getAuthenticationToken();
-    const authToken = token ? token.replace('Bearer ', '') : '';
-    console.log('authtoken:',authToken);
+    // const token = getAuthenticationToken();
+    // const authToken = token ? token.replace('Bearer ', '') : '';
+    // console.log('authtoken:',authToken);
 
     const response = await axios.delete(`${baseURL}/users/sign_out`, {
-      headers: { Authorization: authToken },
+      headers: { Authorization: localStorage.getItem('token') },
     });
 
-    const { status, message } = await handleResponse(response);
     removeAuthenticationToken();
+    const { status, message } = await handleResponse(response);
+    
     // console.log('logout async method');
     // if (status === 'succeeded') {
     // }
@@ -95,6 +96,7 @@ export const postReserveCar = createAsyncThunk(
   'reservations/newReserve',
   async ({ carId, reservationData }, thunkAPI) => {
     try {
+      console.log('the id from the book car method:', carId)
       const token = localStorage.getItem('token');
       const response = await axios.post(`${baseURL}/car/${carId}/new_reserve`, reservationData, {
         headers: {
@@ -123,11 +125,34 @@ export const fetchCarReservations = createAsyncThunk(
             Authorization: token,
           },
         });
+        console.log(`reservations from the fetchCarReservations: `, response.data)
         return response.data;
       } catch (error) {
         return thunkAPI.rejectWithValue(error);
       }
     },
+);
+
+export const postNewCar = createAsyncThunk(
+  'cars/newCar',
+  async (carData , thunkAPI) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.post(`${baseURL}/cars`, carData, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      const { data } = await handleResponse(response);
+
+      if (response.status === 200 || response.status === 201) {
+        return { data, status: 'succeeded' };
+      }
+      return { status: 'failed', error: 'Request failed', message: data.message };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
 );
 
 export const fetchCars = createAsyncThunk(
@@ -140,6 +165,8 @@ export const fetchCars = createAsyncThunk(
                     Authorization: token,
                 },
             });
+            console.log(`this method is from the fetchCars`);
+            console.log(response.data);
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error);

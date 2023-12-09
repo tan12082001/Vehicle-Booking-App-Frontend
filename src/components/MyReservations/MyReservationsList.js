@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCarReservations } from '../../redux/thunk';
+// import { fetchCarReservations, fetchCars } from '../../redux/thunk';
 
 const MyReservationsList = () => {
     const mockData = [
@@ -24,15 +24,18 @@ const MyReservationsList = () => {
         },
         // Add more mock data as needed
       ];
-  const dispatch = useDispatch();
-//   const myReservations = useSelector((state) => state.reservation.reservations);
-const myReservations = mockData;
+  // const dispatch = useDispatch();
+  const myReservations = useSelector((state) => state.reservation.reservations);
+  console.log(myReservations[1]);
+  console.log(myReservations[1].car.name);
+// const myReservations = mockData;
   const status = useSelector((state) => state.reservation.status);
   const error = useSelector((state) => state.reservation.error);
 
-  useEffect(() => {
-    dispatch(fetchCarReservations());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchCarReservations());
+  //   dispatch(fetchCars());
+  // }, [dispatch]);
 
   if (status === 'loading') {
     return <p>Loading...</p>;
@@ -47,7 +50,7 @@ const myReservations = mockData;
       <h1>My Reservations</h1>
       {myReservations && myReservations.map((reservation) => (
         <div key={reservation.id} className='each-reservation-div'>
-          <span>{`Car: ${reservation.car.name}`}</span>
+          <span>{`Car: ${reservation.car && reservation.car.name ? reservation.car.name : 'No name'}`}</span>
           <span>{`Date: ${reservation.date}`}</span>
           <span>{`City: ${reservation.city}`}</span>
         </div>

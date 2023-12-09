@@ -32,7 +32,7 @@ const reservationSlice = createSlice({
       })
       .addCase(fetchCarReservations.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.reservations = action.payload.data;
+        state.reservations = action.payload;
         console.log('the reservations: ')
         console.log(state.reservations);
       })

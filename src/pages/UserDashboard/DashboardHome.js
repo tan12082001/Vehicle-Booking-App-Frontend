@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import DisplayCartCard from '../../components/Card/DisplayCartCard';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const DummyCards = [
   {
@@ -33,6 +34,7 @@ const DummyCards = [
 
 const DashboardHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const cars = useSelector((state) => state.cars.cars)
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 3) % DummyCards.length);
@@ -53,12 +55,14 @@ const DashboardHome = () => {
           <FaArrowLeft />
         </ArrowLeft>
         <CardContainer>
-          {DummyCards.slice(currentIndex, currentIndex + 3).map((data, index) => (
+          {cars.slice(currentIndex, currentIndex + 3).map((data, index) => (
             <DisplayCartCard
               key={index}
-              imageName={data.imageName}
+              id={data.id}
+              imageName='bicycle'
               name={data.name}
-              shortNote={data.shortNote}
+              shortNote={data.description}
+              car={data}
             />
           ))}
         </CardContainer>
