@@ -153,6 +153,32 @@ TextAreaInputField.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
+export const FileInputField = ({ id, label, name, className, ...props }) => {
+  const [field, meta, helpers] = useField(name);
+
+  const handleChange = (event) => {
+    const file = event.currentTarget.files[0];
+    helpers.setValue(file);
+  };
+
+  return (
+    <FileInputWrapper className={className}>
+      <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
+      <StyledFileInput type="file" {...field} {...props} onChange={handleChange} onBlur={() => helpers.setTouched(true)} />
+      {meta.touched && meta.error ? (
+        <FieldErrorInfo>{meta.error}</FieldErrorInfo>
+      ) : null}
+    </FileInputWrapper>
+  );
+};
+
+FileInputField.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
+};
+
 const DateFieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -166,6 +192,24 @@ const DateFieldWrapper = styled.div`
   .react-datepicker__input-container {
     width: 100%;
   }
+`;
+
+const FileInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+`;
+
+const StyledFileInput = styled.input`
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 `;
 
 const StyledDatePicker = styled(DatePicker)`
