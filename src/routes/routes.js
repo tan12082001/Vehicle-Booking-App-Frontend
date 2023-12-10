@@ -1,5 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
 import AuthLayout from '../layout/Auth/AuthLayout';
 import LandingPageLayout from '../layout/LandingPage/LandingPageLayout';
 import ForgotPassword from '../pages/Auth/ForgotPassword/ForgotPassword';
@@ -31,7 +32,6 @@ import DashboardHome from '../pages/UserDashboard/DashboardHome';
 import AddNewCar from '../pages/UserDashboard/AddNewCar/AddNewCar';
 import Contact from '../pages/LandingPage/Contact/Contact';
 import DeleteList from '../components/DeleteCars/DeleteList';
-import { useSelector } from 'react-redux';
 import LoadingText from '../pages/LoadingText';
 
 export default function Router() {
@@ -50,11 +50,11 @@ export default function Router() {
 
     isLoading && {
       path: USERS_DASHBOARD,
-      element: <LoadingText />
+      element: <LoadingText />,
     },
 
     isAuthenticated && {
-      path:  USERS_DASHBOARD,
+      path: USERS_DASHBOARD,
       element: <UsersDashboardLayout />,
       children: [
         { path: USERS_DASHBOARD, element: <Navigate to={USERDASHBOARDHOME} /> },
@@ -62,13 +62,13 @@ export default function Router() {
         { path: MY_RESERVATIONS, element: <MyReservations /> },
         { path: RESERVE_CARS, element: <ReserveCars /> },
         { path: ADD_NEW_CAR, element: <AddNewCar /> },
-        { path: `${ITEM_DETAIL}/:id`, element: <ItemDetail />},
+        { path: `${ITEM_DETAIL}/:id`, element: <ItemDetail /> },
         { path: DELETE_CAR, element: <DeleteList /> },
         { path: CONTACT, element: <Contact /> },
 
         { path: NOTFOUND, element: <NotFound404 /> },
         { path: '*', element: <Navigate to={`/${NOTFOUND}`} replace /> },
-      ]
+      ],
     },
 
     {

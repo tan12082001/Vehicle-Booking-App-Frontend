@@ -4,7 +4,7 @@ import {
   USERDASHBOARDHOME,
   ADD_NEW_CAR,
   CONTACT,
-  DELETE_CAR
+  DELETE_CAR,
 } from '../../../routes/routeConstants';
 
 const navConfig = [

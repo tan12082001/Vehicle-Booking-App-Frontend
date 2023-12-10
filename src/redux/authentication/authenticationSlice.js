@@ -26,7 +26,6 @@ const authenticationSlice = createSlice({
       })
       .addCase(loginUser.pending, (state) => {
         state.status = 'loading';
-        console.log('Action staus: blahh is', state.status);
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         if (action.payload.status === 'failed') {
@@ -35,9 +34,6 @@ const authenticationSlice = createSlice({
         } else {
           state.authenticatedUser = action.payload.user;
           state.status = action.payload.status || 'succeeded';
-          console.log('Action paylod to check if there is a status:', action.payload);
-          console.log('Authenticated user is: ', state.authenticatedUser);
-          console.log('Authenticated user action status: ', state.status);
         }
       })
       .addCase(loginUser.rejected, (state, action) => {
@@ -49,9 +45,9 @@ const authenticationSlice = createSlice({
       })
       .addCase(logoutUser.fulfilled, (state, action) => {
         state.authenticatedUser = {};
-        console.log('user has been logged out')
+        console.log('user has been logged out');
         state.status = action.payload.status;
-        console.log('current status is:', state.status)
+        console.log('current status is:', state.status);
       })
       .addCase(logoutUser.rejected, (state, action) => {
         state.status = 'failed';

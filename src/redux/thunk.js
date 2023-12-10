@@ -37,10 +37,6 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await axios.post(`${baseURL}/users/sign_in`, { user });
       const { data, headers } = response;
-      console.log('the data from async method:');
-      console.log(data);
-      console.log('the headers:');
-      console.log(headers);
 
       if (response.status === 200 || response.status === 201) {
         setAuthenticationToken({ headers });
@@ -81,10 +77,6 @@ export const logoutUser = createAsyncThunk('auth/logout', async (_, thunkAPI) =>
 
     removeAuthenticationToken();
     const { status, message } = await handleResponse(response);
-    
-    // console.log('logout async method');
-    // if (status === 'succeeded') {
-    // }
 
     return { status, message };
   } catch (error) {
@@ -96,7 +88,6 @@ export const postReserveCar = createAsyncThunk(
   'reservations/newReserve',
   async ({ carId, reservationData }, thunkAPI) => {
     try {
-      console.log('the id from the book car method:', carId)
       const token = localStorage.getItem('token');
       const response = await axios.post(`${baseURL}/car/${carId}/new_reserve`, reservationData, {
         headers: {
@@ -116,26 +107,25 @@ export const postReserveCar = createAsyncThunk(
 );
 
 export const fetchCarReservations = createAsyncThunk(
-    'reservations/fetchCarReservations',
-    async (_, thunkAPI) => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get(`${baseURL}/my_reservations`, {
-          headers: {
-            Authorization: token,
-          },
-        });
-        console.log(`reservations from the fetchCarReservations: `, response.data)
-        return response.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error);
-      }
-    },
+  'reservations/fetchCarReservations',
+  async (_, thunkAPI) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`${baseURL}/my_reservations`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
 );
 
 export const postNewCar = createAsyncThunk(
   'cars/newCar',
-  async (carData , thunkAPI) => {
+  async (carData, thunkAPI) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(`${baseURL}/cars`, carData, {
@@ -156,37 +146,35 @@ export const postNewCar = createAsyncThunk(
 );
 
 export const fetchCars = createAsyncThunk(
-    'cars/fetchCars',
-    async(_, thunkAPI) => {
-        try {
-            const token = localStorage.getItem('token');
-            const response = await axios.get(`${baseURL}/cars`, {
-                headers: {
-                    Authorization: token,
-                },
-            });
-            console.log(`this method is from the fetchCars`);
-            console.log(response.data);
-            return response.data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error);
-        }
+  'cars/fetchCars',
+  async (_, thunkAPI) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`${baseURL}/cars`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
     }
-)
+  },
+);
 
 export const deleteCar = createAsyncThunk(
-    'cars/deleteCar',
-    async(carId, thunkAPI) => {
-        try {
-            const token = localStorage.getItem('token');
-            const response = await axios.delete(`${baseURL}/cars/${carId}`, {
-                headers: {
-                    Authorization: token,
-                }, 
-            });
-            return response.data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error);
-        }
+  'cars/deleteCar',
+  async (carId, thunkAPI) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.delete(`${baseURL}/cars/${carId}`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
     }
+  },
 );

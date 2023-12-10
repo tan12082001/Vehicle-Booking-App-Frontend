@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import FormComponent from '../../../components/Form/FormComponent';
 import { SignInSchema, signInInitialValues } from '../../../models/signin.model';
@@ -13,11 +13,8 @@ const SignInForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values) => {
-    console.log(values);
     dispatch(loginUser(values));
     if (getAuthenticationToken()) {
-      console.log('token status:', getAuthenticationToken());
-      console.log('Login successful');
       navigate('/u/dashboard/home');
     }
   };

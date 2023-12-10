@@ -16,12 +16,9 @@ import {
 
 const HideableTextFormField = ({
   label,
-  lpiSrc,
-  rpiSrc,
   className,
   name,
   id,
-  // apiKey,
   ...props
 }) => {
   const [field, meta] = useField(name);
@@ -60,12 +57,9 @@ const HideableTextFormField = ({
 
 HideableTextFormField.propTypes = {
   label: PropTypes.string.isRequired,
-  lpiSrc: PropTypes.string.isRequired,
-  rpiSrc: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  // apiKey: PropTypes.string,
 };
 
 const VisibiltyToggleIconsArea = styled.div`

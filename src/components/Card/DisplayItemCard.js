@@ -2,86 +2,89 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { FaCog, FaArrowRight, FaSyncAlt } from 'react-icons/fa';
-import colorWheel from '../../components/asset/small_color_wheel.png';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import colorWheel from '../asset/small_color_wheel.png';
 import { RESERVE_CARS, USERS_DASHBOARD } from '../../routes/routeConstants';
 
-const DisplayItemCard = ({ id, name, description, pricePerHr, seating_capacity, imgSrc }) => {
+const DisplayItemCard = ({
+  id, name, description, pricePerHr, seatingCapacity, imgSrc,
+}) => {
   const username = useSelector((state) => state.authentication.authenticatedUser.username);
   const navigate = useNavigate();
   const [rotation, setRotation] = useState(0);
 
   const handleReserveClick = () => {
     navigate(`${USERS_DASHBOARD}/${RESERVE_CARS}`, {
-      state: { id, username, name }
+      state: { id, username, name },
     });
-  }
+  };
 
   const handleRotate = () => {
     setRotation((prevRotation) => (prevRotation + 90) % 360);
   };
   return (
     <Container>
-        <Image>
-          <Image1 src={imgSrc} alt={name} rotation={rotation} />
-          <RotateButton onClick={handleRotate}>
-            <Rotate>
-              <FaSyncAlt />
-              Rotate vehicle
-            </Rotate>
-          </RotateButton>
-        </Image>
-        <Content>
+      <Image>
+        <Image1 src={imgSrc} alt={name} rotation={rotation} />
+        <RotateButton onClick={handleRotate}>
+          <Rotate>
+            <FaSyncAlt />
+            Rotate vehicle
+          </Rotate>
+        </RotateButton>
+      </Image>
+      <Content>
         <Name>{name}</Name>
         <Description>
-            {description}
+          {description}
         </Description>
         <Table>
-            <TableRow color="#ccc">
+          <TableRow color="#ccc">
             <TableData>Rent Price per Hour</TableData>
             <TableData>{pricePerHr}</TableData>
-            </TableRow>
-            <TableRow color="#fff">
+          </TableRow>
+          <TableRow color="#fff">
             <TableData>Seating Capacity</TableData>
-            <TableData>{seating_capacity}</TableData>
-            </TableRow>
-            <TableRow color="#ccc">
+            <TableData>{seatingCapacity}</TableData>
+          </TableRow>
+          <TableRow color="#ccc">
             <TableData>Currently available for booking?</TableData>
             <TableData>Yes</TableData>
-            </TableRow>
-            <TableRow color="#fff">
+          </TableRow>
+          <TableRow color="#fff">
             <TableData>Minimum Rental Duration</TableData>
             <TableData>4 hrs</TableData>
-            </TableRow>
+          </TableRow>
         </Table>
         <BoldText>
-            5.9% APR Representative
+          5.9% APR Representative
         </BoldText>
         <ColorWheel>
           DISCOVER MORE MODEL
-          <img src={colorWheel} alt='Color Wheel'/>
+          <img src={colorWheel} alt="Color Wheel" />
         </ColorWheel>
-        <ConfigureButton onClick={handleReserveClick} >
-            <SettingIcon>
+        <ConfigureButton onClick={handleReserveClick}>
+          <SettingIcon>
             <FaCog />
-            </SettingIcon>
-            Reserve
-            <ArrowIcon>
+          </SettingIcon>
+          Reserve
+          <ArrowIcon>
             <FaArrowRight />
-            </ArrowIcon>
+          </ArrowIcon>
         </ConfigureButton>
-        </Content>
+      </Content>
     </Container>
-)};
+  );
+};
 
 DisplayItemCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   pricePerHr: PropTypes.number.isRequired,
-  seating_capacity: PropTypes.number.isRequired,
-  imgSrc: PropTypes.string.isRequired
+  seatingCapacity: PropTypes.number.isRequired,
+  imgSrc: PropTypes.string.isRequired,
 };
 
 const Container = styled.div`

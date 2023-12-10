@@ -19,11 +19,16 @@ export const DateField = ({
     handleChange(date);
   };
 
-  console.log('value fromt eh field', field.value);
   return (
     <DateFieldWrapper className={className}>
       <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
-      <StyledDatePicker {...field} {...props} selected={field.value} onChange={handleDatePickerChange} onBlur={() => helpers.setTouched(true)} />
+      <StyledDatePicker
+        {...field}
+        {...props}
+        selected={field.value}
+        onChange={handleDatePickerChange}
+        onBlur={() => helpers.setTouched(true)}
+      />
       {meta.touched && meta.error ? (
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
       ) : null}
@@ -39,10 +44,9 @@ DateField.propTypes = {
 };
 
 export const SelectField = ({
-  label, lpiSrc, rpiSrc, className, name, id, options, ...props
+  label, className, name, id, options, ...props
 }) => {
   const [field, meta] = useField(name);
-  console.log('selected city', field.value);
   return (
     <InputWrapper className={className}>
       <InputLabel htmlFor={props.name || props.id}>
@@ -56,8 +60,6 @@ export const SelectField = ({
             </option>
           ))}
         </Select>
-        {lpiSrc ? <LeftPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
-        {lpiSrc ? <RightPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
       </InputContainer>
       {meta.touched && meta.error ? (
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
@@ -68,8 +70,6 @@ export const SelectField = ({
 
 SelectField.propTypes = {
   label: PropTypes.string.isRequired,
-  lpiSrc: PropTypes.string.isRequired,
-  rpiSrc: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -77,12 +77,12 @@ SelectField.propTypes = {
     PropTypes.shape({
       value: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
 };
 
 export const TextInputField = ({
-  label, lpiSrc, rpiSrc, className, name, placeholder, id, ...props
+  label, className, name, placeholder, id, ...props
 }) => {
   const [field, meta] = useField(name);
 
@@ -93,8 +93,6 @@ export const TextInputField = ({
       </InputLabel>
       <InputContainer>
         <Input {...field} {...props} className={className || ''} placeholder={placeholder} />
-        {lpiSrc ? <LeftPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
-        {lpiSrc ? <RightPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
       </InputContainer>
       {meta.touched && meta.error ? (
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
@@ -105,8 +103,6 @@ export const TextInputField = ({
 
 TextInputField.propTypes = {
   label: PropTypes.string.isRequired,
-  lpiSrc: PropTypes.string.isRequired,
-  rpiSrc: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
@@ -115,8 +111,6 @@ TextInputField.propTypes = {
 
 export const TextAreaInputField = ({
   label,
-  lpiSrc,
-  rpiSrc,
   className,
   name,
   id,
@@ -134,8 +128,6 @@ export const TextAreaInputField = ({
           className={className || ''}
           rows={10}
         />
-        {lpiSrc ? <LeftPlaceHolderCardIcon alt="icon" src={lpiSrc} /> : null}
-        {rpiSrc ? <RightPlaceHolderCardIcon alt="icon" src={rpiSrc} /> : null}
       </InputContainer>
       {meta.touched && meta.error ? (
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
@@ -146,14 +138,14 @@ export const TextAreaInputField = ({
 
 TextAreaInputField.propTypes = {
   label: PropTypes.string.isRequired,
-  lpiSrc: PropTypes.string.isRequired,
-  rpiSrc: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
 
-export const FileInputField = ({ id, label, name, className, ...props }) => {
+export const FileInputField = ({
+  id, label, name, className, ...props
+}) => {
   const [field, meta, helpers] = useField(name);
 
   const handleChange = (event) => {
@@ -176,7 +168,7 @@ FileInputField.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
 };
 
 const DateFieldWrapper = styled.div`

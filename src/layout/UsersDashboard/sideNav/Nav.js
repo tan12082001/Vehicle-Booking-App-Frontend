@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
-import navConfig from "./navConfig";
-import { NavBoxItem } from "../../../components/Link/Link";
-import { logoutUser } from "../../../redux/thunk";
+import navConfig from './navConfig';
+import { NavBoxItem } from '../../../components/Link/Link';
+import { logoutUser } from '../../../redux/thunk';
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const Nav = () => {
   const handleLogout = () => {
     dispatch(logoutUser());
     console.log('log out successful');
-  }
+  };
   return (
     <Container>
       <NavbtnSection>
@@ -25,13 +25,13 @@ const Nav = () => {
         ))}
       </NavbtnSection>
       <LogoutBtn onClick={handleLogout}>
-        <NavBoxItem path={'/'}>
+        <NavBoxItem path="/">
           Logout
         </NavBoxItem>
       </LogoutBtn>
     </Container>
-  )
-}
+  );
+};
 
 export default Nav;
 
@@ -61,4 +61,3 @@ const NavbtnSection = styled.section`
 const LogoutBtn = styled.div`
   margin-top: 8rem;
 `;
-

@@ -1,7 +1,7 @@
 import './styles/App.css';
-import React, {useEffect} from 'react';
-import Router from './routes/routes';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Router from './routes/routes';
 import { fetchCarReservations, fetchCars } from './redux/thunk';
 
 function App() {

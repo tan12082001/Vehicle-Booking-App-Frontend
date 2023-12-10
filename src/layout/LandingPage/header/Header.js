@@ -1,10 +1,5 @@
-// import React, { useState, useRef, useEffect } from 'react';
 import React from 'react';
 import styled from '@emotion/styled';
-
-// import HamburgerMenu from './HamburgerMenu';
-import Nav from '../nav/Nav';
-import AuthNav from '../nav/AuthNav';
 
 const Header = () => (
   <StyledHeader>

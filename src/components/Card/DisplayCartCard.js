@@ -4,7 +4,9 @@ import styled from '@emotion/styled';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const DisplayCartCard = ({ id, imgSrc, name, shortNote }) => (
+const DisplayCartCard = ({
+  id, imgSrc, name, shortNote,
+}) => (
   <Container to={`/u/dashboard/item-details/${id}`}>
     <Image src={imgSrc} alt={name} />
     <Content>
@@ -26,7 +28,8 @@ const DisplayCartCard = ({ id, imgSrc, name, shortNote }) => (
 );
 
 DisplayCartCard.propTypes = {
-  imageName: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  imgSrc: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   shortNote: PropTypes.string.isRequired,
 };

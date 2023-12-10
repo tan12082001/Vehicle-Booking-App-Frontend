@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchCarReservations, postReserveCar } from '../thunk';
 
 const initialState = {
-  reservation: {},
   reservations: [],
+  newReservationName: '',
   status: 'idle',
   error: null,
 };
@@ -11,7 +11,11 @@ const initialState = {
 const reservationSlice = createSlice({
   name: 'reservation',
   initialState,
-  reducers: {},
+  reducers: {
+    getNewReservationName: (state, action) => {
+      state.newReservationName = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(postReserveCar.pending, (state) => {
@@ -20,7 +24,7 @@ const reservationSlice = createSlice({
       })
       .addCase(postReserveCar.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.reservation = action.payload.data;
+        state.reservations = [...state.reservations, action.payload.data];
       })
       .addCase(postReserveCar.rejected, (state, action) => {
         state.status = 'failed';
@@ -33,8 +37,6 @@ const reservationSlice = createSlice({
       .addCase(fetchCarReservations.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.reservations = action.payload;
-        console.log('the reservations: ')
-        console.log(state.reservations);
       })
       .addCase(fetchCarReservations.rejected, (state, action) => {
         state.status = 'failed';
@@ -43,4 +45,5 @@ const reservationSlice = createSlice({
   },
 });
 
+export const { getNewReservationName } = reservationSlice.actions;
 export default reservationSlice.reducer;

@@ -1,21 +1,20 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Img from '../../../components/Img/Img';
 import AuthNav from '../../../layout/LandingPage/nav/AuthNav';
 
-import bicycleImage from '../../../../src/components/asset/bicycle.jpg'
+import bicycleImage from '../../../components/asset/bicycle.jpg';
 
 const Home = () => (
   <Container>
     <Image>
-      <img src={bicycleImage} alt='Bicycle'/>
+      <img src={bicycleImage} alt="Bicycle" />
     </Image>
     <Paragraph>CarBooky</Paragraph>
     <Auth>
       <AuthNav />
     </Auth>
   </Container>
-)
+);
 
 export default Home;
 

@@ -1,33 +1,34 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { format } from 'date-fns';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import FormComponent from '../Form/FormComponent';
 import { ReserveCarSchema, reserveCarInitialValues } from '../../models/reserveCar.model';
 import { DateField, SelectField, TextInputField } from '../Form/FormField';
-
 import FormSubmitButton from '../Button/FormSubmitButton';
 import { postReserveCar } from '../../redux/thunk';
+import { MY_RESERVATIONS, USERS_DASHBOARD } from '../../routes/routeConstants';
+import { getNewReservationName } from '../../redux/reservations/reservationSlice';
 
-const ReserveCarFrom = ({id, username, name}) => {
+const ReserveCarFrom = ({ id, username, name }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const status = useSelector((state) => state.reservation.status);
 
   const handleSubmit = (values) => {
     const formattedDate = format(values.selectedDate, 'EEE, dd MMM yyyy');
     const reservationData = {
       my_reservation: {
-          date: formattedDate,
-          city: values.selectedCity
-        }
+        date: formattedDate,
+        city: values.selectedCity,
+      },
+    };
+    dispatch(postReserveCar({ carId: id, reservationData }));
+    if (status === 'succeeded') {
+      dispatch(getNewReservationName(name));
+      navigate(`${USERS_DASHBOARD}/${MY_RESERVATIONS}`);
     }
-    console.log('id', id)
-    dispatch(postReserveCar({ carId: id, reservationData}));
-    console.log('Reservation successful');
-    console.log(reservationData);
-    console.log('Picked date is:', formattedDate);
-    console.log('Picked City is: ', values.selectedCity);
-    console.log('User name:', username);
-    console.log('car name: ', name)
   };
 
   const options = [

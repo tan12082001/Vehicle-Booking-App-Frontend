@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 
 import styled from '@emotion/styled';
-import DisplayCartCard from '../../components/Card/DisplayCartCard';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import colorWheel from '../../../src/components/asset/small_color_wheel.png'
 import { useSelector } from 'react-redux';
+import DisplayCartCard from '../../components/Card/DisplayCartCard';
+import colorWheel from '../../components/asset/small_color_wheel.png';
 
 const DummyCards = [
   {
-    imageName: {colorWheel},
+    imageName: { colorWheel },
     name: 'Bicycle',
     shortNote:
       'The VESPA C20 is a stunning moped with a modern electronic system and more',
   },
   {
-    imageName: {colorWheel},
+    imageName: { colorWheel },
     name: 'Bicycle',
     shortNote:
       'The VESPA C20 is a stunning moped with a modern electronic system and more',
   },
   {
-    imageName: {colorWheel},
+    imageName: { colorWheel },
     name: 'Bicycle',
     shortNote:
       'The VESPA C20 is a stunning moped with a modern electronic system and more',
   },
   {
-    imageName: {colorWheel},
+    imageName: { colorWheel },
     name: 'Bicycle',
     shortNote:
       'The VESPA C20 is a stunning moped with a modern electronic system and more',
@@ -35,7 +35,7 @@ const DummyCards = [
 
 const DashboardHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const cars = useSelector((state) => state.cars.cars)
+  const cars = useSelector((state) => state.cars.cars);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 3) % DummyCards.length);
@@ -59,10 +59,10 @@ const DashboardHome = () => {
           {cars.slice(currentIndex, currentIndex + 3).map((data, index) => (
             <DisplayCartCard
               key={index}
-              imageName={data.imageName}
+              id={data.id}
               name={data.name}
               shortNote={data.description}
-              car={data}
+              img={colorWheel}
             />
           ))}
         </CardContainer>
