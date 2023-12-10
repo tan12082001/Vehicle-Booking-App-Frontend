@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Form, Formik } from 'formik';
 import styled from '@emotion/styled';
 
-const FormComponent = ({
+const FormComponent2 = ({
   initialValues,
   schema,
   onSubmit,
@@ -20,22 +20,22 @@ const FormComponent = ({
   </Formik>
 );
 
-FormComponent.propTypes = {
+FormComponent2.propTypes = {
   initialValues: PropTypes.shape({
-    userName: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    confirm_password: PropTypes.string.isRequired,
-    selectedDate: PropTypes.instanceOf(Date).isRequired,
-    selectedCity: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    pricePerHr: PropTypes.string.isRequired,
+    sitting_capacity: PropTypes.number.isRequired,
+    rental_duration: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
   schema: PropTypes.shape({
-    userName: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    confirm_password: PropTypes.string.isRequired,
-    selectedDate: PropTypes.instanceOf(Date).isRequired,
-    selectedCity: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    pricePerHr: PropTypes.string.isRequired,
+    sitting_capacity: PropTypes.number.isRequired,
+    rental_duration: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
@@ -62,4 +62,4 @@ const StyledForm = styled(Form)`
   }
 `;
 
-export default FormComponent;
+export default FormComponent2;

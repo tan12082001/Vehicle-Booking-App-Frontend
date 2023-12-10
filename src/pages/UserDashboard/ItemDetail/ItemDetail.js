@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import DisplayItemCard from '../../../components/Card/DisplayItemCard';
+import styled from '@emotion/styled';
+import Bike from '../../../../src/components/asset/bike.jpg'
 import { useParams } from 'react-router-dom';
 import img from '../../../components/asset/bike.jpg'
 import { useSelector } from 'react-redux';
@@ -36,3 +38,10 @@ ItemDetail.propTypes = {
 };
 
 export default ItemDetail;
+
+const Container = styled.div`
+//   border: 1px solid blue;
+  margin-right: -5rem;
+  margin-bottom: -5rem;
+//   margin-top: -3rem;
+`;

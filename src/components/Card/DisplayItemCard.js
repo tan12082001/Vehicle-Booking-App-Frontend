@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { FaCog, FaArrowRight, FaSyncAlt } from 'react-icons/fa';
+import colorWheel from '../../components/asset/small_color_wheel.png';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RESERVE_CARS, USERS_DASHBOARD } from '../../routes/routeConstants';
@@ -25,7 +26,10 @@ const DisplayItemCard = ({ id, name, description, pricePerHr, seating_capacity, 
         <Image>
           <Image1 src={imgSrc} alt={name} rotation={rotation} />
           <RotateButton onClick={handleRotate}>
-            <FaSyncAlt />
+            <Rotate>
+              <FaSyncAlt />
+              Rotate vehicle
+            </Rotate>
           </RotateButton>
         </Image>
         <Content>
@@ -55,7 +59,8 @@ const DisplayItemCard = ({ id, name, description, pricePerHr, seating_capacity, 
             5.9% APR Representative
         </BoldText>
         <ColorWheel>
-            DISCOVER MORE MODEL
+          DISCOVER MORE MODEL
+          <img src={colorWheel} alt='Color Wheel'/>
         </ColorWheel>
         <ConfigureButton onClick={handleReserveClick} >
             <SettingIcon>
@@ -84,16 +89,16 @@ const Container = styled.div`
   display: flex;
   border-radius: 8px;
   text-align: right;
-//   margin-right: -20rem;
 //   width: 40%;
-  overflow: hidden;
+//   overflow: hidden;
 //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const Image = styled.div`
-  border: 1px solid blue;
+//   border: 1px solid blue;
   width: 40rem;
-  margin-right: 2rem;
+  margin-right: 5rem;
+  margin-top: 3rem;
   postion: relative;
 `;
 
@@ -107,13 +112,23 @@ const Image1 = styled.img`
 
 const RotateButton = styled.button`
   position: absolute;
-  bottom: 1rem;
-  right: 55rem;
-  background-color: #fff;
+  top: 40rem;
+  right: 50rem;
+  background-color: white;
   border: none;
   border-radius: 50%;
-  padding: 0.5rem;
+//   padding: 0.5rem;
   cursor: pointer;
+`;
+
+const Rotate = styled.div`
+//   border: 1px solid blue;
+  color: green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50%;
+  padding: 10px;
 `;
 
 const Content = styled.div`
@@ -123,17 +138,18 @@ const Content = styled.div`
 const Name = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  margin-top: -4rem;
 `;
 
 const Description = styled.p`
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Table = styled.table`
   width: 100%;
   margin-bottom: 2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 `;
 
 const TableRow = styled.tr`
@@ -141,7 +157,7 @@ const TableRow = styled.tr`
 `;
 
 const TableData = styled.td`
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
 `;
 
@@ -153,7 +169,13 @@ const BoldText = styled.div`
 
 const ColorWheel = styled.div`
   /* Add styles for the color wheel */
-  margin-bottom: 5rem;
+//   border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+//   margin-bottom: 2rem;
+  margin-left: 9rem;
+  width: 15rem;
+//   height: 1rem;
 `;
 
 const ConfigureButton = styled.button`
@@ -162,7 +184,8 @@ const ConfigureButton = styled.button`
   padding: 8px 16px;
   display: flex;
   align-items: center;
-  margin-left: 15rem;
+  margin-left: 10rem;
+  margin-top: 0.8rem;
   border: none;
   border-radius: 5rem;
   cursor: pointer;

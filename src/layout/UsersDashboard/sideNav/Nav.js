@@ -42,6 +42,8 @@ const Container = styled.nav`
   background-color: white;
   flex-direction: column;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+  position: fixed;
+  height: 100%;
   gap: 3.8rem;
   top: 0;
 
@@ -57,6 +59,6 @@ const NavbtnSection = styled.section`
 `;
 
 const LogoutBtn = styled.div`
-  margin-top: auto;
+  margin-top: 8rem;
 `;
 
