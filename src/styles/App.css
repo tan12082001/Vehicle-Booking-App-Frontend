@@ -66,3 +66,21 @@ select.css-zdsokt {
   border-radius: 3rem;
   min-width: 150px;
 }
+
+.my-reservations-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.each-reservation-div {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: #fff;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}

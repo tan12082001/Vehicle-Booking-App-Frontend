@@ -1,16 +1,15 @@
 import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
 import Nav from './sideNav/Nav';
 
-const UsersDashboardLayout = () => {
-  const location = useLocation();
-  const { pathname } = location;
-  const splitLocation = pathname.split('/');
+const UsersDashboardLayout = () => (
+  // const location = useLocation();
+  // const { pathname } = location;
 
-  return (
+  <>
     <Container>
       <Nav />
       <Section>
@@ -19,8 +18,9 @@ const UsersDashboardLayout = () => {
         </MainContent>
       </Section>
     </Container>
-  );
-};
+  </>
+
+);
 
 export default UsersDashboardLayout;
 

@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReserveCarFrom from './ReserveCarForm';
 
-const ReserveCar = () => (
+const ReserveCar = ({ id, username, name }) => (
   <div className="reserve-car-outer">
     <div className="testing-backdrop">
       <div className="reserve-car-inner">
@@ -19,10 +20,16 @@ const ReserveCar = () => (
           the Vehicle. We have services all over the globe which some include test-riding facilites.
           To book the car select both City and Date, please use the selector below.
         </p>
-        <ReserveCarFrom />
+        <ReserveCarFrom id={id} username={username} name={name} />
       </div>
     </div>
   </div>
 );
+
+ReserveCar.propTypes = {
+  id: PropTypes.number.isRequired,
+  username: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default ReserveCar;

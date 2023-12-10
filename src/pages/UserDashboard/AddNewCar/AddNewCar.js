@@ -2,16 +2,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 import AddNewCarForm from './AddNewCarForm';
 
-const AddNewCar = () => {
-  return(
-    <Container>
-      <SignUpContent>
-        <Title>CREATE A VEHICLE</Title>
-        <AddNewCarForm />
-      </SignUpContent>
-    </Container>
-  )
-}
+const AddNewCar = () => (
+  <Container>
+    <SignUpContent>
+      <Title>CREATE A VEHICLE</Title>
+      <AddNewCarForm />
+    </SignUpContent>
+  </Container>
+);
 
 export default AddNewCar;
 
@@ -37,4 +35,3 @@ const SignUpContent = styled.div`
 const Title = styled.p`
   font-size: 1rem;
 `;
-

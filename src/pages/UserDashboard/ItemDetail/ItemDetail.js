@@ -1,26 +1,29 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Bike from '../../../components/asset/bike.jpg';
 import DisplayItemCard from '../../../components/Card/DisplayItemCard';
-import styled from '@emotion/styled';
-import Bike from '../../../../src/components/asset/bike.jpg'
 
 const ItemDetail = () => {
-  return(
-    <Container>
-      <DisplayItemCard
-        name='VESPA 946'
-        amount='20'
-        description='-$350 deposit upon any Vespa purchase'
-        imgSrc={Bike}
-      />
-    </Container>
-  )
-}
+  const { id } = useParams();
+  const cars = useSelector((state) => state.cars.cars);
+  const numericId = parseInt(id, 10);
+  const car = cars.find((car) => car.id === numericId);
+  const {
+    name, description, pricePerHr, seatingCapacity,
+  } = car;
+
+  return (
+    <DisplayItemCard
+      key={id}
+      id={id}
+      name={name}
+      pricePerHr={pricePerHr}
+      description={description}
+      seatingCapacity={seatingCapacity}
+      imgSrc={Bike}
+    />
+  );
+};
 
 export default ItemDetail;
-
-const Container = styled.div`
-//   border: 1px solid blue;
-  margin-right: -5rem;
-  margin-bottom: -5rem;
-//   margin-top: -3rem;
-`;

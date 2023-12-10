@@ -1,5 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
 import AuthLayout from '../layout/Auth/AuthLayout';
 import LandingPageLayout from '../layout/LandingPage/LandingPageLayout';
 import ForgotPassword from '../pages/Auth/ForgotPassword/ForgotPassword';
@@ -21,7 +22,7 @@ import {
   USERDASHBOARDHOME,
   USERS_DASHBOARD,
   ADD_NEW_CAR,
-  DELETE_RESERVATION,
+  DELETE_CAR,
   ITEM_DETAIL,
   CONTACT,
   NOTFOUND,
@@ -29,10 +30,15 @@ import {
 import UsersDashboardLayout from '../layout/UsersDashboard/UsersDashboardLayout';
 import DashboardHome from '../pages/UserDashboard/DashboardHome';
 import AddNewCar from '../pages/UserDashboard/AddNewCar/AddNewCar';
-import DeleteReservation from '../pages/LandingPage/DeleteReservation/DeleteReservation';
 import Contact from '../pages/LandingPage/Contact/Contact';
+import DeleteList from '../components/DeleteCars/DeleteList';
+import LoadingText from '../pages/LoadingText';
 
 export default function Router() {
+  const authenticationStatus = useSelector((state) => state.authentication.status);
+  const isAuthenticated = authenticationStatus === 'succeeded';
+  const isLoading = authenticationStatus === 'loading';
+
   return useRoutes([
     {
       path: HOME,
@@ -42,8 +48,13 @@ export default function Router() {
       ],
     },
 
-    {
-      path:  USERS_DASHBOARD,
+    isLoading && {
+      path: USERS_DASHBOARD,
+      element: <LoadingText />,
+    },
+
+    isAuthenticated && {
+      path: USERS_DASHBOARD,
       element: <UsersDashboardLayout />,
       children: [
         { path: USERS_DASHBOARD, element: <Navigate to={USERDASHBOARDHOME} /> },
@@ -51,13 +62,13 @@ export default function Router() {
         { path: MY_RESERVATIONS, element: <MyReservations /> },
         { path: RESERVE_CARS, element: <ReserveCars /> },
         { path: ADD_NEW_CAR, element: <AddNewCar /> },
-        { path: ITEM_DETAIL, element: <ItemDetail />},
-        { path: DELETE_RESERVATION, element: <DeleteReservation /> },
+        { path: `${ITEM_DETAIL}/:id`, element: <ItemDetail /> },
+        { path: DELETE_CAR, element: <DeleteList /> },
         { path: CONTACT, element: <Contact /> },
 
         { path: NOTFOUND, element: <NotFound404 /> },
         { path: '*', element: <Navigate to={`/${NOTFOUND}`} replace /> },
-      ]
+      ],
     },
 
     {

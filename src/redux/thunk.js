@@ -37,10 +37,6 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await axios.post(`${baseURL}/users/sign_in`, { user });
       const { data, headers } = response;
-      console.log('the data from async method:');
-      console.log(data);
-      console.log('the headers:');
-      console.log(headers);
 
       if (response.status === 200 || response.status === 201) {
         setAuthenticationToken({ headers });
@@ -71,15 +67,16 @@ export const registerUser = createAsyncThunk('auth/register', async (user, thunk
 
 export const logoutUser = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    const response = await axios.delete(`${baseURL}/users`, {
+    // const token = getAuthenticationToken();
+    // const authToken = token ? token.replace('Bearer ', '') : '';
+    // console.log('authtoken:',authToken);
+
+    const response = await axios.delete(`${baseURL}/users/sign_out`, {
       headers: { Authorization: localStorage.getItem('token') },
     });
 
+    removeAuthenticationToken();
     const { status, message } = await handleResponse(response);
-
-    if (status === 'succeeded') {
-      removeAuthenticationToken();
-    }
 
     return { status, message };
   } catch (error) {
@@ -110,18 +107,74 @@ export const postReserveCar = createAsyncThunk(
 );
 
 export const fetchCarReservations = createAsyncThunk(
-    'reservations/fetchCarReservations',
-    async (_, thunkAPI) => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get(`${baseURL}/my_reservations`, {
-          headers: {
-            Authorization: token,
-          },
-        });
-        return response.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error);
+  'reservations/fetchCarReservations',
+  async (_, thunkAPI) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`${baseURL}/my_reservations`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+export const postNewCar = createAsyncThunk(
+  'cars/newCar',
+  async (carData, thunkAPI) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.post(`${baseURL}/cars`, carData, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      const { data } = await handleResponse(response);
+
+      if (response.status === 200 || response.status === 201) {
+        return { data, status: 'succeeded' };
       }
-    },
+      return { status: 'failed', error: 'Request failed', message: data.message };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+export const fetchCars = createAsyncThunk(
+  'cars/fetchCars',
+  async (_, thunkAPI) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`${baseURL}/cars`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+export const deleteCar = createAsyncThunk(
+  'cars/deleteCar',
+  async (carId, thunkAPI) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.delete(`${baseURL}/cars/${carId}`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
 );

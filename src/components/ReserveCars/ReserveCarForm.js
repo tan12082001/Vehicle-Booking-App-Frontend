@@ -1,30 +1,34 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { format } from 'date-fns';
-// import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import FormComponent from '../Form/FormComponent';
 import { ReserveCarSchema, reserveCarInitialValues } from '../../models/reserveCar.model';
 import { DateField, SelectField, TextInputField } from '../Form/FormField';
-
 import FormSubmitButton from '../Button/FormSubmitButton';
-// import { reserveCar } from '../../redux/thunk';
+import { postReserveCar } from '../../redux/thunk';
+import { MY_RESERVATIONS, USERS_DASHBOARD } from '../../routes/routeConstants';
+import { getNewReservationName } from '../../redux/reservations/reservationSlice';
 
-const ReserveCarFrom = () => {
-//   const dispatch = useDispatch();
-//   const { carId } = useParams();
+const ReserveCarFrom = ({ id, username, name }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const status = useSelector((state) => state.reservation.status);
 
   const handleSubmit = (values) => {
     const formattedDate = format(values.selectedDate, 'EEE, dd MMM yyyy');
-    // const reservationData = {
-    //     userName: values.userName,
-    //     selectedDate: formattedDate,
-    //     selectedCity: values.selectedCity
-    // }
-    // dispatch(reserveCar({carId, data: reservationData}));
-    console.log('Reservation successful');
-    console.log(values);
-    console.log('Picked date is:', formattedDate);
-    console.log('Picked City is: ', values.selectedCity);
-    console.log('User name:', values.userName);
+    const reservationData = {
+      my_reservation: {
+        date: formattedDate,
+        city: values.selectedCity,
+      },
+    };
+    dispatch(postReserveCar({ carId: id, reservationData }));
+    if (status === 'succeeded') {
+      dispatch(getNewReservationName(name));
+      navigate(`${USERS_DASHBOARD}/${MY_RESERVATIONS}`);
+    }
   };
 
   const options = [
@@ -35,18 +39,15 @@ const ReserveCarFrom = () => {
     { value: 'City E', label: 'City E' },
   ];
 
-  const testUsername = 'Fill User Name Boo';
-  // const testCarname = 'Fill Car Name Booo'
-
   return (
     <FormComponent
-      initialValues={{ ...reserveCarInitialValues, userName: testUsername }}
+      initialValues={reserveCarInitialValues}
       schema={ReserveCarSchema}
       onSubmit={handleSubmit}
       className="book-now-form"
     >
-      <TextInputField label="Username" name="userName" />
-      <TextInputField label="Car Name" name="carName" />
+      <TextInputField label="Username" name="username" value={username} />
+      <TextInputField label="Car Name" name="name" value={name} />
       <DateField label="Select Date" name="selectedDate" />
       <div className="city-submit-div">
         <SelectField className="select-city-field" label="Select City" name="selectedCity" options={options} />
@@ -56,6 +57,12 @@ const ReserveCarFrom = () => {
       </div>
     </FormComponent>
   );
+};
+
+ReserveCarFrom.propTypes = {
+  id: PropTypes.number.isRequired,
+  username: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default ReserveCarFrom;
