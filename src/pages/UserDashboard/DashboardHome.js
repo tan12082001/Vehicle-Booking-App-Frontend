@@ -3,28 +3,29 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import DisplayCartCard from '../../components/Card/DisplayCartCard';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import colorWheel from '../../../src/components/asset/small_color_wheel.png'
 
 const DummyCards = [
   {
-    imageName: 'bicycle',
+    imageName: {colorWheel},
     name: 'Bicycle',
     shortNote:
       'The VESPA C20 is a stunning moped with a modern electronic system and more',
   },
   {
-    imageName: 'bicycle',
+    imageName: {colorWheel},
     name: 'Bicycle',
     shortNote:
       'The VESPA C20 is a stunning moped with a modern electronic system and more',
   },
   {
-    imageName: 'bicycle',
+    imageName: {colorWheel},
     name: 'Bicycle',
     shortNote:
       'The VESPA C20 is a stunning moped with a modern electronic system and more',
   },
   {
-    imageName: 'bicycle',
+    imageName: {colorWheel},
     name: 'Bicycle',
     shortNote:
       'The VESPA C20 is a stunning moped with a modern electronic system and more',
@@ -56,7 +57,7 @@ const DashboardHome = () => {
           {DummyCards.slice(currentIndex, currentIndex + 3).map((data, index) => (
             <DisplayCartCard
               key={index}
-              imageName={data.imageName}
+              imgSrc={data.imageName}
               name={data.name}
               shortNote={data.shortNote}
             />
@@ -82,7 +83,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: 2rem;
+  margin: 3.5rem;
+  // border: 1px solid blue;
 `;
 
 const CardContainer = styled.div`
@@ -103,11 +105,12 @@ const Arrow = styled.div`
 `;
 
 const ArrowLeft = styled(Arrow)`
-  left: 19rem;
+  left: 15rem;
 `;
 
 const ArrowRight = styled(Arrow)`
   right: 2rem;
+  top: 22rem;
 `;
 
 const Title = styled.div`

@@ -25,17 +25,14 @@ const UsersDashboardLayout = () => {
 export default UsersDashboardLayout;
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: 18rem auto;
-  height: 100vh;
-  width: 100vw;
-  overflow: scroll;
   background-color: white;
+  // border: 1px solid blue;
 `;
 
 const Section = styled.section`
-  /* border: 2px solid yellow; */
-  width: 100%;
+  // border: 2px solid blue;
+  width: 80%;
+  margin-left: 17rem;
 `;
 
 const MainContent = styled.main`
