@@ -73,7 +73,7 @@
 
 We are a Team of Four, so we used the custom Kanban board to divide tasks and keep track of progress.
 
-- [Kanban Board Initial version]()
+- [Kanban Board Initial version](https://github.com/tan12082001/Vehical-Appointment-App-Backend/assets/81354942/f57bf009-046a-4c8a-817d-5b3cb163421c)
 - [Kanban Board Final Version]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
