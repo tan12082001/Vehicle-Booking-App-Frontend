@@ -23,9 +23,9 @@ export const DateField = ({
     <DateFieldWrapper className={className}>
       <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
       <StyledDatePicker
+        /* eslint-disable react/jsx-props-no-spreading */
         {...field}
         {...props}
-        selected={field.value}
         onChange={handleDatePickerChange}
         onBlur={() => helpers.setTouched(true)}
       />
@@ -44,16 +44,20 @@ DateField.propTypes = {
 };
 
 export const SelectField = ({
-  label, className, name, id, options, ...props
+  label, className, name, id, options, ...rest
 }) => {
   const [field, meta] = useField(name);
   return (
     <InputWrapper className={className}>
-      <InputLabel htmlFor={props.name || props.id}>
+      <InputLabel htmlFor={rest.name || rest.id}>
         {label}
       </InputLabel>
       <InputContainer>
-        <Select {...field} {...props}>
+        <Select
+          {...field}
+          {...rest}
+          options={field.options}
+        >
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -82,7 +86,7 @@ SelectField.propTypes = {
 };
 
 export const TextInputField = ({
-  label, className, name, placeholder, id, ...props
+  label, name, className, placeholder, id, ...props
 }) => {
   const [field, meta] = useField(name);
 
@@ -92,7 +96,12 @@ export const TextInputField = ({
         {label}
       </InputLabel>
       <InputContainer>
-        <Input {...field} {...props} className={className || ''} placeholder={placeholder} />
+        <Input
+          {...field}
+          {...props}
+          className={className || ''}
+          placeholder={placeholder}
+        />
       </InputContainer>
       {meta.touched && meta.error ? (
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
@@ -150,13 +159,20 @@ export const FileInputField = ({
 
   const handleChange = (event) => {
     const file = event.currentTarget.files[0];
-    helpers.setValue(file);
+    // helpers.setValue(file);
+    console.log('FIle', file);
   };
 
   return (
     <FileInputWrapper className={className}>
       <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
-      <StyledFileInput type="file" {...field} {...props} onChange={handleChange} onBlur={() => helpers.setTouched(true)} />
+      <StyledFileInput
+        type="file"
+        {...field}
+        {...props}
+        onChange={handleChange}
+        onBlur={() => helpers.setTouched(true)}
+      />
       {meta.touched && meta.error ? (
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
       ) : null}

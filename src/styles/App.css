@@ -84,3 +84,61 @@ select.css-zdsokt {
   gap: 10px;
   justify-content: space-between;
 }
+
+/* Styles for screens up to 480px wide */
+@media (max-width: 480px) {
+  .signin-page-outer,
+  .signup-page-outer,
+  .my-reservations-page-outer,
+  .reserve-cars-page-outer {
+    gap: 1rem;
+  }
+
+  p.user-headline {
+    width: 90%;
+  }
+
+  .reserve-page-head-description {
+    width: 90%;
+  }
+
+  .city-submit-div {
+    gap: 1rem;
+    padding: 10px;
+  }
+}
+
+/* Styles for screens between 480px and 760px wide */
+@media (min-width: 481px) and (max-width: 760px) {
+  .signin-page-outer,
+  .signup-page-outer,
+  .my-reservations-page-outer,
+  .reserve-cars-page-outer {
+    gap: 1.5rem;
+  }
+
+  p.user-headline {
+    width: 80%;
+  }
+
+  .reserve-page-head-description {
+    width: 80%;
+  }
+
+  .city-submit-div {
+    gap: 1.5rem;
+    padding: 15px;
+  }
+}
+
+/* Styles for screens 760px wide and above */
+@media (min-width: 761px) {
+  .reserve-car-inner {
+    padding: 2rem;
+  }
+
+  .each-reservation-div {
+    padding: 1rem 3rem;
+    gap: 15px;
+  }
+}

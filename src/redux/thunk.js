@@ -15,9 +15,9 @@ export const getAuthenticationToken = () => localStorage.getItem('token') || fal
 const removeAuthenticationToken = () => localStorage.removeItem('token');
 
 const handleResponse = async (response) => {
-  const { status, data, headers } = response;
+  const { status, data } = response;
 
-  console.log('Response headers: ', headers);
+  // console.log('Response headers: ', headers);
 
   if (status === 200 || status === 201) {
     return { data, status: 'succeeded' };
@@ -133,6 +133,7 @@ export const postNewCar = createAsyncThunk(
           Authorization: token,
         },
       });
+      console.log('Response', response);
       const { data } = await handleResponse(response);
 
       if (response.status === 200 || response.status === 201) {
