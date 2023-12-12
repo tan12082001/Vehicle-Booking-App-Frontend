@@ -9,18 +9,18 @@ const ItemDetail = () => {
   const cars = useSelector((state) => state.cars.cars);
   const numericId = parseInt(id, 10);
   const car = cars.find((car) => car.id === numericId);
-  const {
-    name, description, pricePerHr, seatingCapacity,
-  } = car;
+  // const {
+  //   name, description, pricePerHr, seatingCapacity,
+  // } = car;
 
   return (
     <DisplayItemCard
       key={id}
       id={id}
-      name={name}
-      pricePerHr={pricePerHr}
-      description={description}
-      seatingCapacity={seatingCapacity}
+      name={car.name}
+      pricePerHr={car.pricePerHr}
+      description={car.description}
+      seatingCapacity={car.seating_capacity}
       imgSrc={Bike}
     />
   );

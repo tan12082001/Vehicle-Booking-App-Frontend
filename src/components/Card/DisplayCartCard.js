@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const DisplayCartCard = ({
   id, imgSrc, name, shortNote,
 }) => (
-  <Container to={`/u/dashboard/item-details/${id}`}>
+  <Container to={`/u/dashboard/item-details/${id}`} data-testid={`each-item-container-link-${id}`}>
     <Image src={imgSrc} alt={name} />
     <Content>
       <Name>{name}</Name>
