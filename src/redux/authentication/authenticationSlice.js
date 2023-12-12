@@ -18,7 +18,7 @@ const authenticationSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.authenticatedUser = action.payload.data;
-        state.status = action.payload.status === 'succeeded' ? 'succeeded' : 'failed';
+        state.status = 'succeeded';
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.status = 'failed';
@@ -28,13 +28,8 @@ const authenticationSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        if (action.payload.status === 'failed') {
-          state.status = 'failed';
-          state.error = action.payload.error;
-        } else {
-          state.authenticatedUser = action.payload.user;
-          state.status = action.payload.status || 'succeeded';
-        }
+        state.authenticatedUser = action.payload.user;
+        state.status = 'succeeded';
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = 'failed';
@@ -45,9 +40,9 @@ const authenticationSlice = createSlice({
       })
       .addCase(logoutUser.fulfilled, (state, action) => {
         state.authenticatedUser = {};
-        // console.log('user has been logged out');
-        state.status = action.payload.status;
-        // console.log('current status is:', state.status);
+        if (action.payload.status === 200) {
+          state.status = 'idle';
+        }
       })
       .addCase(logoutUser.rejected, (state, action) => {
         state.status = 'failed';

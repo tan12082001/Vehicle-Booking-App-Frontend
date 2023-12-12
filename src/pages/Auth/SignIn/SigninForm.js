@@ -7,16 +7,15 @@ import FormSubmitButton from '../../../components/Button/FormSubmitButton';
 import { TextInputField } from '../../../components/Form/FormField';
 
 import HideableTextFormField from '../../../components/Form/HideableTextFormField';
-import { getAuthenticationToken, loginUser } from '../../../redux/thunk';
+import { loginUser } from '../../../redux/thunk';
 
 const SignInForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values) => {
     dispatch(loginUser(values));
-    if (getAuthenticationToken()) {
-      navigate('/u/dashboard/home');
-    }
+    localStorage.setItem('authenticationStatus', 'succeeded');
+    navigate('/u/dashboard/home');
   };
 
   return (

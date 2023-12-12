@@ -14,8 +14,7 @@ const SignUpForm = () => {
   const handleSubmit = (values) => {
     console.log(values);
     dispatch(registerUser(values));
-    console.log('Sigup successful');
-    navigate('/u/dashboard/home');
+    navigate('/account/signin');
   };
 
   return (

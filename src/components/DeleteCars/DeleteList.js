@@ -4,31 +4,16 @@ import EachCarDelete from './EachCarDelete';
 
 const DeleteList = () => {
   const cars = useSelector((state) => state.cars.cars);
-  //   const mockData = [
-  //     {
-  //         "id": 3,
-  //         "name": "Car1",
-  //         "description": "Description for Car1",
-  //         "removed": false
-  //     },
-  //     {
-  //         "id": 4,
-  //         "name": "Car1111",
-  //         "description": "Description for Car1",
-  //         "removed": false
-  //     }
-  // ];
-  // const cars = mockData;
 
   return (
     <>
-      <div>
-        <h1>Cars List</h1>
+      <div className="delete-cars-list">
+        <h1 id="delete-list-id">Cars List</h1>
         <table>
           <thead>
             <tr>
-              <th>Car Title</th>
-              <th>Status</th>
+              <th id="delete-list-car-title">Car Title</th>
+              <th id="delete-list-car-status">Status</th>
             </tr>
           </thead>
           <tbody>

@@ -15,6 +15,6 @@ const LandingPageLayout = () => (
 export default LandingPageLayout;
 
 const Main = styled.main`
-  background-color: yellow;
+  background-color: #ffd700;
   border: 1rem solid yellow;
 `;

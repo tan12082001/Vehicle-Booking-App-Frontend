@@ -19,7 +19,7 @@ const EachCarDelete = ({ car }) => {
     dispatch(removeMarkStatus(id));
   };
   return (
-    <tr>
+    <tr className="delete-list-each-car">
       <td>{name}</td>
       <td><button type="button" className={removed ? 'removed-mark' : 'remove-mark'} onClick={handleDelete} disabled={removed}>{removed ? 'removed' : 'DELETE'}</button></td>
     </tr>

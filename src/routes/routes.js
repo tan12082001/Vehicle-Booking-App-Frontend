@@ -37,8 +37,10 @@ import DeleteList from '../components/DeleteCars/DeleteList';
 export default function Router() {
   const authenticationStatus = useSelector((state) => state.authentication.status);
   const isAuthenticated = authenticationStatus === 'succeeded';
-  // const isLoading = authenticationStatus === 'loading';
+  const storedStatus = localStorage.getItem('authenticationStatus');
+  const persistedUserAuth = storedStatus === 'succeeded';
 
+  const finalIsAuthenticated = isAuthenticated || persistedUserAuth;
   return useRoutes([
     {
       path: HOME,
@@ -53,7 +55,7 @@ export default function Router() {
     //   element: <LoadingText />,
     // },
 
-    isAuthenticated && {
+    finalIsAuthenticated && {
       path: USERS_DASHBOARD,
       element: <UsersDashboardLayout />,
       children: [

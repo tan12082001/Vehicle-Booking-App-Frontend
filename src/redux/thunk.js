@@ -17,8 +17,6 @@ const removeAuthenticationToken = () => localStorage.removeItem('token');
 const handleResponse = async (response) => {
   const { status, data } = response;
 
-  // console.log('Response headers: ', headers);
-
   if (status === 200 || status === 201) {
     return { data, status: 'succeeded' };
   }
@@ -67,10 +65,6 @@ export const registerUser = createAsyncThunk('auth/register', async (user, thunk
 
 export const logoutUser = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    // const token = getAuthenticationToken();
-    // const authToken = token ? token.replace('Bearer ', '') : '';
-    // console.log('authtoken:',authToken);
-
     const response = await axios.delete(`${baseURL}/users/sign_out`, {
       headers: { Authorization: localStorage.getItem('token') },
     });
@@ -94,12 +88,7 @@ export const postReserveCar = createAsyncThunk(
           Authorization: token,
         },
       });
-      const { data } = await handleResponse(response);
-
-      if (response.status === 200 || response.status === 201) {
-        return { data, status: 'succeeded' };
-      }
-      return { status: 'failed', error: 'Request failed', message: data.message };
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -133,13 +122,7 @@ export const postNewCar = createAsyncThunk(
           Authorization: token,
         },
       });
-      console.log('Response', response);
-      const { data } = await handleResponse(response);
-
-      if (response.status === 200 || response.status === 201) {
-        return { data, status: 'succeeded' };
-      }
-      return { status: 'failed', error: 'Request failed', message: data.message };
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

@@ -85,6 +85,86 @@ select.css-zdsokt {
   justify-content: space-between;
 }
 
+img.nav-panel-user-icon {
+  width: 50px;
+  height: auto;
+  display: flex;
+  margin: auto;
+}
+
+img#splash-logo {
+  margin: auto;
+  display: flex;
+}
+
+.user-icon-name {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.delete-cars-list {
+  border: 1px solid;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h1#delete-list-id {
+  text-align: center;
+  padding: 2rem;
+  border-bottom: 1px solid;
+}
+
+tr {
+  text-align: center;
+}
+
+th#delete-list-car-title,
+th#delete-list-car-status {
+  padding: 1.2rem;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+tr.delete-list-each-car td {
+  padding: 1rem;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+button.remove-mark {
+  background: #10be10;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.removed-mark {
+  background: rgb(199, 16, 16);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.delete-list-each-car:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.delete-list-each-car:nth-child(odd) {
+  background-color: #e7e8fa;
+}
+
+.removed-row {
+  background-color: #fcd7d7;
+}
+
 /* Styles for screens up to 480px wide */
 @media (max-width: 480px) {
   .signin-page-outer,

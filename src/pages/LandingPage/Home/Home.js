@@ -1,29 +1,33 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import AuthNav from '../../../layout/LandingPage/nav/AuthNav';
+import logoimg from '../../../assets/CaBooky-logo-1-preview.png';
 
 // import bicycleImage from '../../../components/asset/bicycle.jpg';
 
 const Home = () => (
-  <Container>
-    <Content>
-      <Paragraph>
-        CarBooky
-        <br />
-        Book A car today
-      </Paragraph>
-      <Auth>
-        <AuthNav />
-      </Auth>
-    </Content>
-  </Container>
+  <>
+    <img src={logoimg} alt="cabooky-logo" id="splash-logo" />
+    <Container>
+      <Content>
+        <Paragraph>
+          CaBooky
+          <br />
+          Book A car today!
+        </Paragraph>
+        <Auth>
+          <AuthNav />
+        </Auth>
+      </Content>
+    </Container>
+  </>
 );
 
 export default Home;
 
 const Container = styled.div`
   // backgroun-color: yellow;
-  border: 15rem solid yellow;
+  border: 15rem solid #ffd700;
   margin-bottom: 8rem;
   margin-top: 6rem;
   @media (max-width: 768px) {
