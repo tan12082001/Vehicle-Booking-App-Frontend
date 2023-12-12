@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import Router from '../routes/routes';
 import { USERS_DASHBOARD } from '../routes/routeConstants';
 
+jest.mock('../assets/user.png', () => 'test_image.png');
+
 const mockStore = configureMockStore();
 
 describe('ItemDetail Page', () => {

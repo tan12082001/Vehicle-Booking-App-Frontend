@@ -2,23 +2,33 @@
 
 exports[`DeleteList Component renders cars present to delete 1`] = `
 <div>
-  <div>
-    <h1>
+  <div
+    class="delete-cars-list"
+  >
+    <h1
+      id="delete-list-id"
+    >
       Cars List
     </h1>
     <table>
       <thead>
         <tr>
-          <th>
+          <th
+            id="delete-list-car-title"
+          >
             Car Title
           </th>
-          <th>
+          <th
+            id="delete-list-car-status"
+          >
             Status
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr
+          class="delete-list-each-car"
+        >
           <td>
             Test Vehicle
           </td>
@@ -31,7 +41,9 @@ exports[`DeleteList Component renders cars present to delete 1`] = `
             </button>
           </td>
         </tr>
-        <tr>
+        <tr
+          class="delete-list-each-car"
+        >
           <td>
             Vehicle two
           </td>
@@ -44,7 +56,9 @@ exports[`DeleteList Component renders cars present to delete 1`] = `
             </button>
           </td>
         </tr>
-        <tr>
+        <tr
+          class="delete-list-each-car"
+        >
           <td>
             Vehicle three
           </td>
