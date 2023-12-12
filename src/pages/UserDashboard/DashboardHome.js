@@ -6,43 +6,17 @@ import { useSelector } from 'react-redux';
 import DisplayCartCard from '../../components/Card/DisplayCartCard';
 import colorWheel from '../../components/asset/small_color_wheel.png';
 
-const DummyCards = [
-  {
-    imageName: { colorWheel },
-    name: 'Bicycle',
-    shortNote:
-      'The VESPA C20 is a stunning moped with a modern electronic system and more',
-  },
-  {
-    imageName: { colorWheel },
-    name: 'Bicycle',
-    shortNote:
-      'The VESPA C20 is a stunning moped with a modern electronic system and more',
-  },
-  {
-    imageName: { colorWheel },
-    name: 'Bicycle',
-    shortNote:
-      'The VESPA C20 is a stunning moped with a modern electronic system and more',
-  },
-  {
-    imageName: { colorWheel },
-    name: 'Bicycle',
-    shortNote:
-      'The VESPA C20 is a stunning moped with a modern electronic system and more',
-  },
-];
-
 const DashboardHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cars = useSelector((state) => state.cars.cars);
+  console.log('Cars', cars);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 3) % DummyCards.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 3) % cars.length);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 3 + DummyCards.length) % DummyCards.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 3 + cars.length) % cars.length);
   };
 
   return (
@@ -56,9 +30,9 @@ const DashboardHome = () => {
           <FaArrowLeft />
         </ArrowLeft>
         <CardContainer>
-          {cars.slice(currentIndex, currentIndex + 3).map((data, index) => (
+          {cars.slice(currentIndex, currentIndex + 3).map((data) => (
             <DisplayCartCard
-              key={index}
+              key={data.id}
               id={data.id}
               name={data.name}
               shortNote={data.description}
@@ -78,7 +52,10 @@ export default DashboardHome;
 
 const Inner = styled.section`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 2rem;
+  // border: 1px solid blue;
   // margin-left: 2rem;
 `;
 
@@ -87,7 +64,10 @@ const Container = styled.div`
   flex-direction: column;
   width: 90%;
   margin: 3.5rem;
-  // border: 1px solid blue;
+  // border: 1px solid green;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const CardContainer = styled.div`

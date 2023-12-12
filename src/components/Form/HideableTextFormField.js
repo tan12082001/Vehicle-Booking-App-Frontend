@@ -32,7 +32,13 @@ const HideableTextFormField = ({
       <InputWrapper className={className}>
         <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
         <InputContainer>
-          <Input {...field} {...props} type={showKey ? 'text' : 'password'} />
+          <Input
+            name={field.name}
+            value={field.value}
+            onChange={field.onChange}
+            onBlur={field.onBlur}
+            type={showKey ? 'text' : 'password'}
+          />
           <VisibiltyToggleIconsArea>
             {showKey ? (
               <VisibilityIcon

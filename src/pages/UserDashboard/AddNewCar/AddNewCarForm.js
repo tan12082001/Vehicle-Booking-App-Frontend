@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { CarSchema, carInitialValues } from '../../../models/car.model';
-import { TextInputField, TextAreaInputField } from '../../../components/Form/FormField';
+import { TextInputField, TextAreaInputField, FileInputField } from '../../../components/Form/FormField';
 import FormSubmitButton from '../../../components/Button/FormSubmitButton';
 import FormComponent2 from '../../../components/Form/FormComponent2';
 import { postNewCar } from '../../../redux/thunk';
@@ -32,6 +32,7 @@ const AddNewCarForm = () => {
       <TextInputField label="Price/Hour" name="pricePerHr" placeholder="Price of rent/hr" />
       <TextInputField label="Seating Capacity" name="seating_capacity" placeholder="Seating Capacity of Car" />
       <TextInputField label="Minimum Rent Duration" name="rental_duration" placeholder="Minimum Reantal Duration" />
+      <FileInputField label="Add Image of Car" name="Add Image" />
       <FormSubmitButton type="submit" className="add-new-car-submit">
         Create Car
       </FormSubmitButton>

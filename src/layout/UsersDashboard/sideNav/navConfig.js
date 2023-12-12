@@ -1,5 +1,5 @@
 import {
-  RESERVE_CARS,
+  // RESERVE_CARS,
   MY_RESERVATIONS,
   USERDASHBOARDHOME,
   ADD_NEW_CAR,
@@ -20,11 +20,11 @@ const navConfig = [
     // icon: JobsIcon(),
   },
 
-  {
-    title: 'Reserve Cars',
-    path: RESERVE_CARS,
-    // icon: PlaneIcon(),
-  },
+  // {
+  //   title: 'Reserve Cars',
+  //   path: RESERVE_CARS,
+  //   // icon: PlaneIcon(),
+  // },
 
   {
     title: 'Add New Cars',

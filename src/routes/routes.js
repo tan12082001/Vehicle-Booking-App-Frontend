@@ -32,12 +32,12 @@ import DashboardHome from '../pages/UserDashboard/DashboardHome';
 import AddNewCar from '../pages/UserDashboard/AddNewCar/AddNewCar';
 import Contact from '../pages/LandingPage/Contact/Contact';
 import DeleteList from '../components/DeleteCars/DeleteList';
-import LoadingText from '../pages/LoadingText';
+// import LoadingText from '../pages/LoadingText';
 
 export default function Router() {
   const authenticationStatus = useSelector((state) => state.authentication.status);
   const isAuthenticated = authenticationStatus === 'succeeded';
-  const isLoading = authenticationStatus === 'loading';
+  // const isLoading = authenticationStatus === 'loading';
 
   return useRoutes([
     {
@@ -48,10 +48,10 @@ export default function Router() {
       ],
     },
 
-    isLoading && {
-      path: USERS_DASHBOARD,
-      element: <LoadingText />,
-    },
+    // isLoading && {
+    //   path: USERS_DASHBOARD,
+    //   element: <LoadingText />,
+    // },
 
     isAuthenticated && {
       path: USERS_DASHBOARD,
