@@ -63,15 +63,21 @@ const Container = styled.div`
   flex-direction: column;
   width: 90%;
   margin: 3.5rem;
-  // border: 1px solid green;
-  @media (max-width: 768px) {
-    width: 80%;
+  @media (max-width: 375px) {
+    margin-left: -4rem;
+  }
+  @media (min-width: 375px) and (max-width: 768px) {
+    margin-left: -4rem;
   }
 `;
 
 const CardContainer = styled.div`
   display: flex;
   gap: 2rem;
+  @media (max-width: 375px) {
+    display: block;
+    margin-left: -1rem;
+  }
 `;
 
 const Arrow = styled.div`
@@ -84,19 +90,46 @@ const Arrow = styled.div`
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  @media (min-width: 375px) and (max-width: 768px) {
+    top: 30rem;
+  }
 `;
 
 const ArrowLeft = styled(Arrow)`
   left: 15rem;
+  @media (max-width: 375px) {
+    display: none;
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    top: 23rem;
+  }
 `;
 
 const ArrowRight = styled(Arrow)`
   right: 2rem;
   top: 22rem;
+  @media (max-width: 375px) {
+    display: none;
+  }
+  @media (min-width: 375px) and (max-width: 768px) {
+    display: none;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const Title = styled.div`
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
+  @media (max-width: 375px) {
+    margin-left: 5rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  @media (min-width: 375px) and (max-width: 768px) {
+    // border: 1px solid blue;
+    padding-left: 25rem;
+  }
 `;

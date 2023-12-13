@@ -14,7 +14,7 @@ const Nav = () => {
   const handleLogout = () => {
     dispatch(logoutUser());
     localStorage.removeItem('authenticationStatus');
-    console.log('log out successful');
+    // console.log('log out successful');
   };
   return (
     <Container>
