@@ -12,6 +12,7 @@ const ItemDetail = () => {
   // const {
   //   name, description, pricePerHr, seatingCapacity,
   // } = car;
+  console.log('car from the itemdetails: ', car);
 
   return (
     <DisplayItemCard
@@ -22,6 +23,7 @@ const ItemDetail = () => {
       description={car.description}
       seatingCapacity={car.seating_capacity}
       imgSrc={Bike}
+      removed={car.removed}
     />
   );
 };

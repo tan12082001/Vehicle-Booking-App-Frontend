@@ -15,7 +15,9 @@ const carsSlice = createSlice({
       const newState = state.cars.map(
         (car) => (car.id === action.payload ? ({ ...car, removed: true }) : car),
       );
+      console.log('from carslice but before the remove mark: ', state.cars);
       state.cars = newState;
+      console.log('cars from the removeMarkStatus: ', state.cars);
     },
   },
   extraReducers: (builder) => {
@@ -26,12 +28,16 @@ const carsSlice = createSlice({
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        const fetchedData = [];
-        action.payload.forEach((car) => {
+        const rawcars = action.payload;
+        console.log('raw cars data testing the deleted at:', rawcars);
+        const customData = [];
+        rawcars.forEach((car) => {
           const data = { ...car, removed: false };
-          fetchedData.push(data);
+          customData.push(data);
         });
-        state.cars = fetchedData;
+        console.log('now after adding removed: ', customData);
+        state.cars = customData;
+        console.log('current state after adding removed:', state.cars);
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.status = 'failed';
@@ -44,7 +50,9 @@ const carsSlice = createSlice({
       .addCase(deleteCar.fulfilled, (state, action) => {
         state.status = 'succeeded';
         const deletedCarId = action.meta.arg; // Access the carId passed to the thunk
-        state.cars = state.cars.filter((car) => car.carId !== deletedCarId);
+        console.log('deleted car id: ', deletedCarId);
+        // state.cars = state.cars.filter((car) => car.id !== deletedCarId);
+        console.log('now cars after deleteion of one car: ', state.cars);
       })
       .addCase(deleteCar.rejected, (state, action) => {
         state.status = 'failed';
@@ -56,7 +64,7 @@ const carsSlice = createSlice({
       })
       .addCase(postNewCar.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.cars = [...state.cars, action.payload.data];
+        state.cars = [...state.cars, action.payload];
       })
       .addCase(postNewCar.rejected, (state, action) => {
         state.status = 'failed';

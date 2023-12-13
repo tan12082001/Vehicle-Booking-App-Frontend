@@ -3,7 +3,6 @@ import { fetchCarReservations, postReserveCar } from '../thunk';
 
 const initialState = {
   reservations: [],
-  newReservationName: '',
   status: 'idle',
   error: null,
 };
@@ -11,11 +10,7 @@ const initialState = {
 const reservationSlice = createSlice({
   name: 'reservation',
   initialState,
-  reducers: {
-    getNewReservationName: (state, action) => {
-      state.newReservationName = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(postReserveCar.pending, (state) => {
@@ -24,7 +19,7 @@ const reservationSlice = createSlice({
       })
       .addCase(postReserveCar.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.reservations = [...state.reservations, action.payload.data];
+        state.reservations = [...state.reservations, action.payload];
       })
       .addCase(postReserveCar.rejected, (state, action) => {
         state.status = 'failed';
@@ -45,5 +40,4 @@ const reservationSlice = createSlice({
   },
 });
 
-export const { getNewReservationName } = reservationSlice.actions;
 export default reservationSlice.reducer;

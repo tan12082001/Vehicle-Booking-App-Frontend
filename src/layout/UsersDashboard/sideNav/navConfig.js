@@ -27,7 +27,7 @@ const navConfig = [
   // },
 
   {
-    title: 'Add New Cars',
+    title: 'Add New Car',
     path: ADD_NEW_CAR,
     // icon: PlaneIcon(),
   },

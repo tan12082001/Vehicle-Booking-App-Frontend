@@ -7,6 +7,8 @@ import configureMockStore from 'redux-mock-store';
 import Router from '../routes/routes';
 import { USERS_DASHBOARD } from '../routes/routeConstants';
 
+jest.mock('../assets/user.png', () => 'path-to-a-mocked-image.png');
+
 const mockStore = configureMockStore();
 
 describe('DashboardHome Component', () => {
@@ -22,7 +24,7 @@ describe('DashboardHome Component', () => {
         cars: [
           {
             id: 1,
-            name: 'Test Vehicle',
+            name: 'Vehicle oneeee',
             description: 'Test Description',
             pricePerHr: 20,
             seating_capacity: 4,
@@ -31,7 +33,7 @@ describe('DashboardHome Component', () => {
           {
             id: 2,
             name: 'Vehicle two',
-            descrrption: 'Vehicle two Description',
+            description: 'Vehicle two Description',
             pricePerHr: 10,
             seating_capacity: 6,
             image: 'test_image.png',
@@ -40,7 +42,7 @@ describe('DashboardHome Component', () => {
       },
     });
 
-    const { container } = render(
+    const tree = render(
       <Provider store={store}>
         <MemoryRouter initialEntries={[`${USERS_DASHBOARD}`]}>
           <Router />
@@ -48,6 +50,6 @@ describe('DashboardHome Component', () => {
       </Provider>,
     );
 
-    expect(container).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 });

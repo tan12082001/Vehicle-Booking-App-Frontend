@@ -9,7 +9,6 @@ import colorWheel from '../../components/asset/small_color_wheel.png';
 const DashboardHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cars = useSelector((state) => state.cars.cars);
-  console.log('Cars', cars);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 3) % cars.length);
@@ -36,7 +35,7 @@ const DashboardHome = () => {
               id={data.id}
               name={data.name}
               shortNote={data.description}
-              img={colorWheel}
+              imgSrc={colorWheel}
             />
           ))}
         </CardContainer>

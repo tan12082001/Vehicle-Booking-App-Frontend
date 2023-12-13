@@ -104,6 +104,21 @@ Object {
             />
           </div>
         </div>
+        <div
+          class="css-1ssprdq"
+        >
+          <label
+            class="css-1mcvbvm"
+          >
+            Add Image of Car
+          </label>
+          <input
+            class="css-iz78xn"
+            name="Add Image"
+            type="file"
+            value=""
+          />
+        </div>
         <button
           class="add-new-car-submit css-180h7py"
           type="submit"
@@ -212,6 +227,21 @@ Object {
             value=""
           />
         </div>
+      </div>
+      <div
+        class="css-1ssprdq"
+      >
+        <label
+          class="css-1mcvbvm"
+        >
+          Add Image of Car
+        </label>
+        <input
+          class="css-iz78xn"
+          name="Add Image"
+          type="file"
+          value=""
+        />
       </div>
       <button
         class="add-new-car-submit css-180h7py"

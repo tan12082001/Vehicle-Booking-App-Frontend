@@ -6,15 +6,15 @@ import { fetchCarReservations, fetchCars } from './redux/thunk';
 
 function App() {
   const authenticationStatus = useSelector((state) => state.authentication.status);
-  const isAuthenticated = authenticationStatus === 'succeeded';
+  const finalIsAuthenticated = authenticationStatus === 'succeeded';
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (finalIsAuthenticated) {
       dispatch(fetchCars());
       dispatch(fetchCarReservations());
     }
-  }, [dispatch, isAuthenticated]);
+  }, [dispatch, finalIsAuthenticated]);
 
   return (
     <>

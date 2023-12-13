@@ -11,14 +11,11 @@ exports[`MyReservations Component renders reservations present 1`] = `
     <div
       class="my-reservations-inner"
     >
-      <h1>
-        My Reservations
-      </h1>
       <div
         class="each-reservation-div"
       >
         <span>
-          Car: undefined
+          Car: non nome
         </span>
         <span>
           Date: 2023-10-10
@@ -31,7 +28,7 @@ exports[`MyReservations Component renders reservations present 1`] = `
         class="each-reservation-div"
       >
         <span>
-          Car: undefined
+          Car: non nome
         </span>
         <span>
           Date: 2022-11-11

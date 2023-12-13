@@ -2,21 +2,26 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import userIcon from '../../../assets/user.png';
 import navConfig from './navConfig';
 import { NavBoxItem } from '../../../components/Link/Link';
 import { logoutUser } from '../../../redux/thunk';
 
 const Nav = () => {
   const dispatch = useDispatch();
-
+  const username = useSelector((state) => state.authentication.authenticatedUser.username);
   const handleLogout = () => {
     dispatch(logoutUser());
+    localStorage.removeItem('authenticationStatus');
     console.log('log out successful');
   };
   return (
     <Container>
+      <div className="user-icon-name">
+        <img src={userIcon} alt="user-icon" className="nav-panel-user-icon" />
+        <h4>{username}</h4>
+      </div>
       <NavbtnSection>
         {navConfig.map((nav) => (
           <NavBoxItem path={nav.path} key={nav.title}>
@@ -59,5 +64,5 @@ const NavbtnSection = styled.section`
 `;
 
 const LogoutBtn = styled.div`
-  margin-top: 8rem;
+  margin-top: 2rem;
 `;

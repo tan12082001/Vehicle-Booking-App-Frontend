@@ -6,18 +6,27 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import colorWheel from '../asset/small_color_wheel.png';
 import { RESERVE_CARS, USERS_DASHBOARD } from '../../routes/routeConstants';
+import Notification from '../../pages/Notification';
 
 const DisplayItemCard = ({
-  id, name, description, pricePerHr, seatingCapacity, imgSrc,
+  id, name, description, pricePerHr, seatingCapacity, imgSrc, removed,
 }) => {
   const username = useSelector((state) => state.authentication.authenticatedUser.username);
   const navigate = useNavigate();
   const [rotation, setRotation] = useState(0);
+  const [showNotification, setShowNotification] = useState(false);
 
   const handleReserveClick = () => {
-    navigate(`${USERS_DASHBOARD}/${RESERVE_CARS}`, {
-      state: { id, username, name },
-    });
+    if (!removed) {
+      navigate(`${USERS_DASHBOARD}/${RESERVE_CARS}`, {
+        state: { id, username, name },
+      });
+    } else {
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 3000);
+    }
   };
 
   const handleRotate = () => {
@@ -50,7 +59,7 @@ const DisplayItemCard = ({
           </TableRow>
           <TableRow color="#ccc">
             <TableData>Currently available for booking?</TableData>
-            <TableData>Yes</TableData>
+            <TableData>{removed ? 'NOT AVAILABLE' : 'AVAILABLE FOR BOOKING'}</TableData>
           </TableRow>
           <TableRow color="#fff">
             <TableData>Minimum Rental Duration</TableData>
@@ -73,6 +82,7 @@ const DisplayItemCard = ({
             <FaArrowRight />
           </ArrowIcon>
         </ConfigureButton>
+        {showNotification && <Notification message="CAR NOT AVAILABLE FOR BOOKING ANYMORE." />}
       </Content>
     </Container>
   );
@@ -85,6 +95,7 @@ DisplayItemCard.propTypes = {
   pricePerHr: PropTypes.number.isRequired,
   seatingCapacity: PropTypes.number.isRequired,
   imgSrc: PropTypes.string.isRequired,
+  removed: PropTypes.bool.isRequired,
 };
 
 const Container = styled.div`
