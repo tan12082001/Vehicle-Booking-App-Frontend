@@ -15,9 +15,7 @@ const carsSlice = createSlice({
       const newState = state.cars.map(
         (car) => (car.id === action.payload ? ({ ...car, removed: true }) : car),
       );
-      console.log('from carslice but before the remove mark: ', state.cars);
       state.cars = newState;
-      console.log('cars from the removeMarkStatus: ', state.cars);
     },
   },
   extraReducers: (builder) => {
@@ -29,13 +27,11 @@ const carsSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.status = 'succeeded';
         const rawcars = action.payload;
-        console.log('raw cars data testing the deleted at:', rawcars);
         const customData = [];
         rawcars.forEach((car) => {
           const data = { ...car, removed: false };
           customData.push(data);
         });
-        console.log('now after adding removed: ', customData);
         state.cars = customData;
         console.log('current state after adding removed:', state.cars);
       })
@@ -47,10 +43,10 @@ const carsSlice = createSlice({
         state.status = 'loading';
         state.error = null;
       })
-      .addCase(deleteCar.fulfilled, (state, action) => {
+      .addCase(deleteCar.fulfilled, (state) => {
         state.status = 'succeeded';
-        const deletedCarId = action.meta.arg; // Access the carId passed to the thunk
-        console.log('deleted car id: ', deletedCarId);
+        // const deletedCarId = action.meta.arg;
+        // console.log('deleted car id: ', deletedCarId);
         // state.cars = state.cars.filter((car) => car.id !== deletedCarId);
         console.log('now cars after deleteion of one car: ', state.cars);
       })

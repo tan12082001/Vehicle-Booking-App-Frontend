@@ -72,16 +72,18 @@ select.css-zdsokt {
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  height: 100%;
+  overflow: scroll;
+  padding: 10px;
 }
 
 .each-reservation-div {
   width: 100%;
   padding: 1rem 2rem;
   background: #fff;
-  min-height: 70px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -170,6 +172,63 @@ button.removed-mark {
   padding: 0.4rem 0.6rem;
   background: #e0f8e0;
   border-radius: 4px;
+}
+
+/* Styles for screens up to 375px */
+@media (max-width: 375px) {
+  .sign-in-signup-buttons-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .css-guzwjo {
+    background-color: #ffd700;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .css-11yx1ta {
+    display: flex;
+    margin: auto;
+    margin-right: 2rem;
+    margin-bottom: 7rem;
+  }
+
+  .css-1ffjlhg {
+    margin-bottom: 5rem;
+    margin-right: 2rem;
+  }
+
+  .css-agc6a4 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .css-1lubx6 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .css-fw8x99 {
+    width: 100%;
+  }
+
+  .css-ezl37f {
+    margin-left: 3rem;
+  }
+
+  .css-9pr5po {
+    margin-left: 0;
+    width: 15rem;
+  }
 }
 
 /* Styles for screens up to 480px wide */

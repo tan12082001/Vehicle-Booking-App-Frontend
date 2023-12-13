@@ -1,21 +1,32 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import userIcon from '../../../assets/user.png';
 import navConfig from './navConfig';
 import { NavBoxItem } from '../../../components/Link/Link';
 import { logoutUser } from '../../../redux/thunk';
+import { HOME } from '../../../routes/routeConstants';
 
 const Nav = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const username = useSelector((state) => state.authentication.authenticatedUser.username);
+  const status = useSelector((state) => state.authentication.status);
   const handleLogout = () => {
-    dispatch(logoutUser());
-    localStorage.removeItem('authenticationStatus');
-    console.log('log out successful');
+    if (status === 'succeeded') {
+      dispatch(logoutUser());
+      localStorage.removeItem('authenticationStatus');
+      console.log('log out successful');
+      navigate(`${HOME}`);
+    }
   };
+  if (status === 'loading') {
+    return <p>{`${username} signin out!`}</p>
+  }
+
   return (
     <Container>
       <div className="user-icon-name">
@@ -30,7 +41,7 @@ const Nav = () => {
         ))}
       </NavbtnSection>
       <LogoutBtn onClick={handleLogout}>
-        <NavBoxItem path="/">
+        <NavBoxItem>
           Logout
         </NavBoxItem>
       </LogoutBtn>

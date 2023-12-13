@@ -7,7 +7,7 @@ import { ButtonLink } from '../../../components/Link/Link';
 import { ACCOUNT, SIGNIN, SIGNUP } from '../../../routes/routeConstants';
 
 const AuthNav = () => (
-  <Container>
+  <Container className='sign-in-signup-buttons-container'>
     <ButtonLink to={`${ACCOUNT}/${SIGNIN}`}>
       <TertiaryButton className="grey">Sign In</TertiaryButton>
     </ButtonLink>
