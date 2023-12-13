@@ -25,8 +25,8 @@ const SignInForm = () => {
       onSubmit={handleSubmit}
       className="sign-in-form"
     >
-      <TextInputField label="User Name" name="username" placeholder="eg. username" />
-      <HideableTextFormField label="Password" name="password" />
+      <TextInputField label="User Name" name="username" placeholder="eg. username" className="form-username" id="signin-form-username" />
+      <HideableTextFormField label="Password" name="password" className="form-password" id="signin-form-password" />
       <FormSubmitButton type="submit" className="sign-up-submit">
         Log In
       </FormSubmitButton>

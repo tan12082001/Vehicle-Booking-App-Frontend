@@ -35,7 +35,7 @@ const DashboardHome = () => {
               id={data.id}
               name={data.name}
               shortNote={data.description}
-              img={colorWheel}
+              imgSrc={colorWheel}
             />
           ))}
         </CardContainer>

@@ -165,6 +165,13 @@ button.removed-mark {
   background-color: #fcd7d7;
 }
 
+.notification-message {
+  border: 1px solid;
+  padding: 0.4rem 0.6rem;
+  background: #e0f8e0;
+  border-radius: 4px;
+}
+
 /* Styles for screens up to 480px wide */
 @media (max-width: 480px) {
   .signin-page-outer,

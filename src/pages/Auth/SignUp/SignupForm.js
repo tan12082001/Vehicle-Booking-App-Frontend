@@ -24,10 +24,10 @@ const SignUpForm = () => {
       onSubmit={handleSubmit}
       className="sign-up-form"
     >
-      <TextInputField label="Name" name="username" placeholder="eg. Jane Doe" />
-      <TextInputField label="Email" name="email" placeholder="eg. example@example.com" />
-      <HideableTextFormField label="Password" name="password" className="password_block" />
-      <HideableTextFormField label="Confirm Password" name="password_confirmation" />
+      <TextInputField label="Name" name="username" placeholder="eg. Jane Doe" className="form-username" id="signup-username" />
+      <TextInputField label="Email" name="email" placeholder="eg. example@example.com" className="form-email" id="signup-email" />
+      <HideableTextFormField label="Password" name="password" className="password_block" id="signup-password" />
+      <HideableTextFormField label="Confirm Password" name="password_confirmation" className="password_block" id="signup-confirm-password" />
       <FormSubmitButton type="submit" className="sign-up-submit">
         Sign Up
       </FormSubmitButton>

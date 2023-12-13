@@ -95,6 +95,7 @@ DisplayItemCard.propTypes = {
   pricePerHr: PropTypes.number.isRequired,
   seatingCapacity: PropTypes.number.isRequired,
   imgSrc: PropTypes.string.isRequired,
+  removed: PropTypes.bool.isRequired,
 };
 
 const Container = styled.div`

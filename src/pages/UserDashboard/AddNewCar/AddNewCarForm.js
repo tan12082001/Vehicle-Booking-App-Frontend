@@ -27,12 +27,12 @@ const AddNewCarForm = () => {
       onSubmit={handleSubmit}
       className="add-new-car"
     >
-      <TextInputField label="Name" name="name" placeholder="Car Name" />
-      <TextAreaInputField label="Description" name="description" placeholder="Car description" />
-      <TextInputField label="Price/Hour" name="pricePerHr" placeholder="Price of rent/hr" />
-      <TextInputField label="Seating Capacity" name="seating_capacity" placeholder="Seating Capacity of Car" />
-      <TextInputField label="Minimum Rent Duration" name="rental_duration" placeholder="Minimum Reantal Duration" />
-      <FileInputField label="Add Image of Car" name="Add Image" />
+      <TextInputField label="Name" name="name" placeholder="Car Name" className="add-new-string" id="add-new-car-form-name" />
+      <TextAreaInputField label="Description" name="description" placeholder="Car description" className="add-new-string" id="add-new-car-form-desc" />
+      <TextInputField label="Price/Hour" name="pricePerHr" placeholder="Price of rent/hr" className="add-new-string" id="add-new-car-form-price" />
+      <TextInputField label="Seating Capacity" name="seating_capacity" placeholder="Seating Capacity of Car" className="add-new-string" id="add-new-car-form-cap" />
+      <TextInputField label="Minimum Rent Duration" name="rental_duration" placeholder="Minimum Reantal Duration" className="add-new-string" id="add-new-car-form-duration" />
+      <FileInputField label="Add Image of Car" name="Add Image" className="add-new-string" id="add-new-car-form-image" />
       <FormSubmitButton type="submit" className="add-new-car-submit">
         Create Car
       </FormSubmitButton>

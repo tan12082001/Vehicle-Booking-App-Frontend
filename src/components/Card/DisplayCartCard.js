@@ -32,7 +32,6 @@ DisplayCartCard.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   shortNote: PropTypes.string.isRequired,
-  removed: PropTypes.bool.isRequired
 };
 
 const Container = styled(Link)`

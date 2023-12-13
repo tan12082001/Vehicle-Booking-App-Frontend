@@ -22,7 +22,7 @@ const FormComponent = ({
 
 FormComponent.propTypes = {
   initialValues: PropTypes.shape({
-    userName: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     confirm_password: PropTypes.string.isRequired,
@@ -30,7 +30,7 @@ FormComponent.propTypes = {
     selectedCity: PropTypes.string.isRequired,
   }).isRequired,
   schema: PropTypes.shape({
-    userName: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     confirm_password: PropTypes.string.isRequired,
