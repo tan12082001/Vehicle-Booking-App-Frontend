@@ -33,7 +33,6 @@ const carsSlice = createSlice({
           customData.push(data);
         });
         state.cars = customData;
-        console.log('current state after adding removed:', state.cars);
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.status = 'failed';
@@ -45,10 +44,6 @@ const carsSlice = createSlice({
       })
       .addCase(deleteCar.fulfilled, (state) => {
         state.status = 'succeeded';
-        // const deletedCarId = action.meta.arg;
-        // console.log('deleted car id: ', deletedCarId);
-        // state.cars = state.cars.filter((car) => car.id !== deletedCarId);
-        console.log('now cars after deleteion of one car: ', state.cars);
       })
       .addCase(deleteCar.rejected, (state, action) => {
         state.status = 'failed';

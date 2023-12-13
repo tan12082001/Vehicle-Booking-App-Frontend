@@ -3,10 +3,9 @@ import React from 'react';
 import Router from './routes/routes';
 
 const App = () => (
-    <>
-      <Router />
-    </>
+  <>
+    <Router />
+  </>
 );
-
 
 export default App;

@@ -19,12 +19,11 @@ const Nav = () => {
     if (status === 'succeeded') {
       dispatch(logoutUser());
       localStorage.removeItem('authenticationStatus');
-      console.log('log out successful');
       navigate(`${HOME}`);
     }
   };
   if (status === 'loading') {
-    return <p>{`${username} signin out!`}</p>
+    return <p>{`${username} signin out!`}</p>;
   }
 
   return (

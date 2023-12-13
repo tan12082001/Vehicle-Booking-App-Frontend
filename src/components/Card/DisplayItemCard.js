@@ -9,7 +9,7 @@ import { RESERVE_CARS, USERS_DASHBOARD } from '../../routes/routeConstants';
 import Notification from '../../pages/Notification';
 
 const DisplayItemCard = ({
-  id, name, description, pricePerHr, seatingCapacity, imgSrc, removed
+  id, name, description, pricePerHr, seatingCapacity, imgSrc, removed,
 }) => {
   const username = useSelector((state) => state.authentication.authenticatedUser.username);
   const navigate = useNavigate();

@@ -9,7 +9,6 @@ const ItemDetail = () => {
   const cars = useSelector((state) => state.cars.cars);
   const numericId = parseInt(id, 10);
   const car = cars.find((car) => car.id === numericId);
-  console.log('car from the itemdetails: ', car);
 
   return (
     <DisplayItemCard

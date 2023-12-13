@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { fetchCars } from '../../redux/thunk';
 import styled from '@emotion/styled';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
+import { fetchCars } from '../../redux/thunk';
 import DisplayCartCard from '../../components/Card/DisplayCartCard';
 import colorWheel from '../../components/asset/small_color_wheel.png';
 
@@ -11,7 +11,6 @@ const DashboardHome = () => {
   const authenticationStatus = useSelector((state) => state.authentication.status);
   const carsstatus = useSelector((state) => state.cars.status);
   const finalIsAuthenticated = authenticationStatus === 'succeeded';
-  console.log('current authentication status: ', authenticationStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +22,7 @@ const DashboardHome = () => {
   const cars = useSelector((state) => state.cars.cars);
 
   if (carsstatus === 'loading') {
-    return <p>Loading Cars....</p>
+    return <p>Loading Cars....</p>;
   }
 
   const handleNext = () => {

@@ -9,7 +9,7 @@ const UsersDashboardLayout = () => (
   <>
     <Container>
       <Nav />
-      <Section className='main-dashboard-section-tan'>
+      <Section className="main-dashboard-section-tan">
         <MainContent>
           <Outlet />
         </MainContent>

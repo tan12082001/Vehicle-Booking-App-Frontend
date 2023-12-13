@@ -81,6 +81,6 @@ const Router = () => {
     },
     { path: '*', element: <NotFound404 /> },
   ]);
-}
+};
 
 export default Router;
