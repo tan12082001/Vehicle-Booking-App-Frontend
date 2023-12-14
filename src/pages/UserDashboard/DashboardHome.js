@@ -88,10 +88,6 @@ const Container = styled.div`
 const CardContainer = styled.div`
   display: flex;
   gap: 2rem;
-  @media (max-width: 380px) {
-    flex-direction: column;
-    -webkit-flex-direction: column;
-  }
 `;
 
 const Arrow = styled.div`
@@ -104,15 +100,25 @@ const Arrow = styled.div`
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  @media (max-width: 380px) {
+    top: 82%;
+  }
 `;
 
 const ArrowLeft = styled(Arrow)`
   left: 15rem;
+  @media (max-width: 380px) {
+    left: 7rem;
+  }
 `;
 
 const ArrowRight = styled(Arrow)`
   right: 2rem;
   top: 22rem;
+  @media (max-width: 380px) {
+    right: 6rem;
+    top: 32.9rem;
+  }
 `;
 
 const Title = styled.div`

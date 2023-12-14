@@ -88,7 +88,7 @@ const NavbtnSection = styled.section`
 
 const LogoutBtn = styled.div`
   margin-top: 2rem;
-  @media (max-width: 375px) {
+  @media (max-width: 380px) {
     margin-top: 0;
   }
 `;
