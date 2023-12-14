@@ -6,7 +6,7 @@ import Header from './header/Header';
 const LandingPageLayout = () => (
   <>
     <Header />
-    <Main className='landing-page-layout'>
+    <Main className="landing-page-layout">
       <Outlet />
     </Main>
   </>

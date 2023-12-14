@@ -57,4 +57,5 @@ export const NavigationBoxLink = styled(RouterLink)`
 NavBoxItem.propTypes = {
   path: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

@@ -6,9 +6,9 @@ import logoimg from '../../../assets/CaBooky-logo-1-preview.png';
 const Home = () => (
   <>
     <img src={logoimg} alt="cabooky-logo" id="splash-logo" />
-    <Container className='landing-page-container'>
-      <Content className='landing-page-content'>
-        <Paragraph className='app-title-p-tag'>
+    <Container className="landing-page-container">
+      <Content className="landing-page-content">
+        <Paragraph className="app-title-p-tag">
           CaBooky
           <br />
           Book A car today!

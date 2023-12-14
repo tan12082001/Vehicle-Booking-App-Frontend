@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
-import HamburgerMenu from '../../LandingPage/header/HamburgerMenu';
 import { useDispatch, useSelector } from 'react-redux';
+import HamburgerMenu from '../../LandingPage/header/HamburgerMenu';
 import userIcon from '../../../assets/user.png';
 import navConfig from './navConfig';
 import { NavBoxItem } from '../../../components/Link/Link';
@@ -14,11 +14,11 @@ const Nav = () => {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.authentication.authenticatedUser.username);
   const status = useSelector((state) => state.authentication.status);
-  
+
   const [isSideNavVisible, setSideNavVisbility] = useState(false);
   const handleToggleSideNav = (hide) => {
     setSideNavVisbility(!isSideNavVisible && !hide);
-  }
+  };
   const handleLogout = () => {
     if (status === 'succeeded') {
       dispatch(logoutUser());
@@ -32,25 +32,29 @@ const Nav = () => {
 
   return (
     <>
-    <HamburgerMenu onClick={() => handleToggleSideNav()} />
-    <Container isVisible={isSideNavVisible}>
-      <div className="user-icon-name">
-        <img src={userIcon} alt="user-icon" className="nav-panel-user-icon" />
-        <h4>{username}</h4>
-      </div>
-      <NavbtnSection>
-        {navConfig.map((nav) => (
-          <NavBoxItem path={nav.path} key={nav.title} onClick={() => {handleToggleSideNav(true)}}>
-            {nav.title}
+      <HamburgerMenu onClick={() => handleToggleSideNav()} />
+      <Container isVisible={isSideNavVisible}>
+        <div className="user-icon-name">
+          <img src={userIcon} alt="user-icon" className="nav-panel-user-icon" />
+          <h4>{username}</h4>
+        </div>
+        <NavbtnSection>
+          {navConfig.map((nav) => (
+            <NavBoxItem
+              path={nav.path}
+              key={nav.title}
+              onClick={() => { handleToggleSideNav(true); }}
+            >
+              {nav.title}
+            </NavBoxItem>
+          ))}
+        </NavbtnSection>
+        <LogoutBtn onClick={handleLogout}>
+          <NavBoxItem>
+            Logout
           </NavBoxItem>
-        ))}
-      </NavbtnSection>
-      <LogoutBtn onClick={handleLogout}>
-        <NavBoxItem>
-          Logout
-        </NavBoxItem>
-      </LogoutBtn>
-    </Container>    
+        </LogoutBtn>
+      </Container>
     </>
   );
 };

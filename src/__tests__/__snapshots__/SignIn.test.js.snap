@@ -23,10 +23,10 @@ Object {
         >
           <form
             action="#"
-            class="sign-in-form css-i51pdu"
+            class="sign-in-form css-1tqyvtu"
           >
             <div
-              class="css-1oq5xzy"
+              class="form-username css-1oq5xzy"
             >
               <label
                 class="css-1mcvbvm"
@@ -37,7 +37,7 @@ Object {
                 class="css-z2ctse"
               >
                 <input
-                  class=" css-4qk13k"
+                  class="form-username css-4qk13k"
                   name="username"
                   placeholder="eg. username"
                   value=""
@@ -45,7 +45,7 @@ Object {
               </div>
             </div>
             <div
-              class="css-1oq5xzy"
+              class="form-password css-1oq5xzy"
             >
               <label
                 class="css-1mcvbvm"
@@ -79,7 +79,7 @@ Object {
               </div>
             </div>
             <button
-              class="sign-up-submit css-180h7py"
+              class="sign-up-submit css-1uklkkw"
               type="submit"
             >
               Log In
@@ -108,10 +108,10 @@ Object {
       >
         <form
           action="#"
-          class="sign-in-form css-i51pdu"
+          class="sign-in-form css-1tqyvtu"
         >
           <div
-            class="css-1oq5xzy"
+            class="form-username css-1oq5xzy"
           >
             <label
               class="css-1mcvbvm"
@@ -122,7 +122,7 @@ Object {
               class="css-z2ctse"
             >
               <input
-                class=" css-4qk13k"
+                class="form-username css-4qk13k"
                 name="username"
                 placeholder="eg. username"
                 value=""
@@ -130,7 +130,7 @@ Object {
             </div>
           </div>
           <div
-            class="css-1oq5xzy"
+            class="form-password css-1oq5xzy"
           >
             <label
               class="css-1mcvbvm"
@@ -164,7 +164,7 @@ Object {
             </div>
           </div>
           <button
-            class="sign-up-submit css-180h7py"
+            class="sign-up-submit css-1uklkkw"
             type="submit"
           >
             Log In

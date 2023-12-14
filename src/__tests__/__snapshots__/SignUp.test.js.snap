@@ -23,10 +23,10 @@ Object {
         >
           <form
             action="#"
-            class="sign-up-form css-i51pdu"
+            class="sign-up-form css-1tqyvtu"
           >
             <div
-              class="css-1oq5xzy"
+              class="form-username css-1oq5xzy"
             >
               <label
                 class="css-1mcvbvm"
@@ -37,7 +37,7 @@ Object {
                 class="css-z2ctse"
               >
                 <input
-                  class=" css-4qk13k"
+                  class="form-username css-4qk13k"
                   name="username"
                   placeholder="eg. Jane Doe"
                   value=""
@@ -45,7 +45,7 @@ Object {
               </div>
             </div>
             <div
-              class="css-1oq5xzy"
+              class="form-email css-1oq5xzy"
             >
               <label
                 class="css-1mcvbvm"
@@ -56,7 +56,7 @@ Object {
                 class="css-z2ctse"
               >
                 <input
-                  class=" css-4qk13k"
+                  class="form-email css-4qk13k"
                   name="email"
                   placeholder="eg. example@example.com"
                   value=""
@@ -98,7 +98,7 @@ Object {
               </div>
             </div>
             <div
-              class="css-1oq5xzy"
+              class="password_block css-1oq5xzy"
             >
               <label
                 class="css-1mcvbvm"
@@ -132,7 +132,7 @@ Object {
               </div>
             </div>
             <button
-              class="sign-up-submit css-180h7py"
+              class="sign-up-submit css-1uklkkw"
               type="submit"
             >
               Sign Up
@@ -170,10 +170,10 @@ Object {
       >
         <form
           action="#"
-          class="sign-up-form css-i51pdu"
+          class="sign-up-form css-1tqyvtu"
         >
           <div
-            class="css-1oq5xzy"
+            class="form-username css-1oq5xzy"
           >
             <label
               class="css-1mcvbvm"
@@ -184,7 +184,7 @@ Object {
               class="css-z2ctse"
             >
               <input
-                class=" css-4qk13k"
+                class="form-username css-4qk13k"
                 name="username"
                 placeholder="eg. Jane Doe"
                 value=""
@@ -192,7 +192,7 @@ Object {
             </div>
           </div>
           <div
-            class="css-1oq5xzy"
+            class="form-email css-1oq5xzy"
           >
             <label
               class="css-1mcvbvm"
@@ -203,7 +203,7 @@ Object {
               class="css-z2ctse"
             >
               <input
-                class=" css-4qk13k"
+                class="form-email css-4qk13k"
                 name="email"
                 placeholder="eg. example@example.com"
                 value=""
@@ -245,7 +245,7 @@ Object {
             </div>
           </div>
           <div
-            class="css-1oq5xzy"
+            class="password_block css-1oq5xzy"
           >
             <label
               class="css-1mcvbvm"
@@ -279,7 +279,7 @@ Object {
             </div>
           </div>
           <button
-            class="sign-up-submit css-180h7py"
+            class="sign-up-submit css-1uklkkw"
             type="submit"
           >
             Sign Up
