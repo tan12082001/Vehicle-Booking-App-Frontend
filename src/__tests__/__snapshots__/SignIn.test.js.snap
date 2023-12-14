@@ -23,10 +23,10 @@ Object {
         >
           <form
             action="#"
-            class="sign-in-form css-1tqyvtu"
+            class="sign-in-form css-l9cpgn"
           >
             <div
-              class="form-username css-1oq5xzy"
+              class="form-username css-5zoda1"
             >
               <label
                 class="css-1mcvbvm"
@@ -45,7 +45,7 @@ Object {
               </div>
             </div>
             <div
-              class="form-password css-1oq5xzy"
+              class="form-password css-5zoda1"
             >
               <label
                 class="css-1mcvbvm"
@@ -108,10 +108,10 @@ Object {
       >
         <form
           action="#"
-          class="sign-in-form css-1tqyvtu"
+          class="sign-in-form css-l9cpgn"
         >
           <div
-            class="form-username css-1oq5xzy"
+            class="form-username css-5zoda1"
           >
             <label
               class="css-1mcvbvm"
@@ -130,7 +130,7 @@ Object {
             </div>
           </div>
           <div
-            class="form-password css-1oq5xzy"
+            class="form-password css-5zoda1"
           >
             <label
               class="css-1mcvbvm"

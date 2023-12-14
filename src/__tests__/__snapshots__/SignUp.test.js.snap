@@ -23,10 +23,10 @@ Object {
         >
           <form
             action="#"
-            class="sign-up-form css-1tqyvtu"
+            class="sign-up-form css-l9cpgn"
           >
             <div
-              class="form-username css-1oq5xzy"
+              class="form-username css-5zoda1"
             >
               <label
                 class="css-1mcvbvm"
@@ -45,7 +45,7 @@ Object {
               </div>
             </div>
             <div
-              class="form-email css-1oq5xzy"
+              class="form-email css-5zoda1"
             >
               <label
                 class="css-1mcvbvm"
@@ -64,7 +64,7 @@ Object {
               </div>
             </div>
             <div
-              class="password_block css-1oq5xzy"
+              class="password_block css-5zoda1"
             >
               <label
                 class="css-1mcvbvm"
@@ -98,7 +98,7 @@ Object {
               </div>
             </div>
             <div
-              class="password_block css-1oq5xzy"
+              class="password_block css-5zoda1"
             >
               <label
                 class="css-1mcvbvm"
@@ -170,10 +170,10 @@ Object {
       >
         <form
           action="#"
-          class="sign-up-form css-1tqyvtu"
+          class="sign-up-form css-l9cpgn"
         >
           <div
-            class="form-username css-1oq5xzy"
+            class="form-username css-5zoda1"
           >
             <label
               class="css-1mcvbvm"
@@ -192,7 +192,7 @@ Object {
             </div>
           </div>
           <div
-            class="form-email css-1oq5xzy"
+            class="form-email css-5zoda1"
           >
             <label
               class="css-1mcvbvm"
@@ -211,7 +211,7 @@ Object {
             </div>
           </div>
           <div
-            class="password_block css-1oq5xzy"
+            class="password_block css-5zoda1"
           >
             <label
               class="css-1mcvbvm"
@@ -245,7 +245,7 @@ Object {
             </div>
           </div>
           <div
-            class="password_block css-1oq5xzy"
+            class="password_block css-5zoda1"
           >
             <label
               class="css-1mcvbvm"

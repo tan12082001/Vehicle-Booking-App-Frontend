@@ -1,44 +1,26 @@
-import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
+import EachReservation from 'components/MyReservations/EachReservation';
 import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store';
-import MyReservations from '../pages/LandingPage/MyReservation/MyReservation';
+import store from 'redux/store';
+import { MemoryRouter } from 'react-router-dom';
 
-const mockStore = configureMockStore();
-
-describe('MyReservations Component', () => {
-  it('renders reservations present', () => {
-    const store = mockStore({
-      authentication: {
-        authenticatedUser: {
-          username: 'testuser',
-        },
-        status: 'succeeded',
-      },
-      reservation: {
-        reservations: [
-          {
-            date: '2023-10-10',
-            city: 'City A',
-          },
-          {
-            date: '2022-11-11',
-            city: 'City B',
-          },
-        ],
-      },
-    });
+describe('EachReservation Component', () => {
+  it('renders reservation details', () => {
+    const reservation = {
+      id: 1,
+      car: { name: 'Test Car' },
+      date: '2023-01-01',
+      city: 'Test City',
+    };
 
     const { container } = render(
       <Provider store={store}>
         <MemoryRouter>
-          <MyReservations />
+          <EachReservation reservation={reservation} />
         </MemoryRouter>
       </Provider>,
     );
-
     expect(container).toMatchSnapshot();
   });
 });
