@@ -10,7 +10,7 @@ Object {
         class="add-new-car css-i51pdu"
       >
         <div
-          class="css-1oq5xzy"
+          class="add-new-string css-1oq5xzy"
         >
           <label
             class="css-1mcvbvm"
@@ -21,7 +21,7 @@ Object {
             class="css-z2ctse"
           >
             <input
-              class=" css-4qk13k"
+              class="add-new-string css-4qk13k"
               name="name"
               placeholder="Car Name"
               value=""
@@ -29,7 +29,7 @@ Object {
           </div>
         </div>
         <div
-          class="css-1oq5xzy"
+          class="add-new-string css-1oq5xzy"
         >
           <label
             class="css-1mcvbvm"
@@ -40,7 +40,7 @@ Object {
             class="css-z2ctse"
           >
             <textarea
-              class=" css-1j5iuxi"
+              class="add-new-string css-1j5iuxi"
               name="description"
               placeholder="Car description"
               rows="10"
@@ -48,7 +48,7 @@ Object {
           </div>
         </div>
         <div
-          class="css-1oq5xzy"
+          class="add-new-string css-1oq5xzy"
         >
           <label
             class="css-1mcvbvm"
@@ -59,7 +59,7 @@ Object {
             class="css-z2ctse"
           >
             <input
-              class=" css-4qk13k"
+              class="add-new-string css-4qk13k"
               name="pricePerHr"
               placeholder="Price of rent/hr"
               value=""
@@ -67,7 +67,7 @@ Object {
           </div>
         </div>
         <div
-          class="css-1oq5xzy"
+          class="add-new-string css-1oq5xzy"
         >
           <label
             class="css-1mcvbvm"
@@ -78,7 +78,7 @@ Object {
             class="css-z2ctse"
           >
             <input
-              class=" css-4qk13k"
+              class="add-new-string css-4qk13k"
               name="seating_capacity"
               placeholder="Seating Capacity of Car"
               value=""
@@ -86,7 +86,7 @@ Object {
           </div>
         </div>
         <div
-          class="css-1oq5xzy"
+          class="add-new-string css-1oq5xzy"
         >
           <label
             class="css-1mcvbvm"
@@ -97,7 +97,7 @@ Object {
             class="css-z2ctse"
           >
             <input
-              class=" css-4qk13k"
+              class="add-new-string css-4qk13k"
               name="rental_duration"
               placeholder="Minimum Reantal Duration"
               value=""
@@ -105,7 +105,7 @@ Object {
           </div>
         </div>
         <div
-          class="css-1ssprdq"
+          class="add-new-string css-1ssprdq"
         >
           <label
             class="css-1mcvbvm"
@@ -120,7 +120,7 @@ Object {
           />
         </div>
         <button
-          class="add-new-car-submit css-180h7py"
+          class="add-new-car-submit css-1uklkkw"
           type="submit"
         >
           Create Car
@@ -134,7 +134,7 @@ Object {
       class="add-new-car css-i51pdu"
     >
       <div
-        class="css-1oq5xzy"
+        class="add-new-string css-1oq5xzy"
       >
         <label
           class="css-1mcvbvm"
@@ -145,7 +145,7 @@ Object {
           class="css-z2ctse"
         >
           <input
-            class=" css-4qk13k"
+            class="add-new-string css-4qk13k"
             name="name"
             placeholder="Car Name"
             value=""
@@ -153,7 +153,7 @@ Object {
         </div>
       </div>
       <div
-        class="css-1oq5xzy"
+        class="add-new-string css-1oq5xzy"
       >
         <label
           class="css-1mcvbvm"
@@ -164,7 +164,7 @@ Object {
           class="css-z2ctse"
         >
           <textarea
-            class=" css-1j5iuxi"
+            class="add-new-string css-1j5iuxi"
             name="description"
             placeholder="Car description"
             rows="10"
@@ -172,7 +172,7 @@ Object {
         </div>
       </div>
       <div
-        class="css-1oq5xzy"
+        class="add-new-string css-1oq5xzy"
       >
         <label
           class="css-1mcvbvm"
@@ -183,7 +183,7 @@ Object {
           class="css-z2ctse"
         >
           <input
-            class=" css-4qk13k"
+            class="add-new-string css-4qk13k"
             name="pricePerHr"
             placeholder="Price of rent/hr"
             value=""
@@ -191,7 +191,7 @@ Object {
         </div>
       </div>
       <div
-        class="css-1oq5xzy"
+        class="add-new-string css-1oq5xzy"
       >
         <label
           class="css-1mcvbvm"
@@ -202,7 +202,7 @@ Object {
           class="css-z2ctse"
         >
           <input
-            class=" css-4qk13k"
+            class="add-new-string css-4qk13k"
             name="seating_capacity"
             placeholder="Seating Capacity of Car"
             value=""
@@ -210,7 +210,7 @@ Object {
         </div>
       </div>
       <div
-        class="css-1oq5xzy"
+        class="add-new-string css-1oq5xzy"
       >
         <label
           class="css-1mcvbvm"
@@ -221,7 +221,7 @@ Object {
           class="css-z2ctse"
         >
           <input
-            class=" css-4qk13k"
+            class="add-new-string css-4qk13k"
             name="rental_duration"
             placeholder="Minimum Reantal Duration"
             value=""
@@ -229,7 +229,7 @@ Object {
         </div>
       </div>
       <div
-        class="css-1ssprdq"
+        class="add-new-string css-1ssprdq"
       >
         <label
           class="css-1mcvbvm"
@@ -244,7 +244,7 @@ Object {
         />
       </div>
       <button
-        class="add-new-car-submit css-180h7py"
+        class="add-new-car-submit css-1uklkkw"
         type="submit"
       >
         Create Car

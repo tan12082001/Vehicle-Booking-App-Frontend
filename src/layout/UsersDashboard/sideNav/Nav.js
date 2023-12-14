@@ -1,40 +1,62 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import HamburgerMenu from '../../LandingPage/header/HamburgerMenu';
 import userIcon from '../../../assets/user.png';
 import navConfig from './navConfig';
 import { NavBoxItem } from '../../../components/Link/Link';
 import { logoutUser } from '../../../redux/thunk';
+import { HOME } from '../../../routes/routeConstants';
 
 const Nav = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const username = useSelector((state) => state.authentication.authenticatedUser.username);
-  const handleLogout = () => {
-    dispatch(logoutUser());
-    localStorage.removeItem('authenticationStatus');
-    // console.log('log out successful');
+  const status = useSelector((state) => state.authentication.status);
+
+  const [isSideNavVisible, setSideNavVisbility] = useState(false);
+  const handleToggleSideNav = (hide) => {
+    setSideNavVisbility(!isSideNavVisible && !hide);
   };
+
+  const handleLogout = () => {
+    if (status === 'succeeded') {
+      dispatch(logoutUser());
+      localStorage.removeItem('authenticationStatus');
+      navigate(`${HOME}`);
+    }
+  };
+  if (status === 'loading') {
+    return <p>{`${username} signin out!`}</p>;
+  }
+
   return (
-    <Container>
-      <div className="user-icon-name">
-        <img src={userIcon} alt="user-icon" className="nav-panel-user-icon" />
-        <h4>{username}</h4>
-      </div>
-      <NavbtnSection>
-        {navConfig.map((nav) => (
-          <NavBoxItem path={nav.path} key={nav.title}>
-            {nav.title}
+    <>
+      <HamburgerMenu onClick={() => handleToggleSideNav()} />
+      <Container isVisible={isSideNavVisible}>
+        <div className="user-icon-name">
+          <img src={userIcon} alt="user-icon" className="nav-panel-user-icon" />
+          <h4>{username}</h4>
+        </div>
+        <NavbtnSection>
+          {navConfig.map((nav) => (
+            <NavBoxItem
+              path={nav.path}
+              key={nav.title}
+              onClick={() => { handleToggleSideNav(true); }}
+            >
+              {nav.title}
+            </NavBoxItem>
+          ))}
+        </NavbtnSection>
+        <LogoutBtn onClick={handleLogout}>
+          <NavBoxItem>
+            Logout
           </NavBoxItem>
-        ))}
-      </NavbtnSection>
-      <LogoutBtn onClick={handleLogout}>
-        <NavBoxItem path="/">
-          Logout
-        </NavBoxItem>
-      </LogoutBtn>
-    </Container>
+        </LogoutBtn>
+      </Container>
+    </>
   );
 };
 
@@ -55,6 +77,13 @@ const Container = styled.nav`
   & > a > div {
     margin-left: 1rem;
   }
+
+  @media (max-width: 768px) {
+    display: ${(props) => (props.isVisible ? 'flex' : 'none')};
+    padding: 1rem;
+    height: 100vh;
+    z-index: 777;
+  }
 `;
 
 const NavbtnSection = styled.section`
@@ -65,4 +94,7 @@ const NavbtnSection = styled.section`
 
 const LogoutBtn = styled.div`
   margin-top: 2rem;
+  @media (max-width: 380px) {
+    margin-top: 0;
+  }
 `;

@@ -12,7 +12,6 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values) => {
-    // console.log(values);
     dispatch(registerUser(values));
     navigate('/account/signin');
   };

@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCars } from '../../redux/thunk';
 import DisplayCartCard from '../../components/Card/DisplayCartCard';
 import colorWheel from '../../components/asset/small_color_wheel.png';
 
 const DashboardHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const authenticationStatus = useSelector((state) => state.authentication.status);
+  const carsstatus = useSelector((state) => state.cars.status);
+  const finalIsAuthenticated = authenticationStatus === 'succeeded';
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (finalIsAuthenticated) {
+      dispatch(fetchCars());
+    }
+  }, [dispatch, finalIsAuthenticated]);
+
   const cars = useSelector((state) => state.cars.cars);
+
+  if (carsstatus === 'loading') {
+    return <p>Loading Cars....</p>;
+  }
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 3) % cars.length);
@@ -36,6 +51,7 @@ const DashboardHome = () => {
               name={data.name}
               shortNote={data.description}
               imgSrc={colorWheel}
+              deletedAt={data.deleted_at}
             />
           ))}
         </CardContainer>
@@ -56,6 +72,9 @@ const Inner = styled.section`
   margin-top: 2rem;
   // border: 1px solid blue;
   // margin-left: 2rem;
+  @media (max-width: 380px) {
+    overflow-x: hidden;
+  }
 `;
 
 const Container = styled.div`
@@ -63,11 +82,11 @@ const Container = styled.div`
   flex-direction: column;
   width: 90%;
   margin: 3.5rem;
-  @media (max-width: 375px) {
-    margin-left: -4rem;
+  @media (max-width: 380px) {
+    width: 80%;
   }
-  @media (min-width: 375px) and (max-width: 768px) {
-    margin-left: -4rem;
+  @media (max-width: 768px) {
+    margin-left: 2.5rem;
   }
 `;
 
@@ -93,6 +112,9 @@ const Arrow = styled.div`
   @media (min-width: 375px) and (max-width: 768px) {
     top: 30rem;
   }
+  @media (max-width: 380px) {
+    top: 82%;
+  }
 `;
 
 const ArrowLeft = styled(Arrow)`
@@ -103,19 +125,17 @@ const ArrowLeft = styled(Arrow)`
   @media (min-width: 1024px) and (max-width: 1440px) {
     top: 23rem;
   }
+  @media (max-width: 380px) {
+    left: 7rem;
+  }
 `;
 
 const ArrowRight = styled(Arrow)`
   right: 2rem;
   top: 22rem;
-  @media (max-width: 375px) {
-    display: none;
-  }
-  @media (min-width: 375px) and (max-width: 768px) {
-    display: none;
-  }
-  @media (min-width: 769px) and (max-width: 1024px) {
-    display: none;
+  @media (max-width: 380px) {
+    right: 6rem;
+    top: 34.2rem;
   }
 `;
 
@@ -130,6 +150,6 @@ const Title = styled.div`
   }
   @media (min-width: 375px) and (max-width: 768px) {
     // border: 1px solid blue;
-    padding-left: 25rem;
+    padding-left: 0;
   }
 `;
