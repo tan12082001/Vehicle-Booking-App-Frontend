@@ -29,6 +29,12 @@ const Container = styled.div`
   padding-right: -5rem;
   justify-content: center;
   // margin-left: 8rem;
+  @media (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    margin-left: 10px;
+  }
 `;
 
 export default AuthNav;

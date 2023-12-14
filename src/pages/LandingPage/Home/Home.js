@@ -6,9 +6,9 @@ import logoimg from '../../../assets/CaBooky-logo-1-preview.png';
 const Home = () => (
   <>
     <img src={logoimg} alt="cabooky-logo" id="splash-logo" />
-    <Container>
-      <Content>
-        <Paragraph>
+    <Container className='landing-page-container'>
+      <Content className='landing-page-content'>
+        <Paragraph className='app-title-p-tag'>
           CaBooky
           <br />
           Book A car today!
@@ -30,6 +30,13 @@ const Container = styled.div`
   @media (max-width: 768px) {
     margin-left: 2rem;
   }
+
+  @media (max-width: 380px) {
+    border: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+  }
 `;
 
 const Content = styled.div`
@@ -39,6 +46,13 @@ const Content = styled.div`
 
   @media (max-width: 768px) {
     padding: 0 20px;
+  }
+
+  @media (max-width: 380px) {
+    display: flex;
+    flex-direct: column;
+    -webkit-flex-direction: column;
+    margin-top: 0;
   }
 `;
 
@@ -53,6 +67,13 @@ const Paragraph = styled.p`
     font-size: 2rem;
     margin-top: -20rem;
     margin-left: 10rem;
+  }
+
+  @media (max-width: 380px) {
+    color: red;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
   }
 `;
 

@@ -114,6 +114,9 @@ const Image = styled.div`
   margin-right: 5rem;
   margin-top: 3rem;
   postion: relative;
+  @media (max-width: 380px) {
+    widht: 10rem;
+  }
 `;
 
 const Image1 = styled.img`
@@ -147,6 +150,9 @@ const Rotate = styled.div`
 
 const Content = styled.div`
   padding: 4rem 2rem;
+  @media (max-width: 380px) {
+    padding: 0;
+  }
 `;
 
 const Name = styled.h2`

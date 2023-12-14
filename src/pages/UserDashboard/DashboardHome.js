@@ -88,6 +88,10 @@ const Container = styled.div`
 const CardContainer = styled.div`
   display: flex;
   gap: 2rem;
+  @media (max-width: 380px) {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
 `;
 
 const Arrow = styled.div`
