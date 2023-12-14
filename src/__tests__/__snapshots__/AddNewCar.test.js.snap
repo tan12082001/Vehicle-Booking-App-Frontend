@@ -10,7 +10,7 @@ Object {
         class="add-new-car css-i51pdu"
       >
         <div
-          class="add-new-string css-1oq5xzy"
+          class="add-new-string css-5zoda1"
         >
           <label
             class="css-1mcvbvm"
@@ -29,7 +29,7 @@ Object {
           </div>
         </div>
         <div
-          class="add-new-string css-1oq5xzy"
+          class="add-new-string css-5zoda1"
         >
           <label
             class="css-1mcvbvm"
@@ -48,7 +48,7 @@ Object {
           </div>
         </div>
         <div
-          class="add-new-string css-1oq5xzy"
+          class="add-new-string css-5zoda1"
         >
           <label
             class="css-1mcvbvm"
@@ -67,7 +67,7 @@ Object {
           </div>
         </div>
         <div
-          class="add-new-string css-1oq5xzy"
+          class="add-new-string css-5zoda1"
         >
           <label
             class="css-1mcvbvm"
@@ -86,7 +86,7 @@ Object {
           </div>
         </div>
         <div
-          class="add-new-string css-1oq5xzy"
+          class="add-new-string css-5zoda1"
         >
           <label
             class="css-1mcvbvm"
@@ -105,7 +105,7 @@ Object {
           </div>
         </div>
         <div
-          class="add-new-string css-1ssprdq"
+          class="add-new-string css-md1mko"
         >
           <label
             class="css-1mcvbvm"
@@ -113,10 +113,9 @@ Object {
             Add Image of Car
           </label>
           <input
+            accept="image/*"
             class="css-iz78xn"
-            name="Add Image"
             type="file"
-            value=""
           />
         </div>
         <button
@@ -134,7 +133,7 @@ Object {
       class="add-new-car css-i51pdu"
     >
       <div
-        class="add-new-string css-1oq5xzy"
+        class="add-new-string css-5zoda1"
       >
         <label
           class="css-1mcvbvm"
@@ -153,7 +152,7 @@ Object {
         </div>
       </div>
       <div
-        class="add-new-string css-1oq5xzy"
+        class="add-new-string css-5zoda1"
       >
         <label
           class="css-1mcvbvm"
@@ -172,7 +171,7 @@ Object {
         </div>
       </div>
       <div
-        class="add-new-string css-1oq5xzy"
+        class="add-new-string css-5zoda1"
       >
         <label
           class="css-1mcvbvm"
@@ -191,7 +190,7 @@ Object {
         </div>
       </div>
       <div
-        class="add-new-string css-1oq5xzy"
+        class="add-new-string css-5zoda1"
       >
         <label
           class="css-1mcvbvm"
@@ -210,7 +209,7 @@ Object {
         </div>
       </div>
       <div
-        class="add-new-string css-1oq5xzy"
+        class="add-new-string css-5zoda1"
       >
         <label
           class="css-1mcvbvm"
@@ -229,7 +228,7 @@ Object {
         </div>
       </div>
       <div
-        class="add-new-string css-1ssprdq"
+        class="add-new-string css-md1mko"
       >
         <label
           class="css-1mcvbvm"
@@ -237,10 +236,9 @@ Object {
           Add Image of Car
         </label>
         <input
+          accept="image/*"
           class="css-iz78xn"
-          name="Add Image"
           type="file"
-          value=""
         />
       </div>
       <button

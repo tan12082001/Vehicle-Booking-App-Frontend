@@ -43,6 +43,9 @@ const Container = styled(Link)`
   border-radius: 8px;
   overflow: hidden;
 //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+    min-width: 320px;
+  }
 `;
 
 const Image = styled.img`

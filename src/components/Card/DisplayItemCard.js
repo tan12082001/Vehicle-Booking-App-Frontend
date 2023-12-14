@@ -106,9 +106,9 @@ const Container = styled.div`
 //   width: 40%;
 //   overflow: hidden;
 //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  @media (max-width: 380px) {
-    flex-direction: column;
-    -webkit-flex-direction: column;
+  @media (max-width: 768px) {
+     flex-direction: column;
+     align-items: center;
   }
 `;
 
@@ -118,6 +118,11 @@ const Image = styled.div`
   margin-right: 5rem;
   margin-top: 3rem;
   postion: relative;
+  @media (max-width: 768px) {
+    width: 20rem;
+    margin: 3rem 0;
+    height: auto;
+  }
   @media (max-width: 380px) {
     width: 100%;
     height: auto;
@@ -131,6 +136,10 @@ const Image1 = styled.img`
   margin-right: 2rem;
   transform: rotate(${(props) => props.rotation}deg);
   transition: transform 0.5s ease;
+  @media (max-width: 768px) {
+    width: 20rem;
+    border: 1px solid blue;
+  }
   @media (max-width: 380px) {
     width: 100%;
     margin-right: 0;
@@ -165,6 +174,9 @@ const Rotate = styled.div`
 
 const Content = styled.div`
   padding: 4rem 2rem;
+  @media (max-width: 768px) {
+    background: orange;
+  }
   @media (max-width: 380px) {
     padding: 1rem;
   }

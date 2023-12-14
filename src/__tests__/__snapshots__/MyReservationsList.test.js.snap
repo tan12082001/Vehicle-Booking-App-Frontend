@@ -1,43 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MyReservations Component renders reservations present 1`] = `
+exports[`EachReservation Component renders reservation details 1`] = `
 <div>
   <div
-    class="my-reservations-page-outer"
+    class="each-reservation-div"
   >
-    <h1>
-      My Current Reservations
-    </h1>
-    <div
-      class="my-reservations-inner"
-    >
-      <div
-        class="each-reservation-div"
-      >
-        <span>
-          Car: non nome
-        </span>
-        <span>
-          Date: 2023-10-10
-        </span>
-        <span>
-          City: City A
-        </span>
-      </div>
-      <div
-        class="each-reservation-div"
-      >
-        <span>
-          Car: non nome
-        </span>
-        <span>
-          Date: 2022-11-11
-        </span>
-        <span>
-          City: City B
-        </span>
-      </div>
-    </div>
+    <span>
+      Booked For 🚗: Test Car
+    </span>
+    <span>
+      Reservation is on 📆: 2023-01-01
+    </span>
+    <span>
+      Reservation is at  📍: Test City
+    </span>
   </div>
 </div>
 `;

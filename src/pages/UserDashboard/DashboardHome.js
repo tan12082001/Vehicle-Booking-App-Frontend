@@ -26,11 +26,11 @@ const DashboardHome = () => {
   }
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 3) % cars.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % cars.length);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 3 + cars.length) % cars.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + cars.length) % cars.length);
   };
 
   return (
@@ -40,7 +40,7 @@ const DashboardHome = () => {
         <p>Please select a Vehicle</p>
       </Title>
       <Inner>
-        <ArrowLeft onClick={handlePrev}>
+        <ArrowLeft onClick={handlePrev} disabled={cars.length <= 1}>
           <FaArrowLeft />
         </ArrowLeft>
         <CardContainer>
@@ -54,7 +54,7 @@ const DashboardHome = () => {
             />
           ))}
         </CardContainer>
-        <ArrowRight onClick={handleNext}>
+        <ArrowRight onClick={handleNext} disabled={cars.length <= 1}>
           <FaArrowRight />
         </ArrowRight>
       </Inner>
@@ -71,8 +71,8 @@ const Inner = styled.section`
   margin-top: 2rem;
   // border: 1px solid blue;
   // margin-left: 2rem;
-  @media (max-width: 380px) {
-    overflow-x: hidden;
+  @media (max-width: 768px) {
+    margin: auto;
   }
 `;
 
@@ -81,20 +81,19 @@ const Container = styled.div`
   flex-direction: column;
   width: 90%;
   margin: 3.5rem;
-  @media (max-width: 380px) {
-    width: 80%;
-  }
   @media (max-width: 768px) {
-    margin-left: 2.5rem;
+    margin: 0;
+    padding: 10%;
+    width: 100%;
   }
 `;
 
 const CardContainer = styled.div`
   display: flex;
   gap: 2rem;
-  @media (max-width: 375px) {
-    display: block;
-    margin-left: -1rem;
+  @media (max-width: 768px) {
+    width: 320px;
+    overflow-x: hidden;
   }
 `;
 
@@ -108,8 +107,8 @@ const Arrow = styled.div`
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  @media (min-width: 375px) and (max-width: 768px) {
-    top: 30rem;
+  @media (max-width: 768px) {
+    top: 70%;
   }
   @media (max-width: 380px) {
     top: 82%;
@@ -118,8 +117,8 @@ const Arrow = styled.div`
 
 const ArrowLeft = styled(Arrow)`
   left: 15rem;
-  @media (max-width: 375px) {
-    display: none;
+  @media (max-width: 768px) {
+    left: 20%;
   }
   @media (min-width: 1024px) and (max-width: 1440px) {
     top: 23rem;
@@ -135,6 +134,10 @@ const ArrowRight = styled(Arrow)`
   @media (max-width: 380px) {
     right: 6rem;
     top: 34.2rem;
+  }
+  @media (max-width: 768px) {
+    top: 70%;
+    right: 24%;
   }
 `;
 

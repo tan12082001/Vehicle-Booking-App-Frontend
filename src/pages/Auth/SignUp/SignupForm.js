@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import FormComponent from '../../../components/Form/FormComponent';
 import { SignUpSchema, signUpInitialValues } from '../../../models/signup.model';
@@ -11,10 +11,14 @@ import { registerUser } from '../../../redux/thunk';
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const status = useSelector((state) => state.authentication.status);
   const handleSubmit = (values) => {
     dispatch(registerUser(values));
-    navigate('/account/signin');
   };
+
+  if (status === 'succeeded') {
+    navigate('/account/signin');
+  }
 
   return (
     <FormComponent
