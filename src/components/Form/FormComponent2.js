@@ -27,7 +27,7 @@ FormComponent2.propTypes = {
     pricePerHr: PropTypes.string.isRequired,
     seating_capacity: PropTypes.number.isRequired,
     rental_duration: PropTypes.number.isRequired,
-    // image: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
   schema: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -35,7 +35,7 @@ FormComponent2.propTypes = {
     pricePerHr: PropTypes.string.isRequired,
     seating_capacity: PropTypes.number.isRequired,
     rental_duration: PropTypes.number.isRequired,
-    // image: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,

@@ -56,6 +56,7 @@ const carsSlice = createSlice({
       .addCase(postNewCar.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.cars = [...state.cars, action.payload];
+        console.log('Car state :', state.cars);
       })
       .addCase(postNewCar.rejected, (state, action) => {
         state.status = 'failed';

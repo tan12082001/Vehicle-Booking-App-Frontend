@@ -122,6 +122,7 @@ export const postNewCar = createAsyncThunk(
           Authorization: token,
         },
       });
+      console.log('Car Response', response);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

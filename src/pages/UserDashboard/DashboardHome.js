@@ -51,7 +51,6 @@ const DashboardHome = () => {
               name={data.name}
               shortNote={data.description}
               imgSrc={colorWheel}
-              deletedAt={data.deleted_at}
             />
           ))}
         </CardContainer>
