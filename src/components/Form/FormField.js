@@ -26,8 +26,10 @@ export const DateField = ({
         /* eslint-disable react/jsx-props-no-spreading */
         {...field}
         {...props}
+        selected={field.value}
         onChange={handleDatePickerChange}
         onBlur={() => helpers.setTouched(true)}
+        minDate={new Date()}
       />
       {meta.touched && meta.error ? (
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>

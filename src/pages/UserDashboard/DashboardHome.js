@@ -84,10 +84,9 @@ const Container = styled.div`
   margin: 3.5rem;
   @media (max-width: 380px) {
     width: 80%;
-    margin-left: 2.5rem;
   }
   @media (max-width: 768px) {
-    margin-left: 0;
+    margin-left: 2.5rem;
   }
 `;
 
