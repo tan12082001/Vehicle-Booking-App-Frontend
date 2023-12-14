@@ -4,11 +4,12 @@ import styled from '@emotion/styled';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import DisplayCartCard from '../../components/Card/DisplayCartCard';
-import colorWheel from '../../components/asset/small_color_wheel.png';
+// import colorWheel from '../../components/asset/small_color_wheel.png';
 
 const DashboardHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cars = useSelector((state) => state.cars.cars);
+  console.log('Cars details', cars);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 3) % cars.length);
@@ -35,7 +36,7 @@ const DashboardHome = () => {
               id={data.id}
               name={data.name}
               shortNote={data.description}
-              imgSrc={colorWheel}
+              imgSrc={data.image}
             />
           ))}
         </CardContainer>

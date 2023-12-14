@@ -155,12 +155,13 @@ TextAreaInputField.propTypes = {
 export const FileInputField = ({
   id, label, name, className, ...props
 }) => {
-  const [field, meta, helpers] = useField(name);
+  const [, meta, helpers] = useField(name);
 
   const handleChange = (event) => {
     const file = event.currentTarget.files[0];
     helpers.setValue(file);
-    // console.log('FIle', file);
+    console.log('FIle', file);
+    return file;
   };
 
   return (
@@ -168,8 +169,6 @@ export const FileInputField = ({
       <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
       <StyledFileInput
         type="file"
-        {...field}
-        {...props}
         onChange={handleChange}
         onBlur={() => helpers.setTouched(true)}
       />
