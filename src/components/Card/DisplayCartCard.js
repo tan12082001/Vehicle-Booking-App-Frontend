@@ -49,7 +49,7 @@ const Image = styled.img`
   width: 100%;
   height: 200px;
   border: 1px solid blue;
-  // border-radius: 50%;
+  border-radius: 50%;
   margin-top: 1rem;
   object-fit: cover;
 `;

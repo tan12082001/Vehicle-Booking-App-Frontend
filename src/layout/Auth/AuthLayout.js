@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 const AuthLayout = () => (
-  <main>
+  <main className="auth-main-layout">
     <Outlet />
   </main>
 );

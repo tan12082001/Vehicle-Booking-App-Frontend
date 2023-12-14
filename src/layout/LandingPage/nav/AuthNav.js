@@ -7,7 +7,7 @@ import { ButtonLink } from '../../../components/Link/Link';
 import { ACCOUNT, SIGNIN, SIGNUP } from '../../../routes/routeConstants';
 
 const AuthNav = () => (
-  <Container>
+  <Container className="sign-in-signup-buttons-container">
     <ButtonLink to={`${ACCOUNT}/${SIGNIN}`}>
       <TertiaryButton className="grey">Sign In</TertiaryButton>
     </ButtonLink>
@@ -29,6 +29,12 @@ const Container = styled.div`
   padding-right: -5rem;
   justify-content: center;
   // margin-left: 8rem;
+  @media (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    margin-left: 32px;
+  }
 `;
 
 export default AuthNav;

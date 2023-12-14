@@ -26,8 +26,10 @@ export const DateField = ({
         /* eslint-disable react/jsx-props-no-spreading */
         {...field}
         {...props}
+        selected={field.value}
         onChange={handleDatePickerChange}
         onBlur={() => helpers.setTouched(true)}
+        minDate={new Date()}
       />
       {meta.touched && meta.error ? (
         <FieldErrorInfo>{meta.error}</FieldErrorInfo>
@@ -161,7 +163,7 @@ export const FileInputField = ({
     const file = event.currentTarget.files[0];
     helpers.setValue(file);
     console.log('FIle', file);
-    return file;
+    // return file;
   };
 
   return (
@@ -169,6 +171,7 @@ export const FileInputField = ({
       <InputLabel htmlFor={props.name || props.id}>{label}</InputLabel>
       <StyledFileInput
         type="file"
+        accept="image/*"
         onChange={handleChange}
         onBlur={() => helpers.setTouched(true)}
       />

@@ -32,9 +32,8 @@ import DashboardHome from '../pages/UserDashboard/DashboardHome';
 import AddNewCar from '../pages/UserDashboard/AddNewCar/AddNewCar';
 import Contact from '../pages/LandingPage/Contact/Contact';
 import DeleteList from '../components/DeleteCars/DeleteList';
-// import LoadingText from '../pages/LoadingText';
 
-export default function Router() {
+const Router = () => {
   const authenticationStatus = useSelector((state) => state.authentication.status);
   const isAuthenticated = authenticationStatus === 'succeeded';
   const storedStatus = localStorage.getItem('authenticationStatus');
@@ -49,11 +48,6 @@ export default function Router() {
         { path: HOME, element: <Home /> },
       ],
     },
-
-    // isLoading && {
-    //   path: USERS_DASHBOARD,
-    //   element: <LoadingText />,
-    // },
 
     finalIsAuthenticated && {
       path: USERS_DASHBOARD,
@@ -87,4 +81,6 @@ export default function Router() {
     },
     { path: '*', element: <NotFound404 /> },
   ]);
-}
+};
+
+export default Router;

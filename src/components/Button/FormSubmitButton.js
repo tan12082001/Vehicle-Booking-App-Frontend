@@ -11,6 +11,10 @@ const FormSubmitButton = styled.button`
   height: fit-content;
   cursor: pointer;
 
+  @media (max-width: 380px) {
+    border-radius: 3rem;
+  }
+
   &.contact {
     width: 100%;
     background-color: #2857D1;

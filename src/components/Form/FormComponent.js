@@ -48,6 +48,9 @@ const StyledForm = styled(Form)`
   @media (max-width: 375px) {
     padding: 1rem;
   }
+  @media (max-width: 380px) {
+    padding: 0;
+  }
 
   &.flex {
     display: flex;

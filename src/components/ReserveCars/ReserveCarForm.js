@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { format } from 'date-fns';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import FormComponent from '../Form/FormComponent';
 import { ReserveCarSchema, reserveCarInitialValues } from '../../models/reserveCar.model';
@@ -13,7 +13,7 @@ import { MY_RESERVATIONS, USERS_DASHBOARD } from '../../routes/routeConstants';
 const ReserveCarFrom = ({ id, username, name }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const status = useSelector((state) => state.reservation.status);
   const handleSubmit = (values) => {
     const formattedDate = format(values.selectedDate, 'EEE, dd MMM yyyy');
     const reservationData = {
@@ -23,8 +23,11 @@ const ReserveCarFrom = ({ id, username, name }) => {
       },
     };
     dispatch(postReserveCar({ carId: id, reservationData }));
-    navigate(`${USERS_DASHBOARD}/${MY_RESERVATIONS}`);
   };
+
+  if (status === 'succeeded') {
+    navigate(`${USERS_DASHBOARD}/${MY_RESERVATIONS}`);
+  }
 
   const options = [
     { value: 'Select city', label: 'Select city' },

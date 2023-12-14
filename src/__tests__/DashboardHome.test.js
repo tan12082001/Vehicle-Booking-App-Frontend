@@ -1,55 +1,42 @@
-import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store';
-import Router from '../routes/routes';
-import { USERS_DASHBOARD } from '../routes/routeConstants';
+import { BrowserRouter } from 'react-router-dom';
+import DisplayCartCard from '../components/Card/DisplayCartCard';
+import store from '../redux/store';
 
-jest.mock('../assets/user.png', () => 'path-to-a-mocked-image.png');
+describe('DisplayCartCard Component', () => {
+  const sampleProps = {
+    id: 1,
+    imgSrc: 'sample-image.jpg',
+    name: 'Sample Name',
+    shortNote: 'Sample Short Note',
+  };
 
-const mockStore = configureMockStore();
-
-describe('DashboardHome Component', () => {
-  it('renders cars present', () => {
-    const store = mockStore({
-      authentication: {
-        authenticatedUser: {
-          username: 'testuser',
-        },
-        status: 'succeeded',
-      },
-      cars: {
-        cars: [
-          {
-            id: 1,
-            name: 'Vehicle oneeee',
-            description: 'Test Description',
-            pricePerHr: 20,
-            seating_capacity: 4,
-            image: 'test_image.png',
-          },
-          {
-            id: 2,
-            name: 'Vehicle two',
-            description: 'Vehicle two Description',
-            pricePerHr: 10,
-            seating_capacity: 6,
-            image: 'test_image.png',
-          },
-        ],
-      },
-    });
-
-    const tree = render(
-      <Provider store={store}>
-        <MemoryRouter initialEntries={[`${USERS_DASHBOARD}`]}>
-          <Router />
-        </MemoryRouter>
-      </Provider>,
+  it('renders with correct props', () => {
+    const { getByText, getByAltText } = render(
+      <React.StrictMode>
+        <Provider store={store}>
+          <BrowserRouter>
+            <DisplayCartCard
+              id={sampleProps.id}
+              name={sampleProps.name}
+              shortNote={sampleProps.shortNote}
+              imgSrc={sampleProps.imgSrc}
+            />
+          </BrowserRouter>
+        </Provider>
+      </React.StrictMode>,
     );
+    const nameElement = getByText('Sample Name');
+    expect(nameElement).toBeInTheDocument();
 
-    expect(tree).toMatchSnapshot();
+    const noteElement = getByText('Sample Short Note');
+    expect(noteElement).toBeInTheDocument();
+
+    const imageElement = getByAltText('Sample Name');
+    expect(imageElement).toBeInTheDocument();
+    expect(imageElement.src).toContain('sample-image.jpg');
   });
 });
