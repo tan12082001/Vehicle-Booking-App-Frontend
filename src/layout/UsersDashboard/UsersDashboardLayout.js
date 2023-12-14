@@ -27,9 +27,16 @@ const Container = styled.div`
 const Section = styled.section`
   width: 80%;
   margin-left: 17rem;
+  @media (max-width: 380px) {
+    width: 100%;
+    margin-left: 0;
+  }
 `;
 
 const MainContent = styled.main`
   margin: 2rem 6.25rem 5.69rem 3.38rem;
   height: fit-content;
+  @media (max-width: 380px) {
+    margin: 0;
+  }
 `;

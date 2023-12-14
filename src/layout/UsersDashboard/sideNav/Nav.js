@@ -1,8 +1,7 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
-
+import HamburgerMenu from '../../LandingPage/header/HamburgerMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import userIcon from '../../../assets/user.png';
 import navConfig from './navConfig';
@@ -15,6 +14,11 @@ const Nav = () => {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.authentication.authenticatedUser.username);
   const status = useSelector((state) => state.authentication.status);
+  
+  const [isSideNavVisible, setSideNavVisbility] = useState(false);
+  const handleToggleSideNav = (hide) => {
+    setSideNavVisbility(!isSideNavVisible && !hide);
+  }
   const handleLogout = () => {
     if (status === 'succeeded') {
       dispatch(logoutUser());
@@ -27,14 +31,16 @@ const Nav = () => {
   }
 
   return (
-    <Container>
+    <>
+    <HamburgerMenu onClick={() => handleToggleSideNav()} />
+    <Container isVisible={isSideNavVisible}>
       <div className="user-icon-name">
         <img src={userIcon} alt="user-icon" className="nav-panel-user-icon" />
         <h4>{username}</h4>
       </div>
       <NavbtnSection>
         {navConfig.map((nav) => (
-          <NavBoxItem path={nav.path} key={nav.title}>
+          <NavBoxItem path={nav.path} key={nav.title} onClick={() => {handleToggleSideNav(true)}}>
             {nav.title}
           </NavBoxItem>
         ))}
@@ -44,7 +50,8 @@ const Nav = () => {
           Logout
         </NavBoxItem>
       </LogoutBtn>
-    </Container>
+    </Container>    
+    </>
   );
 };
 
@@ -65,6 +72,12 @@ const Container = styled.nav`
   & > a > div {
     margin-left: 1rem;
   }
+
+  @media (max-width: 380px) {
+    display: ${(props) => (props.isVisible ? 'flex' : 'none')};
+    padding: 1rem;
+    height: 100vh;
+  }
 `;
 
 const NavbtnSection = styled.section`
@@ -75,4 +88,7 @@ const NavbtnSection = styled.section`
 
 const LogoutBtn = styled.div`
   margin-top: 2rem;
+  @media (max-width: 375px) {
+    margin-top: 0;
+  }
 `;

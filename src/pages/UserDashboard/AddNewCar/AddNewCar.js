@@ -30,8 +30,18 @@ const SignUpContent = styled.div`
   align-items: center;
   background-color: white;
   box-shadow: 0 7px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 380px) {
+    width: 100%;
+    margin-top: 0;
+    padding: 1rem 0;
+  } 
 `;
 
 const Title = styled.p`
   font-size: 1rem;
+
+  @media (max-width: 380px) {
+    text-align: center;
+  }
 `;

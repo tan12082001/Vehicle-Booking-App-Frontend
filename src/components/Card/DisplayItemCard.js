@@ -106,6 +106,10 @@ const Container = styled.div`
 //   width: 40%;
 //   overflow: hidden;
 //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  @media (max-width: 380px) {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
 `;
 
 const Image = styled.div`
@@ -115,7 +119,9 @@ const Image = styled.div`
   margin-top: 3rem;
   postion: relative;
   @media (max-width: 380px) {
-    widht: 10rem;
+    width: 100%;
+    height: auto;
+    margin-right: 0;
   }
 `;
 
@@ -125,6 +131,10 @@ const Image1 = styled.img`
   margin-right: 2rem;
   transform: rotate(${(props) => props.rotation}deg);
   transition: transform 0.5s ease;
+  @media (max-width: 380px) {
+    width: 100%;
+    margin-right: 0;
+  }
 `;
 
 const RotateButton = styled.button`
@@ -136,6 +146,11 @@ const RotateButton = styled.button`
   border-radius: 50%;
 //   padding: 0.5rem;
   cursor: pointer;
+  @media (max-width: 380px) {
+    position: relative;
+    top: 0;
+    right: 15rem;
+  }
 `;
 
 const Rotate = styled.div`
@@ -151,7 +166,7 @@ const Rotate = styled.div`
 const Content = styled.div`
   padding: 4rem 2rem;
   @media (max-width: 380px) {
-    padding: 0;
+    padding: 1rem;
   }
 `;
 
@@ -196,6 +211,9 @@ const ColorWheel = styled.div`
   margin-left: 9rem;
   width: 15rem;
 //   height: 1rem;
+  @media (max-width: 380px) {
+    margin-left: 2rem;
+  }
 `;
 
 const ConfigureButton = styled.button`
@@ -209,6 +227,10 @@ const ConfigureButton = styled.button`
   border: none;
   border-radius: 5rem;
   cursor: pointer;
+  @media (max-width: 380px) {
+    margin-left: 6rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const SettingIcon = styled.span`

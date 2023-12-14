@@ -75,16 +75,17 @@ select.css-zdsokt {
   height: 100%;
   overflow: scroll;
   padding: 10px;
+  width: 100%;
 }
 
 .each-reservation-div {
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   background: #fff;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10px;
 }
 
 img.nav-panel-user-icon {
@@ -174,6 +175,24 @@ button.removed-mark {
   border-radius: 4px;
 }
 
+@media (max-width: 380px) {
+  .reserve-car-outer {
+    height: 100%;
+  }
+
+  .reserve-cars-page-outer {
+    height: 100%;
+  }
+
+  #reserve-page-head-description {
+    width: 100%;
+  }
+
+  .city-submit-div {
+    flex-direction: column;
+  }
+}
+
 /* Styles for screens up to 480px wide */
 @media (max-width: 480px) {
   .signin-page-outer,
@@ -181,6 +200,12 @@ button.removed-mark {
   .my-reservations-page-outer,
   .reserve-cars-page-outer {
     gap: 1rem;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .my-reservations-page-outer {
+    padding: 2rem 0;
   }
 
   p.user-headline {

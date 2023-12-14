@@ -12,6 +12,8 @@ const HamburgerMenu = ({ onClick }) => (
 const StyledHamburger = styled.div`
   font-size: 24px;
   cursor: pointer;
+  position: absolute;
+  z-index: 888;
 `;
 
 HamburgerMenu.propTypes = {

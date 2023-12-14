@@ -34,9 +34,9 @@ const MyReservationsList = () => {
     <div className="my-reservations-inner">
       {myReservations && myReservations.map((reservation) => (
         <div key={reservation.id} className="each-reservation-div">
-          <span>{`Car: ${reservation.car && reservation.car.name ? reservation.car.name : 'Meow'}`}</span>
-          <span>{`Date: ${reservation.date}`}</span>
-          <span>{`City: ${reservation.city}`}</span>
+          <span>{`Booked For 🚗: ${reservation.car && reservation.car.name ? reservation.car.name : 'Meow'}`}</span>
+          <span>{`Reservation is on 📆: ${reservation.date}`}</span>
+          <span>{`Reservation is at  📍: ${reservation.city}`}</span>
         </div>
       ))}
     </div>

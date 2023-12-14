@@ -21,10 +21,11 @@ export const ButtonLink = styled(RouterLink)`
   font-weight: 500;
 `;
 
-export const NavBoxItem = ({ path, children }) => (
+export const NavBoxItem = ({ path, children, onClick }) => (
   <NavigationBoxLink
     className={(navData) => (navData.isActive ? 'active' : '')}
     to={path}
+    onClick={onClick}
   >
     {children}
   </NavigationBoxLink>
