@@ -29,7 +29,6 @@ const Section = styled.section`
   margin-left: 17rem;
   @media (max-width: 768px) {
     background: purple;
-    background: purple;
     width: 100%;
     margin-left: 0;
   }

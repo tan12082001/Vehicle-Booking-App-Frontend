@@ -31,7 +31,7 @@ const Container = styled.div`
     margin-left: 0;
     margin-bottom: 0;
     margin-top: 0;
-    border: 3rem solid;
+    border: 3rem solid #ffd700;
   }
 
   @media (max-width: 380px) {

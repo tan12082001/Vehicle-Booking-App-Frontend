@@ -30,8 +30,6 @@ const Container = styled.div`
   justify-content: center;
   // margin-left: 8rem;
   @media (max-width: 768px) {
-    background: red;
-    background: red;
     flex-direction: column;
     margin: 2rem 0;
     justify-content: center;
