@@ -27,22 +27,23 @@ export default Home;
 
 const Container = styled.div`
   // backgroun-color: yellow;
-  border: 15rem solid #ffd700;
+  border: 12rem solid #ffd700;
   margin-bottom: 8rem;
   margin-top: 6rem;
-  @media (max-width: 768px) {
-    margin-left: 2rem;
+  @media (max-width: 375px) {
+    border: 20rem solid #ffd700;
+  }
+  @media (min-width: 375px) and (max-width: 768px) {
+    border: 20rem solid #ffd700;
   }
 `;
 
 const Content = styled.div`
   margin-top: 20rem;
   position: relative;
-  max-width: 1200px;
   // background-color: green;
-
-  @media (max-width: 768px) {
-    padding: 0 20px;
+  @media (max-width: 375px) {
+   margin-left: -5rem;
   }
 `;
 
@@ -52,11 +53,8 @@ const Paragraph = styled.p`
   margin-left: -4rem;
   background color: blue;
   text-align: center;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-    margin-top: -20rem;
-    margin-left: 10rem;
+  @media (max-width: 375px) {
+    margin-left: -5rem;
   }
 `;
 
