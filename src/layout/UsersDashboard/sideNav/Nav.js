@@ -19,6 +19,7 @@ const Nav = () => {
   const handleToggleSideNav = (hide) => {
     setSideNavVisbility(!isSideNavVisible && !hide);
   };
+
   const handleLogout = () => {
     if (status === 'succeeded') {
       dispatch(logoutUser());
@@ -77,10 +78,11 @@ const Container = styled.nav`
     margin-left: 1rem;
   }
 
-  @media (max-width: 380px) {
+  @media (max-width: 768px) {
     display: ${(props) => (props.isVisible ? 'flex' : 'none')};
     padding: 1rem;
     height: 100vh;
+    z-index: 777;
   }
 `;
 

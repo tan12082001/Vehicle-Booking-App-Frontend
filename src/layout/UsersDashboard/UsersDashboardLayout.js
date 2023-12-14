@@ -38,5 +38,6 @@ const MainContent = styled.main`
   height: fit-content;
   @media (max-width: 380px) {
     margin: 0;
+    width: 100%;
   }
 `;

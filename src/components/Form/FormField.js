@@ -159,8 +159,8 @@ export const FileInputField = ({
 
   const handleChange = (event) => {
     const file = event.currentTarget.files[0];
-    // helpers.setValue(file);
-    console.log('FIle', file);
+    helpers.setValue(file);
+    // console.log('FIle', file);
   };
 
   return (
@@ -206,6 +206,9 @@ const FileInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  @media (max-width: 375px) {
+    width: 80%;
+  }
 
   label {
     margin-bottom: 0.5rem;
@@ -231,6 +234,9 @@ const StyledDatePicker = styled(DatePicker)`
 export const InputWrapper = styled.div`
   width: 100%;
   margin-bottom: .5rem;
+  @media (max-width: 375px) {
+    width: 80%;
+  }
 `;
 
 export const InputLabel = styled.label`

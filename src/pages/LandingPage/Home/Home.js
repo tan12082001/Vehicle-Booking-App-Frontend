@@ -24,11 +24,11 @@ const Home = () => (
 export default Home;
 
 const Container = styled.div`
-  border: 15rem solid #ffd700;
+  border: 12rem solid #ffd700;
   margin-bottom: 8rem;
   margin-top: 6rem;
-  @media (max-width: 768px) {
-    margin-left: 2rem;
+  @media (min-width: 375px) and (max-width: 768px) {
+    border: 20rem solid #ffd700;
   }
 
   @media (max-width: 380px) {
@@ -42,10 +42,8 @@ const Container = styled.div`
 const Content = styled.div`
   margin-top: 20rem;
   position: relative;
-  max-width: 1200px;
-
-  @media (max-width: 768px) {
-    padding: 0 20px;
+  @media (max-width: 375px) {
+   margin-left: -5rem;
   }
 
   @media (max-width: 380px) {
@@ -62,15 +60,13 @@ const Paragraph = styled.p`
   margin-left: -4rem;
   background color: blue;
   text-align: center;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-    margin-top: -20rem;
-    margin-left: 10rem;
+  @media (max-width: 375px) {
+    margin-left: -5rem;
   }
 
   @media (max-width: 380px) {
     color: red;
+    font-size: 2rem;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 0;

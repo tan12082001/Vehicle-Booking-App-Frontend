@@ -18,8 +18,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-//   min-height: 100vh;
-//   height: fit-content;
 `;
 
 const SignUpContent = styled.div`
@@ -30,16 +28,21 @@ const SignUpContent = styled.div`
   align-items: center;
   background-color: white;
   box-shadow: 0 7px 8px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 380px) {
+  @media (max-width: 375px) {
+    margin-left: 20rem;
+  }
+  @media (min-width: 375px) and (max-width: 768px) {
     width: 100%;
     margin-top: 0;
     padding: 1rem 0;
-  } 
+  }
 `;
 
 const Title = styled.p`
   font-size: 1rem;
+  @media (max-width: 375px) {
+    margin-left: 10rem;
+  }
 
   @media (max-width: 380px) {
     text-align: center;

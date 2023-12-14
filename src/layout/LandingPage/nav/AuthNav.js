@@ -33,7 +33,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     -webkit-flex-direction: column;
-    margin-left: 10px;
+    margin-left: 32px;
   }
 `;
 

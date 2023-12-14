@@ -175,6 +175,14 @@ button.removed-mark {
   border-radius: 4px;
 }
 
+.contact-page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 380px) {
   .reserve-car-outer {
     height: 100%;
