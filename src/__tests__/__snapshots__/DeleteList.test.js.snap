@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteList Component renders cars present to delete 1`] = `
+<div>
+  <div
+    class="delete-cars-list"
+  >
+    <h1
+      id="delete-list-id"
+    >
+      Cars List
+    </h1>
+    <table>
+      <thead>
+        <tr>
+          <th
+            id="delete-list-car-title"
+          >
+            Car Title
+          </th>
+          <th
+            id="delete-list-car-status"
+          >
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="delete-list-each-car"
+        >
+          <td>
+            Test Vehicle
+          </td>
+          <td>
+            <button
+              class="remove-mark"
+              type="button"
+            >
+              DELETE
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="delete-list-each-car"
+        >
+          <td>
+            Vehicle two
+          </td>
+          <td>
+            <button
+              class="remove-mark"
+              type="button"
+            >
+              DELETE
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="delete-list-each-car"
+        >
+          <td>
+            Vehicle three
+          </td>
+          <td>
+            <button
+              class="remove-mark"
+              type="button"
+            >
+              DELETE
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
