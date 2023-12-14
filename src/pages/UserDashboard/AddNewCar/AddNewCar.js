@@ -40,7 +40,7 @@ const SignUpContent = styled.div`
 
 const Title = styled.p`
   font-size: 1rem;
-  @media (max-width: 375px) {
+  @media (max-width: 768px) {
     margin-left: 10rem;
   }
 

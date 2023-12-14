@@ -29,11 +29,13 @@ const Container = styled.div`
   padding-right: -5rem;
   justify-content: center;
   // margin-left: 8rem;
-  @media (max-width: 380px) {
-    display: flex;
+  @media (max-width: 768px) {
+    background: red;
+    background: red;
     flex-direction: column;
-    -webkit-flex-direction: column;
-    margin-left: 32px;
+    margin: 2rem 0;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

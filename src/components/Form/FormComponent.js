@@ -45,8 +45,9 @@ FormComponent.propTypes = {
 const StyledForm = styled(Form)`
   border: 1px solid blue;
   padding: 2rem;
-  @media (max-width: 375px) {
+  @media (max-width: 768px) {
     padding: 1rem;
+    background: green;
   }
   @media (max-width: 380px) {
     padding: 0;

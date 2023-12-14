@@ -33,8 +33,8 @@ const MyReservationsList = () => {
 
   return (
     <div className="my-reservations-inner">
-      {myReservations &&
-        myReservations.map((reservation) => (
+      {myReservations
+        && myReservations.map((reservation) => (
           <EachReservation key={reservation.id} reservation={reservation} />
         ))}
     </div>

@@ -7,7 +7,6 @@ import userIcon from '../../../assets/user.png';
 import navConfig from './navConfig';
 import { NavBoxItem } from '../../../components/Link/Link';
 import { logoutUser } from '../../../redux/thunk';
-import { HOME } from '../../../routes/routeConstants';
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -24,11 +23,11 @@ const Nav = () => {
     if (status === 'succeeded') {
       dispatch(logoutUser());
       localStorage.removeItem('authenticationStatus');
-      navigate(`${HOME}`);
+      navigate('/');
     }
   };
   if (status === 'loading') {
-    return <p>{`${username} signin out!`}</p>;
+    return <p>{`${username} signing out!`}</p>;
   }
 
   return (
@@ -94,7 +93,7 @@ const NavbtnSection = styled.section`
 
 const LogoutBtn = styled.div`
   margin-top: 2rem;
-  @media (max-width: 380px) {
+  @media (max-width: 768px) {
     margin-top: 0;
   }
 `;
