@@ -162,7 +162,6 @@ export const FileInputField = ({
   const handleChange = (event) => {
     const file = event.currentTarget.files[0];
     helpers.setValue(file);
-    console.log('FIle', file);
     // return file;
   };
 
