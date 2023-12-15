@@ -58,9 +58,7 @@
 
 - **Current user can reserve the item basing the date and city.**
 
-- **JavaScript and Stylelint linters are installed for code implementation improvement**
-
-- **Uses React Redux middleware to work with async functions for API interactions"**
+- **Uses React Redux middleware for async functions API interactions**
 
 - **The application has CRUD operations.**
 
@@ -241,7 +239,7 @@ This Project is deployed using [Render](https://render.com/)
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Deborah Fashoro**
+👤 **Toyyib Bello Omobolaji**
 
 - GitHub: [@githubhandle](https://github.com/Simpleshaikh1)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/toyyib-abayomi/)
@@ -269,7 +267,11 @@ This Project is deployed using [Render](https://render.com/)
 
 - [ ] **Apply admin authorization, and restrict the Create new car, delete a car actions unless admin.**
 
-- [ ] **Add the Delete Reservation Feature.**
+- [ ] **Add the Delete or Cancel Reservation Feature.**
+
+- [ ] **Add cars data from Admin and update landing page.**
+
+- [ ] **Update the image uploading in the `Add new Car` so the items renders uploaded image.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
