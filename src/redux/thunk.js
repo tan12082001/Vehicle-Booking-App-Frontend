@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const baseURL = 'http://localhost:4000/api';
+const baseURL = 'https://cabooky-api-v1.onrender.com';
 
 const setAuthenticationToken = ({ headers }) => {
   const authorizationHeader = headers.get('authorization');
