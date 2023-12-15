@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Vehicle-Booking-App-Frontend/static/css/main.53633a23.css",
+    "main.js": "/Vehicle-Booking-App-Frontend/static/js/main.03908ec4.js",
+    "static/media/yellow-background-image-2.png": "/Vehicle-Booking-App-Frontend/static/media/yellow-background-image-2.7e80f0ea11502fc7d06b.png",
+    "static/media/user.png": "/Vehicle-Booking-App-Frontend/static/media/user.9eab2a9285569961c8d9.png",
+    "static/media/bike.jpg": "/Vehicle-Booking-App-Frontend/static/media/bike.ec37c5e5fc1115049fbb.jpg",
+    "static/media/CaBooky-logo-1-preview.png": "/Vehicle-Booking-App-Frontend/static/media/CaBooky-logo-1-preview.5d8bbed43f2593176be0.png",
+    "static/media/small_color_wheel.png": "/Vehicle-Booking-App-Frontend/static/media/small_color_wheel.0f9e8143f3cb398d2c0c.png",
+    "index.html": "/Vehicle-Booking-App-Frontend/index.html",
+    "main.53633a23.css.map": "/Vehicle-Booking-App-Frontend/static/css/main.53633a23.css.map",
+    "main.03908ec4.js.map": "/Vehicle-Booking-App-Frontend/static/js/main.03908ec4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.53633a23.css",
+    "static/js/main.03908ec4.js"
+  ]
+}
